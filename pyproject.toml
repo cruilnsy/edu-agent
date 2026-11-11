@@ -1,0 +1,31 @@
+# Minimal project metadata so the `backend` package is importable everywhere in the env.
+# Install once (code changes apply immediately):
+#   pip install -e . --no-deps --no-build-isolation
+# Dependencies stay in requirements.txt / requirements.lock.txt.
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "eduagent"
+version = "0.1.0"
+requires-python = ">=3.11"
+
+[tool.setuptools.packages.find]
+include = ["backend*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]                       # Lets tests import scripts.evaluation
+asyncio_mode = "auto"                    # async def tests run without a decorator
+asyncio_default_fixture_loop_scope = "function"
+markers = [
+    "integration: needs PostgreSQL; skipped when it is unreachable",
+    "llm: calls the real LLM API; runs only with --run-llm",
+]
+filterwarnings = [
+    "ignore:pkg_resources is deprecated:UserWarning",
+    "ignore:builtin type .* has no __module__ attribute:DeprecationWarning",   # PyMuPDF (SWIG)
+    "ignore:'crypt' is deprecated:DeprecationWarning",                          # passlib
+]

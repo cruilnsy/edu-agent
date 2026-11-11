@@ -1,0 +1,10 @@
+# Secret scan settings: gitleaks' default rules, plus the known false positives below.
+#     gitleaks git --redact -v .
+
+[extend]
+useDefault = true
+
+[[allowlists]]
+description = "Resume prompt prose (\"missing GitHub/LinkedIn link, ...\"), not a LinkedIn client id"
+targetRules = ["linkedin-client-id"]
+paths = ['''^backend/agents/resume/prompts\.py$''']

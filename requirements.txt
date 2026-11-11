@@ -1,0 +1,59 @@
+# ===== LangChain / LangGraph core (pinned; do not change) =====
+langchain==1.2.10
+langchain-core==1.2.16
+langchain-text-splitters==1.1.1        # Knowledge base document splitting
+langchain-community==0.4.1             # Document loaders PyPDFLoader / TextLoader
+langgraph==1.0.9
+langgraph-prebuilt==1.0.8
+langgraph-checkpoint-postgres==2.0.8   # Postgres checkpointer for interview state (backend/core/checkpointer.py)
+psycopg[binary]==3.3.6                 # libpq bundled, so no system PostgreSQL client is needed
+
+# ===== Model integration =====
+langchain-openai==1.1.10               # DeepSeek is OpenAI-compatible and is called through this package
+
+# ===== Local models (run in-process, no separate service) =====
+transformers==4.51.0                   # MiniLM-L6-v2 intent classifier
+sentence-transformers==3.3.1           # BGE reranker
+sentencepiece==0.2.1                   # BGE reranker tokenizer
+torch==2.5.1                           # Runtime for the models above; Docker installs the CPU-only build
+FlagEmbedding>=1.2.0                   # BGE-M3 local embeddings (dense + sparse)
+pyarrow==23.0.0                        # Needed by FlagEmbedding -> datasets; 26.0.0 requires numpy>=2, which conflicts with numpy==1.26.4
+
+# ===== Web framework =====
+fastapi==0.117.1
+uvicorn[standard]==0.32.1
+python-multipart==0.0.20               # File uploads (Word / PDF)
+sse-starlette==2.1.3                   # SSE streaming (QA / interview)
+
+# ===== Databases =====
+asyncpg==0.30.0                        # Async PostgreSQL driver
+sqlalchemy[asyncio]==2.0.36            # Async SQL toolkit
+pymilvus==2.4.9                        # Milvus vector database client
+setuptools==80.10.2                    # pymilvus 2.4.x needs pkg_resources, which setuptools>=81 removed; pinned to 80.x
+environs==9.5.0                        # Config dependency of pymilvus 2.4.x
+marshmallow==3.26.2                    # environs 9.x does not support marshmallow>=4; pinned to 3.x
+numpy==1.26.4
+
+# ===== Document parsing =====
+python-docx==1.1.2                     # Word parsing (exam answer sheets)
+pymupdf==1.24.14                       # PDF parsing (resume review; imported as fitz)
+pypdf==6.21.2                          # Used by PyPDFLoader (knowledge base PDFs)
+
+# ===== Validation / config =====
+pydantic==2.11.4
+pydantic-settings==2.11.0              # Reads .env.local
+
+# ===== Utilities =====
+httpx==0.28.1                          # Async HTTP client
+python-jose[cryptography]==3.3.0       # JWT tokens
+passlib[bcrypt]==1.7.4                 # bcrypt password hashing
+bcrypt==4.0.1                          # passlib 1.7.4 does not support bcrypt>=5; pinned to 4.x
+python-dotenv==1.0.1                   # Loads .env.local
+
+# ===== MCP =====
+mcp==1.26.0                            # Official MCP Python SDK (includes FastMCP)
+ddgs==9.16.1                           # Free web search (DuckDuckGo), no API key; replaces the renamed duckduckgo-search
+
+# ===== Tests =====
+pytest==8.3.4
+pytest-asyncio==0.24.0

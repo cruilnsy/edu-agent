@@ -1,0 +1,37 @@
+{
+  "description": "English interview question bank. Loaded into interview_questions by scripts/seed_interview_questions.py; the agent falls back to it when LLM question generation fails. target_position is a track: general, backend, frontend or ai (see position_track in backend/agents/interview/nodes.py).",
+  "questions": [
+    {"track": "general", "difficulty": "easy", "tags": ["HTTP"], "content": "What happens between typing a URL into the browser and seeing the page?"},
+    {"track": "general", "difficulty": "medium", "tags": ["HTTP", "REST"], "content": "What makes an HTTP API RESTful, and when would you pick PUT over PATCH?"},
+    {"track": "general", "difficulty": "medium", "tags": ["Git"], "content": "Explain the difference between git merge and git rebase, and when you would avoid rebasing."},
+    {"track": "general", "difficulty": "medium", "tags": ["Databases"], "content": "What is a database index, and when can adding one make things slower?"},
+    {"track": "general", "difficulty": "easy", "tags": ["Testing"], "content": "How do unit tests and integration tests differ, and what would you test at each level?"},
+    {"track": "general", "difficulty": "hard", "tags": ["Concurrency"], "content": "What is the difference between a process, a thread and a coroutine?"},
+
+    {"track": "backend", "difficulty": "medium", "tags": ["Python", "asyncio"], "content": "How does asyncio run many I/O tasks on one thread, and what happens if a coroutine calls a blocking function?"},
+    {"track": "backend", "difficulty": "medium", "tags": ["FastAPI"], "content": "How does dependency injection work in FastAPI, and what would you use it for?"},
+    {"track": "backend", "difficulty": "medium", "tags": ["Auth", "JWT"], "content": "How does JWT-based authentication work, and how would you handle logout or token revocation?"},
+    {"track": "backend", "difficulty": "hard", "tags": ["Databases", "Transactions"], "content": "Explain transaction isolation levels and give an example of a bug that a weak level allows."},
+    {"track": "backend", "difficulty": "medium", "tags": ["Web security"], "content": "What is SQL injection, and how do parameterized queries prevent it?"},
+    {"track": "backend", "difficulty": "easy", "tags": ["CORS"], "content": "What is CORS, and why does the browser send a preflight request?"},
+    {"track": "backend", "difficulty": "medium", "tags": ["Docker"], "content": "What is the difference between a Docker image and a container, and why keep images small?"},
+    {"track": "backend", "difficulty": "hard", "tags": ["Caching"], "content": "How would you add a cache in front of a slow database query, and how do you keep it from serving stale data?"},
+
+    {"track": "frontend", "difficulty": "easy", "tags": ["TypeScript"], "content": "What does TypeScript add over JavaScript, and what does it not protect you from at runtime?"},
+    {"track": "frontend", "difficulty": "medium", "tags": ["TypeScript"], "content": "When would you use a union type instead of an interface hierarchy in TypeScript?"},
+    {"track": "frontend", "difficulty": "medium", "tags": ["React"], "content": "What triggers a React component to re-render, and how would you avoid unnecessary re-renders?"},
+    {"track": "frontend", "difficulty": "medium", "tags": ["React", "Hooks"], "content": "What is useEffect for, and what goes wrong when its dependency array is incomplete?"},
+    {"track": "frontend", "difficulty": "medium", "tags": ["React", "State"], "content": "How do you decide whether state belongs in a component, a parent, or a global store?"},
+    {"track": "frontend", "difficulty": "hard", "tags": ["Web security"], "content": "What is cross-site scripting, and how do React and a Content Security Policy help prevent it?"},
+    {"track": "frontend", "difficulty": "easy", "tags": ["HTTP"], "content": "Where would you store an access token in a single-page app, and what are the trade-offs?"},
+
+    {"track": "ai", "difficulty": "medium", "tags": ["LLM", "Transformer"], "content": "How does self-attention work in a Transformer, and why is it scaled by the square root of the key dimension?"},
+    {"track": "ai", "difficulty": "medium", "tags": ["RAG"], "content": "Walk me through a retrieval-augmented generation pipeline, from documents to the final answer."},
+    {"track": "ai", "difficulty": "medium", "tags": ["RAG", "Embeddings"], "content": "How do embeddings and cosine similarity let you search text by meaning?"},
+    {"track": "ai", "difficulty": "hard", "tags": ["RAG", "Retrieval"], "content": "Why combine dense and sparse retrieval, and what does a reranker add on top?"},
+    {"track": "ai", "difficulty": "medium", "tags": ["Fine-tuning", "LoRA"], "content": "What is the core idea of LoRA, and when would you fine-tune instead of using RAG?"},
+    {"track": "ai", "difficulty": "easy", "tags": ["Machine learning"], "content": "What is overfitting, how do you detect it, and how do you reduce it?"},
+    {"track": "ai", "difficulty": "medium", "tags": ["LLM", "Evaluation"], "content": "How would you evaluate an LLM feature before shipping it?"},
+    {"track": "ai", "difficulty": "hard", "tags": ["LLM", "Security"], "content": "What is prompt injection, and how would you defend an LLM app that reads user documents?"}
+  ]
+}

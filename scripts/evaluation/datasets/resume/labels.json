@@ -1,0 +1,94 @@
+[
+  {"id": "r01", "expert_score": 86,
+   "expert_issues": [
+     "Skills are split into Expert / Proficient / Familiar tiers, which US tech resumes usually avoid",
+     "Kubernetes, Go, Docker and AWS appear in Skills but are never used in Experience or Projects",
+     "Header has no state for the city and no LinkedIn or GitHub link",
+     "The open-source Rate Limiter project has no repository or documentation link",
+     "Four years in one Backend Engineer role show no growth in title, team size or ownership scope"
+   ],
+   "notes": "Human recruiter label. Strong mid-level Python backend resume: nearly every bullet has a baseline and impact. Issues are polish and skill-evidence gaps, not structure."},
+  {"id": "r02", "expert_score": 80,
+   "expert_issues": [
+     "Skills are split into Proficient / Familiar tiers, which US tech resumes usually avoid",
+     "Neither project links to a GitHub repository or a live demo",
+     "Header has no location and no LinkedIn or GitHub link",
+     "The Raft project is measured only by a course test-suite pass rate, which reads as coursework rather than engineering impact"
+   ],
+   "notes": "Human recruiter label. Strong new-grad package: Education first, relevant internship with numbers, solid FastAPI projects. Ready for new-grad backend screens with light polish."},
+  {"id": "r03", "expert_score": 58,
+   "expert_issues": [
+     "Header title is Data Engineer, which will fail keyword screens for a Python backend role",
+     "Almost all experience is data pipelines; the only API work is one small Flask KPI service with no scale",
+     "The Summary frames a career switch instead of selling transferable backend strengths",
+     "Skills lack core backend items such as Docker, testing, and a production API stack beyond Flask",
+     "No Projects section shows backend API work to bridge the gap to the target role"
+   ],
+   "notes": "Human recruiter label. Credible data engineer with real scale numbers, but a weak fit as written for Python backend. Would need repositioning before interviewing for API roles."},
+  {"id": "r04", "expert_score": 54,
+   "expert_issues": [
+     "Bullets start with weak verbs such as Worked on, Helped, Responsible for and Participated in",
+     "Improved performance of the reporting module gives no number or baseline",
+     "Almost no bullets state scale such as users, request volume or data size",
+     "The Contoso Logistics role lists duties rather than accomplishments",
+     "The Expense Tracker project is trivial and has no link or measurable outcome"
+   ],
+   "notes": "Human recruiter label. Relevant Django/PostgreSQL stack and about five years of experience, but the writing hides impact. Only one vague metric (about half)."},
+  {"id": "r05", "expert_score": 22,
+   "expert_issues": [
+     "The Summary is only soft-skill buzzwords: passionate, hard-working, detail-oriented, team player",
+     "Skills list about 35 technologies across every stack, with no evidence of using most of them",
+     "Experience bullets are vague buzzwords and never say what was built",
+     "No bullet contains a number or measurable result",
+     "The internship bullet says only assisted with various development tasks",
+     "Skills are placed above Experience, pushing the only relevant content down the page"
+   ],
+   "notes": "Human recruiter label. Roughly four years claimed, but nothing concrete a screener can assess. Likely auto-reject on a 6-10 second skim."},
+  {"id": "r06", "expert_score": 64,
+   "expert_issues": [
+     "Section titles are misspelled: Hobbys and Experiance",
+     "Grammar error in the first Experience bullet: a inventory sync service",
+     "Education comes first and is padded with unrelated coursework, clubs and dean's list, although the candidate has over two years of work experience",
+     "A Hobbies section takes space that adds nothing for a backend role",
+     "Header has no target title, location or LinkedIn link"
+   ],
+   "notes": "Human recruiter label. Experience bullets are genuinely strong and quantified; spelling and section order drag the first impression down. Fix presentation and this becomes interviewable."},
+  {"id": "r07", "expert_score": 28,
+   "expert_issues": [
+     "Every bullet describes duties, such as Responsible for backend development and Attended daily standups, not accomplishments",
+     "No bullet contains a number or measurable result",
+     "No frameworks, databases or tools are named beyond Python, SQL and Linux",
+     "Six years across two roles show no growth in scope, ownership or seniority",
+     "Bullets such as Fixed bugs and Did code reviews describe routine work every engineer does"
+   ],
+   "notes": "Human recruiter label. Tenure is fine on paper, but the resume gives almost no evidence of skill or impact for a backend screen."},
+  {"id": "r08", "expert_score": 15,
+   "expert_issues": [
+     "Internship claims are implausible: single-handedly architecting a platform for 50 million daily users and leading 25 senior engineers",
+     "Header title Senior Software Architect contradicts a student with only an internship",
+     "The Summary is hyperbole: world-class engineer and expert in every modern backend technology",
+     "The 1000% performance improvement has no baseline and is not credible",
+     "Founder and CTO role gives no company name, product or verifiable detail",
+     "Claiming expert level in Python, Go, Rust, Kubernetes, ML and blockchain as a current student is not credible"
+   ],
+   "notes": "Human recruiter label. Credibility problems dominate; this would be rejected on sight. Content volume does not help when claims are unbelievable."},
+  {"id": "r09", "expert_score": 12,
+   "expert_issues": [
+     "Bullets are written in passive voice, such as Python scripts were written for reports",
+     "No bullet contains a number, scale or result",
+     "Skills list only Python and Excel, too thin for a backend role",
+     "No Education section",
+     "Header has only an email: no phone, location, LinkedIn or target title",
+     "The resume is far too short to show what the candidate can do"
+   ],
+   "notes": "Human recruiter label. Three years of Developer title, but almost no content to evaluate. Not actionable for a Python backend screen."},
+  {"id": "r10", "expert_score": 46,
+   "expert_issues": [
+     "Projects are thin: no scale, tests, metrics or links, and the to-do app is a common tutorial project",
+     "The restaurant experience does not connect its skills to engineering work",
+     "Projects sit below the unrelated restaurant job although they are the only relevant evidence",
+     "Skills lack backend essentials such as a production database, Docker and testing",
+     "The Summary leads with the past restaurant career instead of backend skills"
+   ],
+   "notes": "Human recruiter label. Reasonable honesty for a bootcamp career changer; management bullets are quantified but not role-relevant. Needs stronger projects and stack keywords for a first backend role."}
+]

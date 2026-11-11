@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Resume Review Graph</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  /* Layout: single reading column — graph diagram, then the API lifecycle diagram, then the dimension weights and node glossary. */
+  :root {
+    --bg: #f6f7f9;
+    --surface: #ffffff;
+    --fg: #1d2330;
+    --muted: #5d6677;
+    --line: #dde1e8;
+    --accent: #2f6fdb;
+    --bar: #e8a33a;
+    --font-body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #12151b; --surface: #1b1f27; --fg: #e6e9ef; --muted: #9aa3b2; --line: #2c323d; --accent: #7aa7ff; --bar: #e0a74e;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #12151b; --surface: #1b1f27; --fg: #e6e9ef; --muted: #9aa3b2; --line: #2c323d; --accent: #7aa7ff; --bar: #e0a74e;
+    color-scheme: dark;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: var(--font-body);
+    font-size: 15px;
+    line-height: 1.65;
+  }
+  .wrap {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding-block: 40px 64px;
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+    display: grid;
+    gap: 36px;
+  }
+  header { display: grid; gap: 8px; }
+  .eyebrow { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.06em; color: var(--muted); }
+  h1 { margin: 0; font-size: 28px; line-height: 1.3; text-wrap: balance; }
+  h2 { margin: 0 0 6px; font-size: 18px; text-wrap: balance; }
+  p { margin: 0; max-width: 65ch; }
+  .lede, .sub { color: var(--muted); }
+  .sub { font-size: 13.5px; margin-bottom: 12px; }
+  code, .mono { font-family: var(--font-mono); font-size: 0.9em; }
+
+  .diagram {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 20px;
+    overflow-x: auto;
+  }
+  .diagram pre.mermaid { margin: 0; min-width: 640px; text-align: center; background: transparent; }
+
+  .legend { display: flex; flex-wrap: wrap; gap: 8px 18px; font-size: 13px; color: var(--muted); }
+  .legend span { display: inline-flex; align-items: center; gap: 6px; }
+  .swatch { width: 12px; height: 12px; border-radius: 3px; border: 1px solid rgba(0,0,0,.18); }
+
+  table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+  th, td { text-align: left; padding: 8px; border-top: 1px solid var(--line); vertical-align: middle; }
+  th { color: var(--muted); font-weight: 500; font-size: 12px; border-top: none; }
+  td.num { font-family: var(--font-mono); font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .weights { overflow-x: auto; }
+  .bar { height: 8px; border-radius: 4px; background: var(--bar); }
+  .bar-cell { width: 34%; min-width: 120px; }
+
+  .nodes { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 10px 24px; margin: 0; }
+  .nodes div { min-width: 0; padding-block: 8px; border-top: 1px solid var(--line); }
+  .nodes dt { font-family: var(--font-mono); font-size: 13px; color: var(--accent); }
+  .nodes dd { margin: 2px 0 0; font-size: 13.5px; }
+
+  .note { font-size: 13.5px; color: var(--muted); }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header>
+    <span class="eyebrow">backend/agents/resume/graph.py · build_resume_graph()</span>
+    <h1>Resume Review Graph</h1>
+    <p class="lede">Eight nodes run in a fixed order, with no conditional edges, no interrupt and no checkpointer: one PDF upload, one run. Step ⑤ takes the longest; it reviews six dimensions with concurrent LLM calls through <code>asyncio.gather</code>.</p>
+  </header>
+
+  <section>
+    <h2>Graph</h2>
+    <p class="sub">Numbers follow execution order. The dashed box is the parallel review inside the run_six_dimensions node, not separate graph nodes.</p>
+    <div class="diagram" aria-label="Resume review graph">
+<pre class="mermaid">
+flowchart TD
+    S(["START"]) --> U["① upload_to_minio<br/>local mode: skipped"]
+    U --> DL["② download_pdf<br/>local mode: skipped"]
+    DL --> T["③ extract_text<br/>PyMuPDF, up to 5 pages<br/>two-column layout · capped at 12,000 chars"]
+    T --> X["④ extract_structured<br/>LLM extracts structured resume<br/>up to 2 attempts"]
+    X --> SIX
+
+    subgraph SIX["⑤ run_six_dimensions · parallel via asyncio.gather"]
+        direction LR
+        D1["Project depth<br/>30%"]
+        D2["Tech match<br/>25%"]
+        D3["Writing<br/>15%"]
+        D4["Structure<br/>15%"]
+        D5["Quantification<br/>10%"]
+        D6["Credibility<br/>5%"]
+    end
+
+    SIX --> WS["Weighted score<br/>Σ score × weight"]
+    WS --> DI["⑥ diagnose_issues<br/>think step → issue list<br/>sorted high / medium / low"]
+    DI --> SU["⑦ generate_summary<br/>highlights · core improvements · overall comment · role fit"]
+    SU --> SV["⑧ save_results<br/>write resume_reviews (JSONB)<br/>status = done · delete temp PDF"]
+    SV --> END(["END"])
+
+    classDef io fill:#d9dee7,stroke:#6b7486,color:#1d2330
+    classDef skip fill:#eceef2,stroke:#9aa1ad,color:#4a5160,stroke-dasharray:4 3
+    classDef parse fill:#cfe0ff,stroke:#2f6fdb,color:#13254a
+    classDef dim fill:#ffe3b8,stroke:#c98a1c,color:#4a2f00
+    classDef calc fill:#fff4dc,stroke:#c98a1c,color:#4a2f00
+    classDef llm fill:#d3f2d6,stroke:#3a9a4a,color:#0f3a17
+    classDef save fill:#f3dbe3,stroke:#b35277,color:#4a1428
+
+    class S,END io
+    class U,DL skip
+    class T,X parse
+    class D1,D2,D3,D4,D5,D6 dim
+    class WS calc
+    class DI,SU llm
+    class SV save
+    style SIX fill:transparent,stroke:#c98a1c,stroke-dasharray:6 4
+</pre>
+    </div>
+  </section>
+
+  <div class="legend" aria-label="Color key">
+    <span><i class="swatch" style="background:#eceef2"></i>No-op node (reserved for object storage)</span>
+    <span><i class="swatch" style="background:#cfe0ff"></i>Parsing and extraction</span>
+    <span><i class="swatch" style="background:#ffe3b8"></i>Parallel dimension review</span>
+    <span><i class="swatch" style="background:#d3f2d6"></i>Diagnosis and assessment</span>
+    <span><i class="swatch" style="background:#f3dbe3"></i>Persistence</span>
+  </div>
+
+  <section>
+    <h2>API lifecycle</h2>
+    <p class="sub">The graph runs in the background and the API does not wait for it; the frontend polls with the review_id. From <code>backend/api/v1/resume.py</code>.</p>
+    <div class="diagram" aria-label="API flow from upload to result">
+<pre class="mermaid">
+flowchart LR
+    A["POST /upload<br/>check PDF ≤ 20 MB"] --> B["save temp file<br/>INSERT status = processing"]
+    B --> C["202 Accepted<br/>return review_id at once"]
+    B -. "asyncio.create_task" .-> G["run the graph in the background<br/>①→⑧"]
+    G -- "finished" --> OK["status = done"]
+    G -- "error / cancelled" --> F["status = failed<br/>store error_msg"]
+    C --> P["GET /reviews/{id}<br/>frontend polls"]
+    P -- "processing over 15 min" --> F
+    P -- "done" --> R["return weighted score · dimension scores<br/>issue list · overall assessment"]
+
+    classDef api fill:#cfe0ff,stroke:#2f6fdb,color:#13254a
+    classDef bg fill:#ffe3b8,stroke:#c98a1c,color:#4a2f00
+    classDef good fill:#d3f2d6,stroke:#3a9a4a,color:#0f3a17
+    classDef bad fill:#f7d4d4,stroke:#c0392b,color:#4a1010
+    class A,B,C,P api
+    class G bg
+    class OK,R good
+    class F bad
+</pre>
+    </div>
+  </section>
+
+  <section>
+    <h2>Six review dimensions</h2>
+    <p class="sub">Each dimension is one LLM call that returns a score from 0 to 100. A dimension that fails twice scores 50, asks for manual review, and sets fallback_used. Overall score = Σ score × weight.</p>
+    <div class="weights">
+      <table>
+        <thead><tr><th>Dimension</th><th>Weight</th><th class="bar-cell"></th><th>Focus</th></tr></thead>
+        <tbody>
+          <tr><td>Project depth</td><td class="num">30%</td><td class="bar-cell"><div class="bar" style="width:100%"></div></td><td>Metrics, reasons for technical choices, personal contribution, problems solved</td></tr>
+          <tr><td>Tech match</td><td class="num">25%</td><td class="bar-cell"><div class="bar" style="width:83.3%"></div></td><td>Skills match the role's keywords and are backed by real use in experience</td></tr>
+          <tr><td>Writing</td><td class="num">15%</td><td class="bar-cell"><div class="bar" style="width:50%"></div></td><td>Strong action verbs, consistent tense, no pronouns, typos or buzzwords</td></tr>
+          <tr><td>Structure</td><td class="num">15%</td><td class="bar-cell"><div class="bar" style="width:50%"></div></td><td>Length, reverse-chronological order, ATS-friendly layout, no protected personal details</td></tr>
+          <tr><td>Quantification</td><td class="num">10%</td><td class="bar-cell"><div class="bar" style="width:33.3%"></div></td><td>Numbers such as performance, user counts and improvement percentages</td></tr>
+          <tr><td>Credibility</td><td class="num">5%</td><td class="bar-cell"><div class="bar" style="width:16.7%"></div></td><td>No exaggeration; depth matches years of experience; plausible timeline</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <h2>Nodes</h2>
+    <dl class="nodes">
+      <div><dt>① upload_to_minio</dt><dd>Skipped in local mode; returns an empty dict. Uploads the PDF once MinIO is wired in.</dd></div>
+      <div><dt>② download_pdf</dt><dd>Skipped in local mode. With object storage, downloads the PDF when the local file is missing.</dd></div>
+      <div><dt>③ extract_text</dt><dd>Runs PyMuPDF in a thread pool on up to 5 pages, rebuilds visual rows, reads two-column layouts left then right, and caps the text at 12,000 characters for every later node. Warns under 200 characters (likely a scanned PDF).</dd></div>
+      <div><dt>④ extract_structured</dt><dd>The LLM extracts name, education, skills, projects and work experience. After two failures it falls back to an empty structure and sets fallback_used.</dd></div>
+      <div><dt>⑤ run_six_dimensions</dt><dd>Reviews six dimensions in parallel. Code adds the computed years of experience and role order to the prompt, writes back each dimension's name and weight, and computes the weighted score.</dd></div>
+      <div><dt>⑥ diagnose_issues</dt><dd>A think step assesses the resume as a whole (allowed to fail), then the LLM writes an issue list with locations and fixes, sorted by priority. On failure it reuses the dimension issues and sets fallback_used.</dd></div>
+      <div><dt>⑦ generate_summary</dt><dd>Turns the scores and high-priority issues into highlights, core improvements, an overall comment and role fit. On failure it returns a default assessment and sets fallback_used.</dd></div>
+      <div><dt>⑧ save_results</dt><dd>Writes structured data, scores, issues and summary to the JSONB columns of <code>resume_reviews</code>, sets status to done, deletes the temp PDF, and returns fallback_used as recorded by the earlier nodes.</dd></div>
+    </dl>
+  </section>
+
+  <p class="note">Unlike the QA agent, every LLM step here has a fallback, so one failed dimension or node does not fail the whole review; fallback_used tells the caller the result is partial. Only a PDF parsing or database error marks the background task as failed.</p>
+</div>
+<!-- Renders the diagrams with mermaid when the file is opened on its own -->
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10.9.1/dist/mermaid.min.js"></script>
+<script>
+  const dark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+  mermaid.initialize({ startOnLoad: true, theme: dark ? "dark" : "default", securityLevel: "strict" });
+</script>
+</body>
+</html>

@@ -1,0 +1,1240 @@
+{"text": "how to install packages in Go modules", "label": "general"}
+{"text": "Beginner: how to build my first AI agent step by step?", "label": "specialized"}
+{"text": "What does IT support actually do?", "label": "general"}
+{"text": "what is dark matter", "label": "general"}
+{"text": "Why does my ORM generate so many queries?", "label": "specialized"}
+{"text": "translate this to German: \"I would have called you if I had known.\"", "label": "general"}
+{"text": "why is any number to the power of 0 equal to 1", "label": "general"}
+{"text": "does vite replace webpack completely", "label": "specialized"}
+{"text": "difference between mean and median", "label": "general"}
+{"text": "what is chunking", "label": "specialized"}
+{"text": "whats the difference between query params and path params in fastapi", "label": "specialized"}
+{"text": "why does modifying a list in a for loop skip elements", "label": "specialized"}
+{"text": "what's the difference between PUT and PATCH?", "label": "specialized"}
+{"text": "why do you sometimes give wrong answers?", "label": "general"}
+{"text": "why does increasing top-k make my answers worse", "label": "specialized"}
+{"text": "my postgres is using 100% cpu what do i check", "label": "specialized"}
+{"text": "how do i handle exceptions in async C# code properly", "label": "general"}
+{"text": "whats the difference between a CV and a resume", "label": "general"}
+{"text": "what's the difference between OAuth2 and OpenID Connect", "label": "specialized"}
+{"text": "What is the difference between Windows 11 Home and Pro?", "label": "general"}
+{"text": "how do i run async code in parallel instead of sequentially", "label": "specialized"}
+{"text": "past tense of \"lie\" vs \"lay\"?? always mess this up", "label": "general"}
+{"text": "how do I stream agent responses with langchain", "label": "specialized"}
+{"text": "how do I meal prep for the week without getting bored", "label": "general"}
+{"text": "jwt vs session cookies which should i use", "label": "specialized"}
+{"text": "Is 204 the right status code for a successful DELETE with no body?", "label": "specialized"}
+{"text": "how to write a value proposition", "label": "general"}
+{"text": "what is the difference between embeddings and token IDs", "label": "specialized"}
+{"text": "How do I use yield vs return?", "label": "specialized"}
+{"text": "what's a good expense ratio for an index fund", "label": "general"}
+{"text": "what's the difference between affect and effect", "label": "general"}
+{"text": "why is rust so popular if it's hard", "label": "general"}
+{"text": "what is the difference between controlled and uncontrolled components", "label": "specialized"}
+{"text": "Why is my image not loading even though the path looks right?", "label": "specialized"}
+{"text": "Why is the order of operations important?", "label": "general"}
+{"text": "how do i book a hostel", "label": "general"}
+{"text": "what is asyncio", "label": "specialized"}
+{"text": "my teacher says i need to show work for 45 divided by 9 can you help", "label": "general"}
+{"text": "what is the difference between promise.all and promise.allSettled", "label": "specialized"}
+{"text": "convert 3.5 km to meters", "label": "general"}
+{"text": "printer says offline but it's on", "label": "general"}
+{"text": "can i make a type alias for a union of string literals", "label": "specialized"}
+{"text": "my document won't print on both sides", "label": "general"}
+{"text": "lifting state up - when should i actually do it", "label": "specialized"}
+{"text": "error: oven shows f2 and wont heat", "label": "general"}
+{"text": "why does asyncio.sleep(0) help", "label": "specialized"}
+{"text": "how do i improve my listening skills in a new language", "label": "general"}
+{"text": "wifi keeps disconnecting every few minutes help", "label": "general"}
+{"text": "why does GPT use causal masking but BERT doesnt", "label": "specialized"}
+{"text": "promise chaining vs async await readability", "label": "specialized"}
+{"text": "why do i feel tired after eating lunch", "label": "general"}
+{"text": "what is the difference between a cover letter and a resume", "label": "general"}
+{"text": "swiftui button not working", "label": "general"}
+{"text": "how can i stop an effect from running on mount", "label": "specialized"}
+{"text": "difference between は and が in Japanese", "label": "general"}
+{"text": "why did my reranker make results worse", "label": "specialized"}
+{"text": "How do I create a budget that actually works?", "label": "general"}
+{"text": "how do i negotiate salary when the offer is lower than expected", "label": "general"}
+{"text": "how do i convert celsius to fahrenheit", "label": "general"}
+{"text": "my setState in useEffect causes infinite loop", "label": "specialized"}
+{"text": "can hooks be used in class components", "label": "specialized"}
+{"text": "arduino servo jitters when i attach it to pin 9", "label": "general"}
+{"text": "casual: swift optionals are confusing lol how do they work", "label": "general"}
+{"text": "How do I connect SQLAlchemy to PostgreSQL?", "label": "specialized"}
+{"text": "what does the `keyof` operator do", "label": "specialized"}
+{"text": "how do I tell if a news source is reliable", "label": "general"}
+{"text": "Why is the sky dark at 7pm in winter but light at 7pm in summer?", "label": "general"}
+{"text": "how do I know what career is right for me", "label": "general"}
+{"text": "useEffect dependency array explained", "label": "specialized"}
+{"text": "What is the difference between useMemo and useCallback?", "label": "specialized"}
+{"text": "latest breaking news pls", "label": "general"}
+{"text": "why do stocks go up and down", "label": "general"}
+{"text": "how do i convert a string to an int safely", "label": "specialized"}
+{"text": "why is my variable undefined inside the callback", "label": "specialized"}
+{"text": "what is prompt engineering", "label": "specialized"}
+{"text": "langchain agent not using the tool i gave it, any ideas?", "label": "specialized"}
+{"text": "how do i use asyncio.timeout in python 3.11", "label": "specialized"}
+{"text": "whats the best hashing algorithm for passwords bcrypt vs argon2", "label": "specialized"}
+{"text": "is it better to walk or run for weight loss", "label": "general"}
+{"text": "how do I calculate speed if I know distance and time", "label": "general"}
+{"text": "whats the shortcut to rename a file", "label": "general"}
+{"text": "langchain agent vs langgraph agent whats better", "label": "specialized"}
+{"text": "useEffect cleanup function do i need it", "label": "specialized"}
+{"text": "news about climate change this week", "label": "general"}
+{"text": "my api returns 500 internal server error sometimes, how do i debug it", "label": "specialized"}
+{"text": "hiw do i use commas correctly", "label": "general"}
+{"text": "how to handle form input with useState", "label": "specialized"}
+{"text": "why does my retrieved context not fit in the prompt", "label": "specialized"}
+{"text": "Why should I avoid putting my photo on a US resume?", "label": "general"}
+{"text": "how do I catch errors with async/await", "label": "specialized"}
+{"text": "how do I boil an egg", "label": "general"}
+{"text": "oauth2 redirect_uri_mismatch error google login", "label": "specialized"}
+{"text": "what time is it in london", "label": "general"}
+{"text": "docker image vs container whats the difference", "label": "specialized"}
+{"text": "dockerfile for python flask app example pls", "label": "specialized"}
+{"text": "how do i answer \"tell me about yourself\" without rambling", "label": "general"}
+{"text": "difference between zero-shot and few-shot prompting", "label": "specialized"}
+{"text": "can a transformer work without embeddings, like on raw characters?", "label": "specialized"}
+{"text": "how do i reset my password", "label": "general"}
+{"text": "my container cant reach the internet, dns issues?", "label": "specialized"}
+{"text": "why is my langgraph node not updating state?", "label": "specialized"}
+{"text": "what's the weather like today", "label": "general"}
+{"text": "how do i convert fractions to decimals", "label": "general"}
+{"text": "LangGraph state graph explained simply", "label": "specialized"}
+{"text": "my decorator breaks my function's docstring, why", "label": "specialized"}
+{"text": "can you explain type aliases to me like im new", "label": "specialized"}
+{"text": "how do i calculate density of an irregular object", "label": "general"}
+{"text": "my cake came out dry what did i do wrong", "label": "general"}
+{"text": "getting \"no running event loop\" error how to fix", "label": "specialized"}
+{"text": "PATCH vs PUT when should I use each one", "label": "specialized"}
+{"text": "what is the event loop in asyncio", "label": "specialized"}
+{"text": "advanced: how do I combine hybrid search with reranking and still keep latency under 500ms", "label": "specialized"}
+{"text": "what is dynamic programming", "label": "general"}
+{"text": "explain yield like im five", "label": "specialized"}
+{"text": "why are tokens not the same as words", "label": "specialized"}
+{"text": "how to prevent form from reloading the page", "label": "specialized"}
+{"text": "resume help", "label": "general"}
+{"text": "spring boot actuator health endpoint returns DOWN", "label": "general"}
+{"text": "multi-stage builds explained", "label": "specialized"}
+{"text": "TypeError: 'int' object is not callable what does this mean", "label": "specialized"}
+{"text": "why shouldnt i store jwts in localstorage", "label": "specialized"}
+{"text": "what is the difference between sprained and broken ankle", "label": "general"}
+{"text": "how do I do reranking after vector search", "label": "specialized"}
+{"text": "how to type a function that returns different types based on input", "label": "specialized"}
+{"text": "thanks!", "label": "general"}
+{"text": "why does my code say \"maximum recursion depth exceeded\" when doing fibonacci", "label": "general"}
+{"text": "how do i start running as a beginner", "label": "general"}
+{"text": "How do I request camera permission in Swift?", "label": "general"}
+{"text": "thanks again, youve been really helpful", "label": "general"}
+{"text": "how to structure a fastapi project with multiple modules", "label": "specialized"}
+{"text": "TaskGroup tutorial please", "label": "specialized"}
+{"text": "what is a context manager", "label": "specialized"}
+{"text": "Error: expected a non-empty list of embeddings, got [] — what does this mean?", "label": "specialized"}
+{"text": "how do i connect to a mysql database from php with pdo", "label": "general"}
+{"text": "tips for learning vocabulary faster", "label": "general"}
+{"text": "how to prevent sql injection in python", "label": "specialized"}
+{"text": "why is it colder at higher altitudes", "label": "general"}
+{"text": "can u explain self attention like im 5", "label": "specialized"}
+{"text": "whats a composite index and when should i use one", "label": "specialized"}
+{"text": "is big o the same as big theta", "label": "general"}
+{"text": "what is the difference between OAuth2 and OpenID Connect", "label": "specialized"}
+{"text": "what's the difference between html and css?", "label": "specialized"}
+{"text": "why can't i edit a pdf in word", "label": "general"}
+{"text": "what is semantic html and why bother", "label": "specialized"}
+{"text": "what is the difference between html and css", "label": "specialized"}
+{"text": "what is a behavioral interview", "label": "general"}
+{"text": "docker compose healthcheck depends_on not waiting", "label": "specialized"}
+{"text": "browser event loop vs node event loop are they the same", "label": "specialized"}
+{"text": "Unity: NullReferenceException when accessing rigidbody", "label": "general"}
+{"text": "how do i extend an interface", "label": "specialized"}
+{"text": "what is compound interest", "label": "general"}
+{"text": "how do I debounce a button in Arduino", "label": "general"}
+{"text": "Uncaught (in promise) TypeError: Cannot read properties of undefined (reading 'then') - how to fix", "label": "specialized"}
+{"text": "why am i getting \"coroutine was never awaited\"", "label": "specialized"}
+{"text": "how do I handle rate limiting headers like Retry-After?", "label": "specialized"}
+{"text": "why does my css not load in vite", "label": "specialized"}
+{"text": "what is the difference between __str__ and __repr__", "label": "specialized"}
+{"text": "short: how to raise custom exception", "label": "specialized"}
+{"text": "Difference between quicksort and merge sort?", "label": "general"}
+{"text": "how do i do a left join in postgres", "label": "specialized"}
+{"text": "Error: session expired. Please log in again. What does this mean?", "label": "general"}
+{"text": "im confused about radians vs degrees", "label": "general"}
+{"text": "what is the difference between useEffect and useLayoutEffect", "label": "specialized"}
+{"text": "why is my Arduino serial monitor printing garbage characters", "label": "general"}
+{"text": "how do promises work", "label": "specialized"}
+{"text": "how do i install laravel with composer", "label": "general"}
+{"text": "what is the difference between introvert and shy", "label": "general"}
+{"text": "SWOT analysis example for a coffee shop?", "label": "general"}
+{"text": "how do i prove a greedy algorithm is optimal", "label": "general"}
+{"text": "why did my NFT transaction fail out of gas", "label": "general"}
+{"text": "should i text him first or wait", "label": "general"}
+{"text": "why is insertion sort faster than quicksort on small arrays", "label": "general"}
+{"text": "how do i make a table of contents in word", "label": "general"}
+{"text": "why do we flip the inequality sign when multiplying by a negative", "label": "general"}
+{"text": "what is a marketing funnel", "label": "general"}
+{"text": "how to detect a cycle in a directed graph", "label": "general"}
+{"text": "explain status code classes 2xx 4xx 5xx quickly", "label": "specialized"}
+{"text": "How do I version a REST API without breaking existing clients?", "label": "specialized"}
+{"text": "Can I call asyncio.run() inside a Jupyter notebook?", "label": "specialized"}
+{"text": "how do I store jwt securely in the browser", "label": "specialized"}
+{"text": "segmentation fault when freeing memory in C", "label": "general"}
+{"text": "is it bad to eat eggs every day", "label": "general"}
+{"text": "why do we flip the inequality sign when dividing by a negative", "label": "general"}
+{"text": "explain unit rates please", "label": "general"}
+{"text": "got any tips for staying focused while studying?", "label": "general"}
+{"text": "how do I solve 2x + 5 = 13", "label": "general"}
+{"text": "how do i choose a career when i like everything", "label": "general"}
+{"text": "C++ segmentation fault when deleting pointer twice", "label": "general"}
+{"text": "whats the current news on the election", "label": "general"}
+{"text": "what are utility types", "label": "specialized"}
+{"text": "event loop explain like im 5", "label": "specialized"}
+{"text": "how do I persist conversation history between sessions?", "label": "specialized"}
+{"text": "what can you actually do", "label": "general"}
+{"text": "why cant i see my previous chats", "label": "general"}
+{"text": "{\"detail\":[{\"loc\":[\"body\",\"name\"],\"msg\":\"field required\",\"type\":\"value_error.missing\"}]} why", "label": "specialized"}
+{"text": "what is a dockerfile", "label": "specialized"}
+{"text": "Explain plate tectonics to a beginner", "label": "general"}
+{"text": "how do i make new friends as an adult", "label": "general"}
+{"text": "what's the difference between a coroutine and a task", "label": "specialized"}
+{"text": "What is the difference between self-attention and cross-attention?", "label": "specialized"}
+{"text": "why am i getting 400 bad request with a JSON body", "label": "specialized"}
+{"text": "My merge sort is throwing IndexError: list index out of range, what did I do wrong?", "label": "general"}
+{"text": "How do I handle async/await errors properly with fetch?", "label": "specialized"}
+{"text": "why do indexes make writes slower", "label": "specialized"}
+{"text": "how do I connect my laptop to the office printer", "label": "general"}
+{"text": "whats the space complexity of merge sort", "label": "general"}
+{"text": "Why do companies lowball salary offers?", "label": "general"}
+{"text": "is asyncio multithreading or not", "label": "specialized"}
+{"text": "how do i compute the longest common subsequence", "label": "general"}
+{"text": "can i use a class as a decorator", "label": "specialized"}
+{"text": "CORS preflight failing with 405 Method Not Allowed", "label": "specialized"}
+{"text": "My CSS class isn't applying, why?", "label": "specialized"}
+{"text": "Hello! What can you help me with today?", "label": "general"}
+{"text": "how to type an array of objects with readonly fields", "label": "specialized"}
+{"text": "Java Streams: why is my collect returning empty list", "label": "general"}
+{"text": "what is the difference between weather and climate", "label": "general"}
+{"text": "vector db returns same doc every time for every query", "label": "specialized"}
+{"text": "shortcut to switch between open windows", "label": "general"}
+{"text": "how do I add middleware that logs request time", "label": "specialized"}
+{"text": "what is seo in simple terms", "label": "general"}
+{"text": "What's the difference between attention weights and hidden states?", "label": "specialized"}
+{"text": "Is GraphQL better than REST?", "label": "specialized"}
+{"text": "how does the browser know when to run the event loop", "label": "specialized"}
+{"text": "Can you show me an example of a multi-stage Dockerfile for a React app?", "label": "specialized"}
+{"text": "what is duck typing", "label": "specialized"}
+{"text": "ms word shows weird symbols instead of spaces", "label": "general"}
+{"text": "difference between mean median and mode", "label": "general"}
+{"text": "what runs first: setTimeout 0 or promise.resolve().then", "label": "specialized"}
+{"text": "why does my tool call return \"invalid JSON\" error?", "label": "specialized"}
+{"text": "how do i give feedback about an answer", "label": "general"}
+{"text": "How do I write a resume with no work experience?", "label": "general"}
+{"text": "why is my form submit button not doing anything", "label": "specialized"}
+{"text": "whats the point of TaskGroup if gather already works", "label": "specialized"}
+{"text": "how to use Depends for database sessions", "label": "specialized"}
+{"text": "can u explain ACID like im 5", "label": "specialized"}
+{"text": "are air fryers actually healthier than frying", "label": "general"}
+{"text": "session vs cookie vs token whats the actual difference", "label": "specialized"}
+{"text": "best prompt template for question answering over retrieved passages", "label": "specialized"}
+{"text": "what is a virtual dom and does vanilla js have one", "label": "specialized"}
+{"text": "closures explained simply pls", "label": "specialized"}
+{"text": "how do i stream agent responses token by token?", "label": "specialized"}
+{"text": "how do I stop hallucination in RAG", "label": "specialized"}
+{"text": "Why is my loss not decreasing when I train a small transformer from scratch?", "label": "specialized"}
+{"text": "difference between a comet and an asteroid", "label": "general"}
+{"text": "simplify (x^2)(x^3)", "label": "general"}
+{"text": "why does word keep crashing when i open large files", "label": "general"}
+{"text": "how do I split the bill with friends without it being awkward", "label": "general"}
+{"text": "how do i find the slope of a line through two points", "label": "general"}
+{"text": "how do i start investing with only $100", "label": "general"}
+{"text": "what is tool calling in ai agents?", "label": "specialized"}
+{"text": "my bank charged me an overdraft fee can i get it refunded", "label": "general"}
+{"text": "getting \"Cannot connect to the Docker daemon\" error, how do I fix it?", "label": "specialized"}
+{"text": "my budget spreadsheet keeps showing #VALUE! error", "label": "general"}
+{"text": "news headlines today", "label": "general"}
+{"text": "How do I analyze the time complexity of a nested loop?", "label": "general"}
+{"text": "my flight got cancelled what do i do", "label": "general"}
+{"text": "How do I use docker compose to run my web app and a postgres database together?", "label": "specialized"}
+{"text": "difference between threading and asyncio", "label": "specialized"}
+{"text": "Difference between an interface and an abstract class in Java?", "label": "general"}
+{"text": "getting \"KeyError: 'tool_calls'\" when running my agent, help", "label": "specialized"}
+{"text": "i keep getting KeyError how do i fix it", "label": "specialized"}
+{"text": "fetch POST gets 415 unsupported media type", "label": "specialized"}
+{"text": "how to make a function that accepts any type", "label": "specialized"}
+{"text": "difference between \"por\" and \"para\"", "label": "general"}
+{"text": "Pick vs Omit when should i use which", "label": "specialized"}
+{"text": "explain the virtual DOM like im 5", "label": "specialized"}
+{"text": "whats the difference between apr and apy", "label": "general"}
+{"text": "what's the difference between an encoder and a decoder model", "label": "specialized"}
+{"text": "What is the difference between precipitation probability and chance of rain?", "label": "general"}
+{"text": "Explain the OAuth2 authorization code flow with PKCE", "label": "specialized"}
+{"text": "Why am I not getting interviews even though I apply to lots of jobs?", "label": "general"}
+{"text": "Is it safe to put the JWT in the Authorization header?", "label": "specialized"}
+{"text": "whats the best way to structure a large fastapi project with multiple routers", "label": "specialized"}
+{"text": "Should I pay off debt or invest first?", "label": "general"}
+{"text": "what is the difference between an encoder and a decoder model", "label": "specialized"}
+{"text": "How do I choose between 301 and 308 redirects?", "label": "specialized"}
+{"text": "whats the best way to diversify my portfolio", "label": "general"}
+{"text": "What's the best way to price a new product for a small business?", "label": "general"}
+{"text": "docker image vs container what's the difference", "label": "specialized"}
+{"text": "my ORM query is N+1 how do i fix it", "label": "specialized"}
+{"text": "whats the point of the event loop", "label": "specialized"}
+{"text": "Explain overlap in chunking like I'm new to this", "label": "specialized"}
+{"text": "whats a callback vs a promise vs async await", "label": "specialized"}
+{"text": "nested asyncio.run() error RuntimeError", "label": "specialized"}
+{"text": "difference between a roth ira and traditional ira", "label": "general"}
+{"text": "dockerfile CMD vs ENTRYPOINT difference", "label": "specialized"}
+{"text": "best practices for chunk overlap?", "label": "specialized"}
+{"text": "getting \"context length exceeded\" error when I paste retrieved docs into the prompt, what should i do", "label": "specialized"}
+{"text": "question about event loop", "label": "specialized"}
+{"text": "Difference between LangChain and LangGraph?", "label": "specialized"}
+{"text": "what is a pydantic model", "label": "specialized"}
+{"text": "how do i change the language", "label": "general"}
+{"text": "how do i upload a file with fastapi", "label": "specialized"}
+{"text": "how do I factor x^2 - 5x + 6", "label": "general"}
+{"text": "Hello! How are you today?", "label": "general"}
+{"text": "Flexbox vs grid — which should I use?", "label": "specialized"}
+{"text": "what is an index in sql", "label": "specialized"}
+{"text": "how to handle tables and images when chunking documents", "label": "specialized"}
+{"text": "how do I loop over a generator twice", "label": "specialized"}
+{"text": "what does the module scope look like", "label": "specialized"}
+{"text": "how do i narrow a union type", "label": "specialized"}
+{"text": "salary negotiation tips for a first job offer", "label": "general"}
+{"text": "how can i find out what career suits my personality", "label": "general"}
+{"text": "what is amortized analysis", "label": "general"}
+{"text": "whats the difference between weather and climate", "label": "general"}
+{"text": "what's the difference between == and is", "label": "specialized"}
+{"text": "how to prevent xss attacks in react", "label": "specialized"}
+{"text": "i keep mixing up ser and estar, help", "label": "general"}
+{"text": "What is dependency injection in Spring?", "label": "general"}
+{"text": "how do i add a timeout to a coroutine", "label": "specialized"}
+{"text": "whats the difference between word2vec embeddings and contextual embeddings", "label": "specialized"}
+{"text": "who invented the printing press", "label": "general"}
+{"text": "excel vlookup returning n/a but value exists", "label": "general"}
+{"text": "who was the first president of the united states", "label": "general"}
+{"text": "How do I run two coroutines at the same time in Python?", "label": "specialized"}
+{"text": "How do I pass data to a child component?", "label": "specialized"}
+{"text": "difference between @staticmethod and @classmethod", "label": "specialized"}
+{"text": "why does my state not update immediately", "label": "specialized"}
+{"text": "my generic function complains T is not assignable to string", "label": "specialized"}
+{"text": "whats a good way to answer \"tell me about yourself\"", "label": "general"}
+{"text": "difference between returning a promise and awaiting it", "label": "specialized"}
+{"text": "swift optionals unwrapping best practices", "label": "general"}
+{"text": "how do i add custom headers to my fetch request", "label": "specialized"}
+{"text": "how do i define a custom tool with a schema?", "label": "specialized"}
+{"text": "what's the difference between you and chatgpt", "label": "general"}
+{"text": "what is the DOM", "label": "specialized"}
+{"text": "async def vs def in fastapi routes which should i use", "label": "specialized"}
+{"text": "ok thanks bye", "label": "general"}
+{"text": "getting this error: ValueError: Expected a Runnable, got function", "label": "specialized"}
+{"text": "i keep getting \"port is already allocated\" when running docker compose up", "label": "specialized"}
+{"text": "is it bad practice to put the version in a custom header?", "label": "specialized"}
+{"text": "best way to meal prep for the week", "label": "general"}
+{"text": "what is the difference between let and var in swift", "label": "general"}
+{"text": "why are your answers sometimes so long", "label": "general"}
+{"text": "why does my component re-render twice", "label": "specialized"}
+{"text": "whats the difference between INNER JOIN and LEFT JOIN", "label": "specialized"}
+{"text": "how do I make a button in SwiftUI that changes color when tapped", "label": "general"}
+{"text": "asyncio.gather vs TaskGroup whats the difference", "label": "specialized"}
+{"text": "how do i fix a NullPointerException in java spring boot", "label": "general"}
+{"text": "What's the difference between a min-heap and a binary search tree?", "label": "general"}
+{"text": "multi-stage build example for react + nginx", "label": "specialized"}
+{"text": "How do I create a Dockerfile for a Node.js app?", "label": "specialized"}
+{"text": "my generator stops after one item why", "label": "specialized"}
+{"text": "is it possible to have default generic parameters", "label": "specialized"}
+{"text": "best way to version an API - URL path or header?", "label": "specialized"}
+{"text": "what's the point of typing hints if python doesn't enforce them", "label": "specialized"}
+{"text": "what's the difference between C and C++", "label": "general"}
+{"text": "whats the time complexity of heap sort", "label": "general"}
+{"text": "Can you explain attention like I'm a beginner?", "label": "specialized"}
+{"text": "best way to structure a vite project folder?", "label": "specialized"}
+{"text": "How do I find the local time for a city I'm traveling to?", "label": "general"}
+{"text": "what caused world war 1", "label": "general"}
+{"text": "whats the difference between vector search and keyword search", "label": "specialized"}
+{"text": "Why do I need both OAuth2 and JWT?", "label": "specialized"}
+{"text": "capital of australia?", "label": "general"}
+{"text": "how to add a header in word", "label": "general"}
+{"text": "What should I do if you don't understand my question?", "label": "general"}
+{"text": "my laptop is really slow after the last update", "label": "general"}
+{"text": "whats the difference between perimeter and circumference", "label": "general"}
+{"text": "what is a conditional type", "label": "specialized"}
+{"text": "is \"data\" singular or plural", "label": "general"}
+{"text": "how to convert celsius to fahrenheit", "label": "general"}
+{"text": "how do i balance chemical equations", "label": "general"}
+{"text": "why is my query slow even though i added an index", "label": "specialized"}
+{"text": "How do I change the language settings?", "label": "general"}
+{"text": "What is the difference between a Java interface and an abstract class?", "label": "general"}
+{"text": "why is quicksort O(n^2) in the worst case", "label": "general"}
+{"text": "how do I use response_model to hide fields like passwords", "label": "specialized"}
+{"text": "whats a pivot table", "label": "general"}
+{"text": "why does my pasta water boil over", "label": "general"}
+{"text": "whats the difference between let and const", "label": "specialized"}
+{"text": "how do I catch multiple exceptions in one except block", "label": "specialized"}
+{"text": "What is reranking and do I actually need it?", "label": "specialized"}
+{"text": "asyncio.TimeoutError how to catch it", "label": "specialized"}
+{"text": "how do i do a case insensitive search in postgres", "label": "specialized"}
+{"text": "how to use APIRouter for a bigger app", "label": "specialized"}
+{"text": "how do I call a tool from an LLM?", "label": "specialized"}
+{"text": "FastAPI router prefix vs include_router difference", "label": "specialized"}
+{"text": "how do I pass data between view controllers in swift without storyboard", "label": "general"}
+{"text": "how do I add custom headers in middleware for every response", "label": "specialized"}
+{"text": "how do i handle out of vocabulary tokens with subword tokenization", "label": "specialized"}
+{"text": "whats the area of a triangle again", "label": "general"}
+{"text": "whats the difference between COPY and ADD in a dockerfile", "label": "specialized"}
+{"text": "how do i import a function from another file in javascript", "label": "specialized"}
+{"text": "how do i read a weather forecast map", "label": "general"}
+{"text": "why did the dinosaurs go extinct", "label": "general"}
+{"text": "wat is a prime number", "label": "general"}
+{"text": "my styles work in dev but break after build, why", "label": "specialized"}
+{"text": "difference between controlled and uncontrolled components", "label": "specialized"}
+{"text": "how do i request camera permission in kotlin androidx", "label": "general"}
+{"text": "whats the best embedding model for semantic search", "label": "specialized"}
+{"text": "how do i type a function that returns a promise", "label": "specialized"}
+{"text": "how do i hash passwords in node.js properly", "label": "specialized"}
+{"text": "how to use top level await", "label": "specialized"}
+{"text": "why is my quicksort O(n^2) on sorted input", "label": "general"}
+{"text": "largest ocean on earth", "label": "general"}
+{"text": "how do I create a route in FastAPI?", "label": "specialized"}
+{"text": "getting \"Uncaught (in promise) TypeError: fetch failed\" how do i fix", "label": "specialized"}
+{"text": "why do some verbs take être in passé composé", "label": "general"}
+{"text": "what is the difference between a tropical storm and a hurricane", "label": "general"}
+{"text": "my middleware isn't running for 404 responses, why?", "label": "specialized"}
+{"text": "how do i cite sources in the answer using retrieved chunks", "label": "specialized"}
+{"text": "excel formula not calculating automatically", "label": "general"}
+{"text": "How do I design idempotent endpoints for retries?", "label": "specialized"}
+{"text": "how do i write a custom hook", "label": "specialized"}
+{"text": "why does a negative times a negative equal a positive", "label": "general"}
+{"text": "what is byte pair encoding", "label": "specialized"}
+{"text": "How do I handle documents that are longer than my model's context window?", "label": "specialized"}
+{"text": "Uncaught SyntaxError: Cannot use import statement outside a module", "label": "specialized"}
+{"text": "Explain amortized analysis with a simple example", "label": "general"}
+{"text": "what are transactions and why do i need them", "label": "specialized"}
+{"text": "Is Jetpack Compose better than XML layouts?", "label": "general"}
+{"text": "how do i add memory to my langchain agent?", "label": "specialized"}
+{"text": "cheap places to travel in asia in january", "label": "general"}
+{"text": "what is connection pooling and do i need it", "label": "specialized"}
+{"text": "why does my docker build keep failing at npm install", "label": "specialized"}
+{"text": "why does the weather app show different temps for the same city", "label": "general"}
+{"text": "how to convert recursion to iteration in dp", "label": "general"}
+{"text": "how do tool calls actually work under the hood", "label": "specialized"}
+{"text": "async await vs .then difference?", "label": "specialized"}
+{"text": "Difference between 301 and 302 redirects?", "label": "specialized"}
+{"text": "Path operation order matter in fastapi?", "label": "specialized"}
+{"text": "what is the difference between a CV and a resume", "label": "general"}
+{"text": "tool calling keeps returning invalid json", "label": "specialized"}
+{"text": "how do volcanoes erupt", "label": "general"}
+{"text": "how do u say \"thank you very much\" in italian", "label": "general"}
+{"text": "whats the best framework for building AI agents?", "label": "specialized"}
+{"text": "what is the difference between authentication and authorization", "label": "specialized"}
+{"text": "why does my async function return a promise instead of the value", "label": "specialized"}
+{"text": "what is the difference between BFS and DFS", "label": "general"}
+{"text": "what should content-type be for a JSON PATCH request", "label": "specialized"}
+{"text": "Weather in London tomorrow?", "label": "general"}
+{"text": "my fetch request returns undefined, help", "label": "specialized"}
+{"text": "chunking strategies for long pdfs with headers", "label": "specialized"}
+{"text": "getting \"Too many re-renders. React limits the number of renders\" how to fix", "label": "specialized"}
+{"text": "what does display: none do vs visibility: hidden", "label": "specialized"}
+{"text": "Is merge sort stable and why does stability matter?", "label": "general"}
+{"text": "difference between promise.all and promise.allsettled?", "label": "specialized"}
+{"text": "why do employers ask about salary expectations in the first interview", "label": "general"}
+{"text": "how do i take a screenshot on mac", "label": "general"}
+{"text": "how do i get the return value from a task", "label": "specialized"}
+{"text": "can XSS steal httpOnly cookies", "label": "specialized"}
+{"text": "why does my Android app crash with “java.lang.NullPointerException: Attempt to invoke virtual method on a null object reference”", "label": "general"}
+{"text": "how do i choose embedding dimension for a small transformer", "label": "specialized"}
+{"text": "prompt keeps ignoring retrieved context and makes stuff up", "label": "specialized"}
+{"text": "how do I boil an egg perfectly?", "label": "general"}
+{"text": "Explain the difference between a Roth IRA and a 401k", "label": "general"}
+{"text": "why is my request body suddenly None when I add a dependency", "label": "specialized"}
+{"text": "how do i validate a form before submitting", "label": "specialized"}
+{"text": "i keep getting \"Field required\" errors even though i send the field, help", "label": "specialized"}
+{"text": "What are the risks of putting all my savings in bitcoin?", "label": "general"}
+{"text": "how do i know if im in a toxic relationship", "label": "general"}
+{"text": "FastAPI lifespan events vs startup shutdown", "label": "specialized"}
+{"text": "what is tool calling", "label": "specialized"}
+{"text": "is crypto mining still profitable", "label": "general"}
+{"text": "why does my rice come out mushy every time", "label": "general"}
+{"text": "how do i decide which tools the agent should see?", "label": "specialized"}
+{"text": "how do I freeze a row in excel", "label": "general"}
+{"text": "how to freeze panes in excel", "label": "general"}
+{"text": "How do I connect SQLAlchemy to a PostgreSQL database?", "label": "specialized"}
+{"text": "how do I make friends in a new city", "label": "general"}
+{"text": "can i use docker compose in production or is it just for dev", "label": "specialized"}
+{"text": "my knee hurts when i run what should i do", "label": "general"}
+{"text": "how to debounce a button in arduino without delay", "label": "general"}
+{"text": "can i return 200 with an error message in the body", "label": "specialized"}
+{"text": "why is \"the\" sometimes pronounced \"thee\"", "label": "general"}
+{"text": "tax loss harvesting explained simply", "label": "general"}
+{"text": "quick high protein breakfast ideas", "label": "general"}
+{"text": "what is the difference between save and save as", "label": "general"}
+{"text": "what does cpm mean in advertising", "label": "general"}
+{"text": "why is my except block not catching the error", "label": "specialized"}
+{"text": "why does my essay feel choppy?", "label": "general"}
+{"text": "Why am I getting \"422 Unprocessable Entity\" when I POST JSON to my endpoint?", "label": "specialized"}
+{"text": "my sourdough bread came out dense and gummy at the bottom what went wrong", "label": "general"}
+{"text": "how do i solve 2x + 5 = 17", "label": "general"}
+{"text": "how do I find strongly connected components", "label": "general"}
+{"text": "spring boot @Autowired vs constructor injection which is better", "label": "general"}
+{"text": "what happens if you forget to await", "label": "specialized"}
+{"text": "ruby undefined method `each' for nil:NilClass", "label": "general"}
+{"text": "How do I turn text into tokens for a transformer?", "label": "specialized"}
+{"text": "whats the diff between query params and path params", "label": "specialized"}
+{"text": "how to password protect a word document", "label": "general"}
+{"text": "explain narrowing with typeof and instanceof", "label": "specialized"}
+{"text": "Access to fetch at 'http://localhost:3000/api' from origin 'http://localhost:5173' has been blocked by CORS policy", "label": "specialized"}
+{"text": "how do i lift state up", "label": "specialized"}
+{"text": "how do i ask for a raise", "label": "general"}
+{"text": "why does a negative times a negative make a positive", "label": "general"}
+{"text": "why is the sky blue", "label": "general"}
+{"text": "whats a good roi for small business ads", "label": "general"}
+{"text": "how do i cite a news article in apa", "label": "general"}
+{"text": "unity how do i make a 2d character move with keyboard input", "label": "general"}
+{"text": "how do i gather results from many coroutines and handle exceptions", "label": "specialized"}
+{"text": "what is the borrow checker", "label": "general"}
+{"text": "RuntimeError: This event loop is already running", "label": "specialized"}
+{"text": "how do I get rid of jet lag fast", "label": "general"}
+{"text": "Why is DELETE supposed to be idempotent if the second call 404s?", "label": "specialized"}
+{"text": "ValueError: token sequence length exceeds model max length when embedding chunks — help", "label": "specialized"}
+{"text": "How do I give an LLM access to external APIs?", "label": "specialized"}
+{"text": "COPY failed: file not found in build context or excluded by .dockerignore", "label": "specialized"}
+{"text": "explain index b-tree vs hash", "label": "specialized"}
+{"text": "vite vs webpack — which should i use?", "label": "specialized"}
+{"text": "why 401 vs 403?", "label": "specialized"}
+{"text": "can u check this sentence: \"Me and him went to the store yesterday.\"", "label": "general"}
+{"text": "my binary search infinite loops, what am i doing wrong", "label": "general"}
+{"text": "whats the healthiest oil to cook with", "label": "general"}
+{"text": "are you free to chat anytime?", "label": "general"}
+{"text": "why is my generic inferred as unknown", "label": "specialized"}
+{"text": "how do I follow up after an interview without being annoying", "label": "general"}
+{"text": "psycopg2.OperationalError: could not connect to server: Connection refused", "label": "specialized"}
+{"text": "difference between EXPOSE and -p publish", "label": "specialized"}
+{"text": "session id in cookie vs bearer token", "label": "specialized"}
+{"text": "Why is my loss NaN when I train a transformer from scratch?", "label": "specialized"}
+{"text": "es modules vs commonjs which should i use", "label": "specialized"}
+{"text": "whats the best way to ask you a question", "label": "general"}
+{"text": "my await returns undefined why", "label": "specialized"}
+{"text": "what is a struct vs class in swift", "label": "general"}
+{"text": "how do I make a GET endpoint in FastAPI?", "label": "specialized"}
+{"text": "how do i use this thing", "label": "general"}
+{"text": "Depends() vs global dependencies in fastapi", "label": "specialized"}
+{"text": "what is csrf", "label": "specialized"}
+{"text": "i got 0.5 when converting 1/2 to a percent is that right", "label": "general"}
+{"text": "is it going to rain tomorrow", "label": "general"}
+{"text": "why is my interface merging with another one unexpectedly", "label": "specialized"}
+{"text": "what is the temporal dead zone", "label": "specialized"}
+{"text": "How do I write my first Dockerfile for a Node.js app?", "label": "specialized"}
+{"text": "Why does my function return None instead of the value?", "label": "specialized"}
+{"text": "hobbies to try when bored at home", "label": "general"}
+{"text": "best way to practice speaking a new language as a beginner", "label": "general"}
+{"text": "what is a database connection pool", "label": "specialized"}
+{"text": "how do I price my product", "label": "general"}
+{"text": "how do i prevent SQL injection in my backend", "label": "specialized"}
+{"text": "why does this closure print 3 three times", "label": "specialized"}
+{"text": "how do I change my default browser on windows", "label": "general"}
+{"text": "arduino servo keeps jittering how to fix", "label": "general"}
+{"text": "how to make a character jump in unity 2d", "label": "general"}
+{"text": "pydantic BaseModel or dataclass?", "label": "specialized"}
+{"text": "how do i ask you questions", "label": "general"}
+{"text": "how do i test a FastAPI app with pytest and TestClient", "label": "specialized"}
+{"text": "why is my vector database slow on queries with metadata filters", "label": "specialized"}
+{"text": "can i use langgraph without langchain?", "label": "specialized"}
+{"text": "Error: cannot divide by zero - why does this happen in my equation", "label": "general"}
+{"text": "whats the best time to visit japan", "label": "general"}
+{"text": "what does \"lost in the middle\" mean for long contexts", "label": "specialized"}
+{"text": "how to catch multiple exceptions in one except block", "label": "specialized"}
+{"text": "how do I define an optional parameter with a default value", "label": "specialized"}
+{"text": "what's the greenhouse effect", "label": "general"}
+{"text": "whats big o notation", "label": "general"}
+{"text": "cheap travel tips for europe", "label": "general"}
+{"text": "TaskGroup vs gather", "label": "specialized"}
+{"text": "how do i define a class with properties", "label": "specialized"}
+{"text": "why does my recursion give RecursionError maximum recursion depth exceeded", "label": "general"}
+{"text": "How do I negotiate salary without losing the job offer?", "label": "general"}
+{"text": "how do I prevent CSRF with JWT", "label": "specialized"}
+{"text": "how do i use Pick and Omit together", "label": "specialized"}
+{"text": "what is SameSite cookie attribute and why does it matter", "label": "specialized"}
+{"text": "THANK YOU SO MUCH", "label": "general"}
+{"text": "how do I use async/await with a for loop", "label": "specialized"}
+{"text": "whats the diff between greedy and dynamic programming", "label": "general"}
+{"text": "PHP warning: Undefined array key \"user_id\"", "label": "general"}
+{"text": "What's the difference between query params and path params for filtering?", "label": "specialized"}
+{"text": "best practices for node_modules in docker builds", "label": "specialized"}
+{"text": "Can you explain how your memory works?", "label": "general"}
+{"text": "how do i hash passwords in node", "label": "specialized"}
+{"text": "area of a circle formula?", "label": "general"}
+{"text": "how do i implement binary search without bugs", "label": "general"}
+{"text": "Cannot read properties of undefined reading map", "label": "specialized"}
+{"text": "how do I map a network printer in windows 11", "label": "general"}
+{"text": "how do i connect to the campus wifi on my laptop", "label": "general"}
+{"text": "how do i cancel a task", "label": "specialized"}
+{"text": "Why do we scale the dot product by sqrt(d_k) in attention?", "label": "specialized"}
+{"text": "what does the never type mean", "label": "specialized"}
+{"text": "how do I write a generator in python", "label": "specialized"}
+{"text": "How do I compute the longest common subsequence of two strings?", "label": "general"}
+{"text": "good afternoon, hope you're having a nice day", "label": "general"}
+{"text": "can a custom hook return jsx", "label": "specialized"}
+{"text": "What is the difference between clustered and non-clustered indexes?", "label": "specialized"}
+{"text": "what's the difference between interface and type in TS", "label": "specialized"}
+{"text": "why does my promise stay pending forever", "label": "specialized"}
+{"text": "how do i ask for a raise after one year", "label": "general"}
+{"text": "what is a decorator actually doing", "label": "specialized"}
+{"text": "difference between const and readonly in c#", "label": "general"}
+{"text": "What is daylight saving time and why do we have it", "label": "general"}
+{"text": "how do i fix \"invalid signature\" when verifying my jwt", "label": "specialized"}
+{"text": "what's the point of memory if the context window is huge?", "label": "specialized"}
+{"text": "Why does my button inside a form submit the form automatically?", "label": "specialized"}
+{"text": "Is it okay to use POST for updates instead of PUT?", "label": "specialized"}
+{"text": "Why does attention need queries, keys, and values?", "label": "specialized"}
+{"text": "todays date", "label": "general"}
+{"text": "why do employers ask about salary expectations", "label": "general"}
+{"text": "Explain C# records vs classes", "label": "general"}
+{"text": "docker compose vs docker run", "label": "specialized"}
+{"text": "ES modules vs commonjs whats the difference", "label": "specialized"}
+{"text": "What is the time complexity of inserting into a hash table?", "label": "general"}
+{"text": "how to read a file in Go", "label": "general"}
+{"text": "kotlin coroutines vs threads explained", "label": "general"}
+{"text": "past tense of \"lead\"", "label": "general"}
+{"text": "whats the difference between raise and assert", "label": "specialized"}
+{"text": "difference between unknown and any", "label": "specialized"}
+{"text": "how do i learn guitar fast", "label": "general"}
+{"text": "What headers should a REST API return for caching?", "label": "specialized"}
+{"text": "can you explain coroutines like im five", "label": "specialized"}
+{"text": "my discriminated union narrowing fails in a switch statement, why", "label": "specialized"}
+{"text": "conditional rendering best practices", "label": "specialized"}
+{"text": "ruby blocks vs procs vs lambdas", "label": "general"}
+{"text": "how do i convert 3pm EST to GMT", "label": "general"}
+{"text": "ts error: Type 'string' is not assignable to type 'number'", "label": "specialized"}
+{"text": "can i fine tune gpt to call my own tools", "label": "specialized"}
+{"text": "what is defi", "label": "general"}
+{"text": "what status code for validation errors - 400 or 422?", "label": "specialized"}
+{"text": "how do I create a table with a foreign key in postgresql", "label": "specialized"}
+{"text": "why does my Android app crash on rotation", "label": "general"}
+{"text": "how do i handle pagination links in responses (next/prev)", "label": "specialized"}
+{"text": "Why does PostgreSQL say deadlock detected?", "label": "specialized"}
+{"text": "Explain dynamic programming like I'm five", "label": "general"}
+{"text": "Error: resume upload failed, file format not supported — how do I fix my resume file", "label": "general"}
+{"text": "my xcode build fails with “No such module ‘FirebaseFirestore’”", "label": "general"}
+{"text": "how do I use a semicolon", "label": "general"}
+{"text": "solve the system 2x + y = 10 and x - y = 2", "label": "general"}
+{"text": "my python code keeps giving IndentationError: unexpected indent how do i fix it", "label": "general"}
+{"text": "why does my c++ program crash with \"double free or corruption\"", "label": "general"}
+{"text": "c# async await deadlock in winforms app", "label": "general"}
+{"text": "asyncio.create_task vs await whats the difference", "label": "specialized"}
+{"text": "how do i share state between two sibling components", "label": "specialized"}
+{"text": "why do i need a refresh token", "label": "specialized"}
+{"text": "How do I research a company before an interview?", "label": "general"}
+{"text": "How do I make a responsive navbar with flexbox?", "label": "specialized"}
+{"text": "what's a token", "label": "specialized"}
+{"text": "solve for y: 3(y - 2) = 12", "label": "general"}
+{"text": "how do I set an httpOnly cookie in express", "label": "specialized"}
+{"text": "what is a sameSite cookie attribute", "label": "specialized"}
+{"text": "how to change default browser windows 11", "label": "general"}
+{"text": "why does ice float on water", "label": "general"}
+{"text": "how do i use transactions with sqlalchemy session", "label": "specialized"}
+{"text": "custom hook for fetching data with loading and error states", "label": "specialized"}
+{"text": "can u explain subjunctive mood in french", "label": "general"}
+{"text": "how do i type an array of objects with optional fields", "label": "specialized"}
+{"text": "getting \"Uncaught (in promise) TypeError: Failed to fetch\" what does it mean", "label": "specialized"}
+{"text": "few shot examples making my rag prompt worse, why", "label": "specialized"}
+{"text": "how do i use @StateObject vs @ObservedObject in swiftui", "label": "general"}
+{"text": "Can someone explain docker compose vs docker run in plain english?", "label": "specialized"}
+{"text": "How do I write a thank you email after an interview?", "label": "general"}
+{"text": "how do i calculate the number of parameters in a transformer layer", "label": "specialized"}
+{"text": "go vs rust for backend services", "label": "general"}
+{"text": "can fine-tuning replace RAG?", "label": "specialized"}
+{"text": "how to return a custom error response with a specific status code", "label": "specialized"}
+{"text": "custom hook for fetching data example", "label": "specialized"}
+{"text": "What is the subjunctive mood and when do I use it in French?", "label": "general"}
+{"text": "why do my pancakes always turn out flat", "label": "general"}
+{"text": "can i use swift on android or is it ios only", "label": "general"}
+{"text": "php fatal error: allowed memory size exhausted, how to fix", "label": "general"}
+{"text": "why do i need a key prop in lists", "label": "specialized"}
+{"text": "How do I debug DOM changes in devtools?", "label": "specialized"}
+{"text": "sql vs nosql for a backend api", "label": "specialized"}
+{"text": "how do i know if a problem can be solved with dynamic programming", "label": "general"}
+{"text": "What is the difference between marketing and sales?", "label": "general"}
+{"text": "whats the longest river in the world", "label": "general"}
+{"text": "whats the point of type hints", "label": "specialized"}
+{"text": "arduino uno serial monitor prints garbage characters baud rate?", "label": "general"}
+{"text": "my login works in postman but fails in the browser with a cors error, why?", "label": "specialized"}
+{"text": "What is the STAR method and when should I use it?", "label": "general"}
+{"text": "how do i add a click event listener to multiple buttons", "label": "specialized"}
+{"text": "How do I read a balance sheet?", "label": "general"}
+{"text": "how do i paginate results in a REST API properly?", "label": "specialized"}
+{"text": "Why do LLMs hallucinate even when given context?", "label": "specialized"}
+{"text": "Why do interest rates affect bond prices?", "label": "general"}
+{"text": "how do i make an object property optional", "label": "specialized"}
+{"text": "how do i write a business plan for a coffee shop", "label": "general"}
+{"text": "is it \"affect\" or \"effect\" in this sentence: the weather will ___ my mood", "label": "general"}
+{"text": "whats the difference between chunking and splitting", "label": "specialized"}
+{"text": "How do I center a div?", "label": "specialized"}
+{"text": "how do i clear my print queue", "label": "general"}
+{"text": "what is the difference between Iterable and Iterator", "label": "specialized"}
+{"text": "how do i fix NullPointerException in spring boot when autowiring a repository", "label": "general"}
+{"text": "What is the difference between a primary key and a unique constraint?", "label": "specialized"}
+{"text": "my fetch call keeps getting CORS errors, is that a header thing?", "label": "specialized"}
+{"text": "what status code for validation errors", "label": "specialized"}
+{"text": "What's the difference between a docker image and a dockerfile?", "label": "specialized"}
+{"text": "What should I wear to an interview?", "label": "general"}
+{"text": "unity rb.AddForce not working player wont jump", "label": "general"}
+{"text": "what is a closure in js", "label": "specialized"}
+{"text": "Tell me some common interview questions and how to answer them", "label": "general"}
+{"text": "how do I handle tool errors gracefully in an agent loop?", "label": "specialized"}
+{"text": "What is compound interest and why does it matter?", "label": "general"}
+{"text": "how do i import css in a js module", "label": "specialized"}
+{"text": "how do i test if my app is vulnerable to xss", "label": "specialized"}
+{"text": "asyncio.wait_for vs asyncio.timeout", "label": "specialized"}
+{"text": "how do i define nodes and edges in langgraph", "label": "specialized"}
+{"text": "why is my query slow even though i have indexes", "label": "specialized"}
+{"text": "how do hooks work under the hood", "label": "specialized"}
+{"text": "is today a holiday", "label": "general"}
+{"text": "how do i remember the order of the planets", "label": "general"}
+{"text": "why does my unity game lag only on android devices", "label": "general"}
+{"text": "hey there, just wanted to say good morning", "label": "general"}
+{"text": "how do i calculate the area of a triangle with base 8 and height 5", "label": "general"}
+{"text": "why do startups fail", "label": "general"}
+{"text": "why are my docker images so huge", "label": "specialized"}
+{"text": "why is my fine tuned model worse after training", "label": "specialized"}
+{"text": "casual: my chatbot confidently answers questions about docs it never retrieved lol why", "label": "specialized"}
+{"text": "why does my app drain battery in background android", "label": "general"}
+{"text": "How do I read a topographic map?", "label": "general"}
+{"text": "can you get food poisoning from reheated rice", "label": "general"}
+{"text": "why does my express-session cookie disappear after login in production but works locally", "label": "specialized"}
+{"text": "What is the difference between CMD and ENTRYPOINT?", "label": "specialized"}
+{"text": "what is a decorator in python", "label": "specialized"}
+{"text": "My model throws \"Token indices sequence length is longer than the specified maximum sequence length\" — what does that mean?", "label": "specialized"}
+{"text": "why does my code say \"Property 'x' does not exist on type '{}'\"", "label": "specialized"}
+{"text": "why is my docker image so big compared to my codebase", "label": "specialized"}
+{"text": "what is chunking in rag", "label": "specialized"}
+{"text": "my similarity scores are all like 0.8 but results are garbage, is that normal", "label": "specialized"}
+{"text": "explain the difference between who and whom like im 5", "label": "general"}
+{"text": "Do you remember what I asked you earlier?", "label": "general"}
+{"text": "laravel vs ruby on rails which is better for beginners", "label": "general"}
+{"text": "what is the difference between UTC and GMT", "label": "general"}
+{"text": "whats the difference between null and undefined in strict mode", "label": "specialized"}
+{"text": "Why does my API return 401 when I'm sending a token?", "label": "specialized"}
+{"text": "Solve for x: 3(x - 2) = 4x + 7", "label": "general"}
+{"text": "Why did the Roman Empire fall?", "label": "general"}
+{"text": "my container exits immediately after starting, why?", "label": "specialized"}
+{"text": "why does Rust borrow checker complain about this closure", "label": "general"}
+{"text": "whats the difference between Partial and making fields optional manually", "label": "specialized"}
+{"text": "How do I forecast sales for a startup with no history?", "label": "general"}
+{"text": "Record vs index signature which should i use", "label": "specialized"}
+{"text": "How do I calculate customer acquisition cost?", "label": "general"}
+{"text": "how do i copy files from a container to my host", "label": "specialized"}
+{"text": "how do i add a click event listener to a button", "label": "specialized"}
+{"text": "job interview tomorrow and im nervous, any quick tips", "label": "general"}
+{"text": "Pydantic model vs dataclass - which should I use for request bodies?", "label": "specialized"}
+{"text": "what is the difference between a virus and a bacteria", "label": "general"}
+{"text": "what does `unsafe` do in Rust", "label": "general"}
+{"text": "wifi keeps disconnecting", "label": "general"}
+{"text": "why is my wifi so slow in the library", "label": "general"}
+{"text": "pasted error: openai.BadRequestError: tools[0].function.name is not valid", "label": "specialized"}
+{"text": "why does my sourdough bread not rise?", "label": "general"}
+{"text": "can i call a hook inside a loop", "label": "specialized"}
+{"text": "why is my setTimeout 0 still running after other code", "label": "specialized"}
+{"text": "how do I set up a TableView with reusable cells", "label": "general"}
+{"text": "hey there, whats up", "label": "general"}
+{"text": "current events this week", "label": "general"}
+{"text": "what does it mean when a graph has no solution", "label": "general"}
+{"text": "How do decoder-only models generate text one token at a time?", "label": "specialized"}
+{"text": "what does defer do on a script tag", "label": "specialized"}
+{"text": "what is big o notation", "label": "general"}
+{"text": "how do i keep a conversation going on a first date", "label": "general"}
+{"text": "binding a Spinner to data in Android with viewmodel", "label": "general"}
+{"text": "how many cm in an inch", "label": "general"}
+{"text": "why does my api return 401 unauthorized even though I'm sending the token", "label": "specialized"}
+{"text": "go routines and channels for beginners", "label": "general"}
+{"text": "how do I reduce hallucinations in my RAG pipeline?", "label": "specialized"}
+{"text": "how do I use generics in a react component", "label": "specialized"}
+{"text": "difference between ssd and hdd", "label": "general"}
+{"text": "how to send form data with fetch as json", "label": "specialized"}
+{"text": "what is the difference between semantic search and vector search", "label": "specialized"}
+{"text": "what is a react component", "label": "specialized"}
+{"text": "what should i wear to a virtual interview", "label": "general"}
+{"text": "why do we have leap years", "label": "general"}
+{"text": "the event loop and microtasks - what actually runs first", "label": "specialized"}
+{"text": "help my setState isnt updating", "label": "specialized"}
+{"text": "difference between vector search and keyword search", "label": "specialized"}
+{"text": "how do I override a dependency in tests", "label": "specialized"}
+{"text": "i keep getting x = -2 but the answer key says 4, what am i doing wrong", "label": "general"}
+{"text": "what are tectonic plates made of", "label": "general"}
+{"text": "can u explain embeddings like im 5", "label": "specialized"}
+{"text": "ERROR: duplicate key value violates unique constraint \"users_email_key\"", "label": "specialized"}
+{"text": "what does \"competitive salary\" even mean in a job posting", "label": "general"}
+{"text": "how do tectonic plates move", "label": "general"}
+{"text": "TypeError: 'int' object is not callable", "label": "specialized"}
+{"text": "how to run a postgres db and my app together with docker compose", "label": "specialized"}
+{"text": "i keep getting \"index out of range\" when building my vocab, help?", "label": "specialized"}
+{"text": "I keep getting \"something went wrong\" when I send a message, what does that mean?", "label": "general"}
+{"text": "Record<string, number> how does it work", "label": "specialized"}
+{"text": "Explain event bubbling and capturing", "label": "specialized"}
+{"text": "what is function calling vs tool calling?", "label": "specialized"}
+{"text": "what is hoisting got to do with closures", "label": "specialized"}
+{"text": "translate \"I would like a coffee\" to spanish", "label": "general"}
+{"text": "how do i run blocking code without freezing the event loop", "label": "specialized"}
+{"text": "How do I make a monthly budget that actually works?", "label": "general"}
+{"text": "How do I use build args in a Dockerfile?", "label": "specialized"}
+{"text": "how to extract keys of a type as a union", "label": "specialized"}
+{"text": "explain REST API versioning like I'm 5", "label": "specialized"}
+{"text": "can langchain agents remember previous messages", "label": "specialized"}
+{"text": "how do i check if something is a subclass of another class", "label": "specialized"}
+{"text": "Explain big theta vs big omega", "label": "general"}
+{"text": "explain http methods like im 5", "label": "specialized"}
+{"text": "How do I deploy a dockerized web app to production?", "label": "specialized"}
+{"text": "why is my closure variable always the last value in the loop", "label": "specialized"}
+{"text": "printer driver install failed error 0x0000011b", "label": "general"}
+{"text": "Why is 404 sometimes used instead of 403 for security?", "label": "specialized"}
+{"text": "Why does my API return 204 with no body?", "label": "specialized"}
+{"text": "why does useEffect run on every render", "label": "specialized"}
+{"text": "How do I prove that comparison sorting can't beat O(n log n)?", "label": "general"}
+{"text": "string vs String in ts?", "label": "specialized"}
+{"text": "unity cinemachine camera not following player", "label": "general"}
+{"text": "do u speak other languages", "label": "general"}
+{"text": "how do brand awareness campaigns actually work", "label": "general"}
+{"text": "csrf token missing 403 error when submitting form", "label": "specialized"}
+{"text": "Explain OAuth2 authorization code flow with PKCE", "label": "specialized"}
+{"text": "how do i get the current date in python", "label": "general"}
+{"text": "php fatal error allowed memory size exhausted", "label": "general"}
+{"text": "Partial<T> not working as expected help", "label": "specialized"}
+{"text": "Error response from daemon: pull access denied for myimage, repository does not exist", "label": "specialized"}
+{"text": "why is the date different in different time zones?", "label": "general"}
+{"text": "should i use an ORM or raw SQL?", "label": "specialized"}
+{"text": "what's the difference between a list and a tuple", "label": "specialized"}
+{"text": "why use generics instead of any", "label": "specialized"}
+{"text": "whats the difference between primary key and unique constraint", "label": "specialized"}
+{"text": "why does my SELECT * return different column order in postgres", "label": "specialized"}
+{"text": "swiftui navigationstack vs navigationview what’s the difference", "label": "general"}
+{"text": "how do i detect a cycle in a directed graph", "label": "general"}
+{"text": "how do i convert a date to a different calendar system", "label": "general"}
+{"text": "my agent keeps calling the same tool over and over, why?", "label": "specialized"}
+{"text": "why use unsafe blocks in rust", "label": "general"}
+{"text": "Can you explain the difference between BLEU and perplexity for evaluating LLMs?", "label": "specialized"}
+{"text": "why does my sourdough starter smell like nail polish", "label": "general"}
+{"text": "promise chaining returning a promise inside then", "label": "specialized"}
+{"text": "my post endpoint keeps returning 405 method not allowed", "label": "specialized"}
+{"text": "what can u do", "label": "general"}
+{"text": "swift concurrency async await beginner example", "label": "general"}
+{"text": "bye, see ya later", "label": "general"}
+{"text": "What is memoization vs tabulation?", "label": "general"}
+{"text": "can a closure cause a memory leak", "label": "specialized"}
+{"text": "Is it okay to put hobbies on my resume?", "label": "general"}
+{"text": "how do I say no to plans without being rude", "label": "general"}
+{"text": "async await vs promises whats the difference", "label": "specialized"}
+{"text": "why do i need a .dockerignore file", "label": "specialized"}
+{"text": "what does *args and **kwargs mean", "label": "specialized"}
+{"text": "whats the difference between o(n log n) and o(n^2) in practice", "label": "general"}
+{"text": "why do we say \"an hour\" but \"a university\"", "label": "general"}
+{"text": "sqlalchemy.exc.OperationalError: (psycopg2.OperationalError) could not connect to server: Connection refused", "label": "specialized"}
+{"text": "What is the difference between word2vec embeddings and contextual embeddings from BERT?", "label": "specialized"}
+{"text": "why is recall low when i increase chunk size", "label": "specialized"}
+{"text": "how do I find the molar mass of H2SO4", "label": "general"}
+{"text": "what is __init__ for", "label": "specialized"}
+{"text": "How do I visualize embeddings for a sentence?", "label": "specialized"}
+{"text": "explain transactions like im 5", "label": "specialized"}
+{"text": "What are you exactly?", "label": "general"}
+{"text": "kotlin: lateinit vs lazy whats the difference", "label": "general"}
+{"text": "How do I do market segmentation for a local gym?", "label": "general"}
+{"text": "I got a rejection email 2 days after applying, does that mean my resume failed an ATS?", "label": "general"}
+{"text": "i keep getting shape mismatch error in my attention mask, here: RuntimeError: The size of tensor a (10) must match the size of tensor b (8)", "label": "specialized"}
+{"text": "whats the difference between props and state", "label": "specialized"}
+{"text": "Is there a limit to how many questions I can ask?", "label": "general"}
+{"text": "why do transformers use positional encodings if attention is permutation invariant?", "label": "specialized"}
+{"text": "explain the dependency array in useEffect", "label": "specialized"}
+{"text": "current events in the middle east summary", "label": "general"}
+{"text": "How do I bulk insert efficiently with SQLAlchemy?", "label": "specialized"}
+{"text": "my jwt expired but user still sees logged in page, how to handle token refresh", "label": "specialized"}
+{"text": "my graph hits recursion limit — what does that mean", "label": "specialized"}
+{"text": "how do I validate email in a pydantic model", "label": "specialized"}
+{"text": "how do i apologize properly", "label": "general"}
+{"text": "How do I deploy a dockerized web app to a server?", "label": "specialized"}
+{"text": "how do i write a generator function", "label": "specialized"}
+{"text": "whats the difference between deepcopy and copy", "label": "specialized"}
+{"text": "explain the knapsack problem", "label": "general"}
+{"text": "factor x^2 - 9", "label": "general"}
+{"text": "What's the difference between Go's goroutines and OS threads?", "label": "general"}
+{"text": "i need help with simultaneous equations 2x + y = 10 and x - y = 2", "label": "general"}
+{"text": "why does gather cancel my other tasks when one fails", "label": "specialized"}
+{"text": "what's the difference between asyncio.gather and asyncio.TaskGroup", "label": "specialized"}
+{"text": "macbook won't connect to printer", "label": "general"}
+{"text": "difference between querySelector and getElementById", "label": "specialized"}
+{"text": "whats the difference between let and const in js", "label": "specialized"}
+{"text": "unity NullReferenceException on my GameManager script", "label": "general"}
+{"text": "what is a checkpointer in langgraph?", "label": "specialized"}
+{"text": "Can you explain things more simply if I ask?", "label": "general"}
+{"text": "how do i design pagination with cursor instead of offset?", "label": "specialized"}
+{"text": "can i import a module conditionally in ES modules", "label": "specialized"}
+{"text": "How do I find out what time it is in Tokyo right now?", "label": "general"}
+{"text": "got a 429 too many requests, how do i fix my client?", "label": "specialized"}
+{"text": "How do I evaluate whether my reranker is helping?", "label": "specialized"}
+{"text": "how do i store a password salt and hash in the database", "label": "specialized"}
+{"text": "whats the difference between authentication and authorization", "label": "specialized"}
+{"text": "How do I rollback a transaction in SQLAlchemy?", "label": "specialized"}
+{"text": "how do i fine tune a decoder only model for summarization", "label": "specialized"}
+{"text": "is it gonna rain today", "label": "general"}
+{"text": "why does my pydantic model ignore extra fields", "label": "specialized"}
+{"text": "how do I map a network drive", "label": "general"}
+{"text": "Kotlin lateinit vs lazy what should i use", "label": "general"}
+{"text": "async def vs def endpoints in fastapi - does it matter?", "label": "specialized"}
+{"text": "how do i test a fastapi app with pytest", "label": "specialized"}
+{"text": "whats token limit for memory buffers, do i need summarization", "label": "specialized"}
+{"text": "what does EXPOSE actually do", "label": "specialized"}
+{"text": "whats the difference between multi head attention and single head attention", "label": "specialized"}
+{"text": "how do you simplify 12/18", "label": "general"}
+{"text": "What are you and how do you work?", "label": "general"}
+{"text": "why is my default argument shared between calls", "label": "specialized"}
+{"text": "What is the difference between \"its\" and \"it's\"?", "label": "general"}
+{"text": "how do i persist conversation history across sessions", "label": "specialized"}
+{"text": "i keep getting x = 4 but the answer key says something else what am i doing wrong", "label": "general"}
+{"text": "How can I reduce hallucinations without just telling the model \"don't hallucinate\"?", "label": "specialized"}
+{"text": "how do i cache dependencies in a docker build to speed it up", "label": "specialized"}
+{"text": "why does it say \"message failed to send\"", "label": "general"}
+{"text": "RuntimeError: expected scalar type Long but found Float in embedding layer — how do I fix it?", "label": "specialized"}
+{"text": "what is a hypotenuse", "label": "general"}
+{"text": "props vs state explained simply", "label": "specialized"}
+{"text": "why does rust need lifetimes", "label": "general"}
+{"text": "CORS preflight request failing with 405 method not allowed", "label": "specialized"}
+{"text": "var vs let in a for loop closure problem", "label": "specialized"}
+{"text": "why is localStorage considered risky for storing tokens?", "label": "specialized"}
+{"text": "whats the diff between std::move and std::forward in cpp", "label": "general"}
+{"text": "how do i convert a callback-based function to a promise", "label": "specialized"}
+{"text": "my business is losing money but i have lots of sales why", "label": "general"}
+{"text": "my resume keeps getting auto rejected, what am i doing wrong", "label": "general"}
+{"text": "Why would I use Vite instead of just opening index.html?", "label": "specialized"}
+{"text": "Rust lifetimes 'static what does it mean", "label": "general"}
+{"text": "explain byte pair encoding vs wordpiece tokenization", "label": "specialized"}
+{"text": "How do I run two coroutines at the same time?", "label": "specialized"}
+{"text": "getting \"ValueError: Dependency function has no return type\" ???", "label": "specialized"}
+{"text": "How do decoder-only models generate text token by token?", "label": "specialized"}
+{"text": "what is a state graph in langgraph", "label": "specialized"}
+{"text": "why is my credit score dropping when i pay on time", "label": "general"}
+{"text": "@staticmethod vs @classmethod vs plain method?", "label": "specialized"}
+{"text": "what is asyncio in python", "label": "specialized"}
+{"text": "how do i read a date in iso 8601 format", "label": "general"}
+{"text": "how do i follow up after an interview without sounding desperate", "label": "general"}
+{"text": "cant hear sound on zoom but speakers work", "label": "general"}
+{"text": "How do I pass environment variables to a container?", "label": "specialized"}
+{"text": "why does my agent keep looping forever", "label": "specialized"}
+{"text": "Good morning! Are you a real person or a bot?", "label": "general"}
+{"text": "can middleware modify the response body?", "label": "specialized"}
+{"text": "how do i narrow a union based on a discriminant property", "label": "specialized"}
+{"text": "Rust error E0502 cannot borrow as mutable because it is also borrowed as immutable", "label": "general"}
+{"text": "what's the difference between a session and a JWT?", "label": "specialized"}
+{"text": "can i use pointers in Java", "label": "general"}
+{"text": "whats the date next friday", "label": "general"}
+{"text": "Thank you so much for your help, I really appreciate it", "label": "general"}
+{"text": "should I say \"fewer\" or \"less\" people", "label": "general"}
+{"text": "Why should I not store passwords in plain text", "label": "specialized"}
+{"text": "Help me understand the 0/1 knapsack recurrence", "label": "general"}
+{"text": "Why does my tokenizer split \"unbelievable\" into weird pieces?", "label": "specialized"}
+{"text": "how do i choose embedding dimension for my model", "label": "specialized"}
+{"text": "whats a good prompt template for question answering over documents", "label": "specialized"}
+{"text": "what even is a state graph lol", "label": "specialized"}
+{"text": "difference between marketing and sales", "label": "general"}
+{"text": "can i use asyncio.sleep in a normal function", "label": "specialized"}
+{"text": "langchain vs langgraph — what's the difference?", "label": "specialized"}
+{"text": "List comprehension vs generator expression performance?", "label": "specialized"}
+{"text": "Why does my RAG system return irrelevant documents even when the answer is clearly in the knowledge base?", "label": "specialized"}
+{"text": "what is the difference between a bull and bear market", "label": "general"}
+{"text": "bcrypt vs argon2 which should i use for password hashing", "label": "specialized"}
+{"text": "How do I choose the right chunk size for my documents?", "label": "specialized"}
+{"text": "can you review my resume summary? it says \"hardworking team player with a passion for excellence\"", "label": "general"}
+{"text": "best way to handle database sessions as a dependency in fastapi", "label": "specialized"}
+{"text": "how do i narrow the type of an error in a catch block", "label": "specialized"}
+{"text": "getting CORS error but only for my custom header, why", "label": "specialized"}
+{"text": "what is gradle and do i need to edit build.gradle for adding a dependency", "label": "general"}
+{"text": "What is the difference between you and other chatbots?", "label": "general"}
+{"text": "how do i set a timeout on a single coroutine", "label": "specialized"}
+{"text": "how do i choose chunk size for pdf documents with tables", "label": "specialized"}
+{"text": "does asyncio use threads under the hood", "label": "specialized"}
+{"text": "can i have a foreign key to a table in another schema", "label": "specialized"}
+{"text": "who won the hundred years war", "label": "general"}
+{"text": "my asyncio program runs but nothing happens, tasks never start, help", "label": "specialized"}
+{"text": "What are bundlers actually doing?", "label": "specialized"}
+{"text": "what is the difference between .NET Core and .NET Framework", "label": "general"}
+{"text": "why does my pc fan run so loud when i open excel", "label": "general"}
+{"text": "How do multi-head attention heads actually learn different things?", "label": "specialized"}
+{"text": "Explain the causes of World War I in simple terms.", "label": "general"}
+{"text": "can i negotiate salary for my first job", "label": "general"}
+{"text": "difference between BFS and DFS", "label": "general"}
+{"text": "Uncaught TypeError: Cannot read properties of null (reading 'addEventListener') how fix?", "label": "specialized"}
+{"text": "how do I evaluate a RAG system", "label": "specialized"}
+{"text": "why is my recyclerview not showing any items android kotlin", "label": "general"}
+{"text": "why is my async code slower than sync code", "label": "specialized"}
+{"text": "why does my container exit immediately after docker run", "label": "specialized"}
+{"text": "How do I find the shortest path in an unweighted graph?", "label": "general"}
+{"text": "what does await actually do", "label": "specialized"}
+{"text": "what's the difference between padding mask and attention mask", "label": "specialized"}
+{"text": "what time is it in tokyo right now?", "label": "general"}
+{"text": "what is the difference between reranking and retrieval", "label": "specialized"}
+{"text": "asyncio.wait_for vs asyncio.timeout difference?", "label": "specialized"}
+{"text": "getting 405 Method Not Allowed when calling my endpoint, what does that mean", "label": "specialized"}
+{"text": "how do i reduce docker image size", "label": "specialized"}
+{"text": "difference between optimistic and pessimistic locking", "label": "specialized"}
+{"text": "what is ACID in databases", "label": "specialized"}
+{"text": "fetch POST request with JSON body example?", "label": "specialized"}
+{"text": "how do i improve my writing style", "label": "general"}
+{"text": "why does tool calling fail with parallel tool calls", "label": "specialized"}
+{"text": "bitcoin halving explained simply", "label": "general"}
+{"text": "how do I use Spring Data JPA projections", "label": "general"}
+{"text": "how do i calculate the time difference between two cities", "label": "general"}
+{"text": "what is ur name", "label": "general"}
+{"text": "why does word keep crashing when i open a big document", "label": "general"}
+{"text": "why does my cash flow statement not match my profit and loss", "label": "general"}
+{"text": "What's the difference between props and state?", "label": "specialized"}
+{"text": "whats a good beginner hobby thats cheap", "label": "general"}
+{"text": "I keep burning my garlic when I saute it", "label": "general"}
+{"text": "kotlin coroutines flow vs livedata which should i use", "label": "general"}
+{"text": "why is my axios request blocked by CORS but postman works fine", "label": "specialized"}
+{"text": "how do i make all properties optional except one", "label": "specialized"}
+{"text": "difference between list and tuple", "label": "specialized"}
+{"text": "how do i make a function wait for a promise to resolve before continuing", "label": "specialized"}
+{"text": "how do i write a subquery in sqlalchemy", "label": "specialized"}
+{"text": "how do i create a task in asyncio", "label": "specialized"}
+{"text": "what does f5 do in excel", "label": "general"}
+{"text": "error TS2322 Type 'string' is not assignable to type 'number'", "label": "specialized"}
+{"text": "whats the capital of canada", "label": "general"}
+{"text": "why does my api return 500 with no error message", "label": "specialized"}
+{"text": "Why do I need a bundler at all?", "label": "specialized"}
+{"text": "how to send data from arduino to phone over bluetooth", "label": "general"}
+{"text": "how do i use generics with arrow functions", "label": "specialized"}
+{"text": "psql: FATAL: password authentication failed for user \"postgres\"", "label": "specialized"}
+{"text": "how do I paginate a huge dataset without killing the db", "label": "specialized"}
+{"text": "what is the difference between mitosis and meiosis", "label": "general"}
+{"text": "weather forecast for paris next week?", "label": "general"}
+{"text": "whats the best way to list skills on a resume", "label": "general"}
+{"text": "best way to run blocking code in asyncio", "label": "specialized"}
+{"text": "What is the purpose of the GOMAXPROCS environment variable?", "label": "general"}
+{"text": "why use typing.Optional instead of just None", "label": "specialized"}
+{"text": "how do i calculate percent increase from 80 to 100", "label": "general"}
+{"text": "Why do we divide attention scores by the square root of d_k?", "label": "specialized"}
+{"text": "my agent ignores the tool schema, help", "label": "specialized"}
+{"text": "my grammar checker keeps flagging passive voice, is it really that bad", "label": "general"}
+{"text": "why am I getting 422 Unprocessable Entity in FastAPI?", "label": "specialized"}
+{"text": "how do I know when to use por vs para", "label": "general"}
+{"text": "what is the greenhouse effect", "label": "general"}
+{"text": "what's the diffrence between val and var in kotlin", "label": "general"}
+{"text": "what is 15% of 240", "label": "general"}
+{"text": "do i need to import React in every file", "label": "specialized"}
+{"text": "why does my event loop say it is already running", "label": "specialized"}
+{"text": "How do I explain a gap in my resume?", "label": "general"}
+{"text": "is a tomato a fruit or a vegetable", "label": "general"}
+{"text": "why does english have irregular verbs", "label": "general"}
+{"text": "how to update an object in state without mutating it", "label": "specialized"}
+{"text": "my keyboard shortcuts stopped working after update", "label": "general"}
+{"text": "can you explain microtasks vs macrotasks", "label": "specialized"}
+{"text": "explain memoization vs tabulation", "label": "general"}
+{"text": "why is csrf only an issue with cookies", "label": "specialized"}
+{"text": "how do I explain a 2 year employment gap in an interview", "label": "general"}
+{"text": "how do I handle back navigation in Compose", "label": "general"}
+{"text": "why does my object literal fail when i assign it to an interface with optional props", "label": "specialized"}
+{"text": "Why does my vite dev server not pick up my changes?", "label": "specialized"}
+{"text": "Best way to implement pagination: offset or cursor?", "label": "specialized"}
+{"text": "Error: session expired. Please try again.", "label": "general"}
+{"text": "pythagorean theorem help", "label": "general"}
+{"text": "whats the difference between query params and path params", "label": "specialized"}
+{"text": "what's the point of the Accept header?", "label": "specialized"}
+{"text": "how to validate email in pydantic v2", "label": "specialized"}
+{"text": "pasted error: `error: borrow of moved value: 'x'` what does it mean", "label": "general"}
+{"text": "what does it mean when a slope is undefined", "label": "general"}
+{"text": "how do I balance a chemical equation", "label": "general"}
+{"text": "What's the difference between the free and paid version?", "label": "general"}
+{"text": "which country has the most time zones", "label": "general"}
+{"text": "my teacher marked this wrong: \"Me and him went to the store.\" why?", "label": "general"}
+{"text": "how do i add a column with a default value without locking the table", "label": "specialized"}
+{"text": "what is the difference between type and interface in typescript", "label": "specialized"}
+{"text": "whats the formula for the volume of a cylinder", "label": "general"}
+{"text": "unity object pooling for beginners", "label": "general"}
+{"text": "what is event delegation and why use it", "label": "specialized"}
+{"text": "C++ smart pointers - when should i use unique_ptr vs shared_ptr", "label": "general"}
+{"text": "How do I store a JWT securely in the browser?", "label": "specialized"}
+{"text": "How do I pass data from a parent component to a child?", "label": "specialized"}
+{"text": "C# dependency injection lifetimes explained scoped vs singleton", "label": "general"}
+{"text": "How does masked attention work in a decoder?", "label": "specialized"}
+{"text": "why is my fetch returning a promise instead of data?", "label": "specialized"}
+{"text": "What is the difference between Windows and macOS?", "label": "general"}
+{"text": "ctrl shift t not working", "label": "general"}
+{"text": "fine tuning basics - when should i fine tune instead of using prompts", "label": "specialized"}
+{"text": "how do i cancel a running task in asyncio", "label": "specialized"}
+{"text": "CORS middleware not working, preflight request fails", "label": "specialized"}
+{"text": "why is my component rendering twice", "label": "specialized"}
+{"text": "TestClient raises exception but server works fine in production", "label": "specialized"}
+{"text": "Testing file uploads with TestClient, how?", "label": "specialized"}
+{"text": "what does *args and **kwargs actually do", "label": "specialized"}
+{"text": "how do I use semicolons correctly?", "label": "general"}
+{"text": "whats the difference between useRef and useState", "label": "specialized"}
+{"text": "AttributeError: 'NoneType' object has no attribute 'append'", "label": "specialized"}
+{"text": "can you remember our conversation", "label": "general"}
+{"text": "What is the difference between APIRouter and including routes directly on the app?", "label": "specialized"}
+{"text": "how do i fix \"Objects are not valid as a React child\" error", "label": "specialized"}
+{"text": "what is the virtual DOM and is it the same as the real DOM", "label": "specialized"}
+{"text": "Getting \"Access to fetch blocked by CORS policy\" how do I fix it", "label": "specialized"}
+{"text": "Is it better to list skills or achievements on a resume?", "label": "general"}
+{"text": "mac won't connect to eduroam", "label": "general"}
+{"text": "tell me about the silk road", "label": "general"}
+{"text": "What is the difference between a tornado watch and a tornado warning?", "label": "general"}
+{"text": "my profit margin formula keeps giving negative numbers help", "label": "general"}
+{"text": "Explain fine-tuning like I'm a beginner", "label": "specialized"}
+{"text": "how do i constrain a generic to have a certain property", "label": "specialized"}
+{"text": "how to create a type from the keys of another type", "label": "specialized"}
+{"text": "Why does the Moon look bigger near the horizon?", "label": "general"}
+{"text": "my keyboard types wrong characters like @ and \"", "label": "general"}
+{"text": "difference between stocks and bonds?", "label": "general"}
+{"text": "why does rebuilding take so long, layer caching?", "label": "specialized"}
+{"text": "typo question lol: how do i make a clas in c#", "label": "general"}
+{"text": "how do I rotate refresh tokens", "label": "specialized"}
+{"text": "what is xss and how does react protect against it", "label": "specialized"}
+{"text": "pydantic v1 to v2 migration, \"orm_mode\" error", "label": "specialized"}
+{"text": "how do i write a makefile for a c++ project", "label": "general"}
+{"text": "difference between inner join and left join?", "label": "specialized"}
+{"text": "what's the difference between who and whom", "label": "general"}
+{"text": "how do i link my css file to html?", "label": "specialized"}
+{"text": "why is my middleware not running for 404 responses", "label": "specialized"}
+{"text": "How do I prevent a form from reloading the page on submit?", "label": "specialized"}
+{"text": "how do i cite sources in rag answers so users can verify", "label": "specialized"}
+{"text": "wether forecast for chicago", "label": "general"}
+{"text": "should i put the version in the URL or in a header", "label": "specialized"}
+{"text": "can decorators take arguments", "label": "specialized"}
+{"text": "golang defer inside loop not working as expected", "label": "general"}
+{"text": "how do I add memory to my chatbot", "label": "specialized"}
+{"text": "Why does my list change when I pass it to a function?", "label": "specialized"}
+{"text": "excel vlookup returning N/A", "label": "general"}
+{"text": "How do I reduce image size with multi-stage builds?", "label": "specialized"}
+{"text": "time in new york vs california", "label": "general"}
+{"text": "what is a topological sort used for", "label": "general"}
+{"text": "translate \"where is the train station\" to Spanish", "label": "general"}
+{"text": "how do i topologically sort a graph", "label": "general"}
+{"text": "my retriever keeps pulling chunks that cut off mid-sentence, how do I fix that", "label": "specialized"}
+{"text": "should pagination links go in the Link header or the body?", "label": "specialized"}
+{"text": "how to use async await in swift properly", "label": "general"}
+{"text": "SyntaxError: await is only valid in async functions - help", "label": "specialized"}
+{"text": "what is ARC in swift and why do i get strong reference cycles", "label": "general"}
+{"text": "How do I compute scaled dot-product attention step by step?", "label": "specialized"}
+{"text": "can a class inherit from two classes", "label": "specialized"}
+{"text": "why do i keep failing final round interviews", "label": "general"}
+{"text": "Getting \"port is already allocated\" when running docker compose up, how to fix?", "label": "specialized"}
+{"text": "my code throws IndexError list index out of range when i loop over my list, what does this mean", "label": "general"}
+{"text": "how do I stop the model from making things up", "label": "specialized"}
+{"text": "how do i roll my r's", "label": "general"}
+{"text": "translate this to japanese: where is the train station", "label": "general"}
+{"text": "crypto wallet says \"insufficient funds for gas\" what does that mean", "label": "general"}
+{"text": "My DFS causes stack overflow on a 100k node graph, how do I fix it?", "label": "general"}
+{"text": "what's a Location header used for in a 201 response", "label": "specialized"}
+{"text": "does python have interfaces like java", "label": "specialized"}
+{"text": "What is the DOM in simple terms?", "label": "specialized"}
+{"text": "Windows update stuck at 100%", "label": "general"}
+{"text": "c# async await explained simply", "label": "general"}
+{"text": "what is the difference between a cold and the flu", "label": "general"}
+{"text": "my boyfriend and i keep arguing about small things", "label": "general"}
+{"text": "fastapi routing prefix and tags example", "label": "specialized"}
+{"text": "how to write a strong thesis statement", "label": "general"}
+{"text": "How do I pass environment variables into a container?", "label": "specialized"}
+{"text": "can i use docker compose in production", "label": "specialized"}
+{"text": "what is REST actually", "label": "specialized"}
+{"text": "asyncio task vs future", "label": "specialized"}
+{"text": "why do transactions block each other", "label": "specialized"}
+{"text": "best way to do in-app purchases in unity for ios and android", "label": "general"}
+{"text": "Unity build to iOS fails with signing error", "label": "general"}
+{"text": "my jwt expired after 15 minutes and users are complaining, what do i do", "label": "specialized"}
+{"text": "Can you explain dollar cost averaging?", "label": "general"}
+{"text": "\"Error: timezone not recognized\" when i run my script, what does this mean?", "label": "general"}
+{"text": "best way to learn guitar at home", "label": "general"}
+{"text": "tell me an interesting fact about octopuses", "label": "general"}
+{"text": "why do transformers need positional encodings if attention is permutation invariant?", "label": "specialized"}
+{"text": "Is O(2^n) always worse than O(n^2)?", "label": "general"}
+{"text": "got \"CORS policy: No 'Access-Control-Allow-Origin' header\" error, what does it mean?", "label": "specialized"}
+{"text": "Why is \"The reason is because\" considered wrong?", "label": "general"}
+{"text": "casual: so like why does chatgpt feel different from bert lol", "label": "specialized"}
+{"text": "can someone explain refresh token rotation like im 5", "label": "specialized"}
+{"text": "my resume keeps getting rejected by the ATS, what am I doing wrong", "label": "general"}
+{"text": "how do i start running as a complete beginner", "label": "general"}
+{"text": "android studio error “Manifest merger failed with multiple errors” how to fix", "label": "general"}
+{"text": "Readonly utility type - how does it work", "label": "specialized"}
+{"text": "what is the difference between short-term and long-term memory in agents?", "label": "specialized"}
+{"text": "type 'never' error when using reduce", "label": "specialized"}
+{"text": "Why does my dependency get called twice per request?", "label": "specialized"}
+{"text": "why does BERT use bidirectional attention but GPT can't", "label": "specialized"}
+{"text": "whats the difference between area and perimeter", "label": "general"}
+{"text": "does fine-tuning teach a model new facts?", "label": "specialized"}
+{"text": "is it \"a lot\" or \"alot\"", "label": "general"}
+{"text": "usememo vs usecallback when to use", "label": "specialized"}
+{"text": "how do i return a custom error response in fastapi", "label": "specialized"}
+{"text": "whats the difference between short-term and long-term memory in ai agents", "label": "specialized"}
+{"text": "my useEffect runs on every render and i cant figure out why", "label": "specialized"}
+{"text": "why does dijkstra fail with negative weights", "label": "general"}
+{"text": "what does the softmax temperature do during generation", "label": "specialized"}
+{"text": "how many hours of sleep do teenagers need", "label": "general"}
+{"text": "is it bad to switch careers at 30", "label": "general"}
+{"text": "what does docker build context mean", "label": "specialized"}
+{"text": "comma before \"but\" or not", "label": "general"}
+{"text": "keyboard shortcut to switch between windows", "label": "general"}
+{"text": "why does setTimeout run after my promise callbacks", "label": "specialized"}
+{"text": "how to do auth with dependencies and get the current user in routes", "label": "specialized"}
+{"text": "how do i implement causal masking in pytorch", "label": "specialized"}
+{"text": "can interfaces extend type aliases", "label": "specialized"}
+{"text": "hey quick q - can you remember what we talked about yesterday", "label": "general"}
+{"text": "\"Error 401: unauthorized\" when I try to load the news API, what does this mean?", "label": "general"}
+{"text": "How do I persist database data with volumes in compose?", "label": "specialized"}
+{"text": "whats happening in the world today", "label": "general"}
+{"text": "Can I use the same resume for every job application?", "label": "general"}
+{"text": "what does this error mean: \"Subject-verb agreement error in clause 2\"", "label": "general"}
+{"text": "what does \"genau\" mean in german", "label": "general"}
+{"text": "what is idempotency in http methods", "label": "specialized"}
+{"text": "my teacher says my writing is too informal, how do i make it more academic", "label": "general"}
+{"text": "Postgres error: duplicate key value violates unique constraint", "label": "specialized"}
+{"text": "my vector search returns irrelevant results, how do I fix it", "label": "specialized"}
+{"text": "getting \"Too many re-renders\" error how to fix", "label": "specialized"}
+{"text": "how do i schedule a coroutine to run later with a delay", "label": "specialized"}
+{"text": "how to read a JSON body and also use a pydantic model in the same endpoint", "label": "specialized"}
+{"text": "ts error: Property 'name' does not exist on type '{}'", "label": "specialized"}
+{"text": "error: transaction failed nonce too low", "label": "general"}
+{"text": "how do i read a news article critically", "label": "general"}
+{"text": "what is hybrid search and should i use it", "label": "specialized"}
+{"text": "how do i find the shortest path in a weighted graph", "label": "general"}
+{"text": "what is the difference between varchar and text in postgres", "label": "specialized"}
+{"text": "what is the difference between baking soda and baking powder", "label": "general"}
+{"text": "why do my cookies disappear after refresh", "label": "specialized"}
+{"text": "why is dijkstra wrong with negative weights", "label": "general"}
+{"text": "How do I answer \"what is your greatest weakness\" in an interview?", "label": "general"}
+{"text": "waht is a coroutine", "label": "specialized"}
+{"text": "my model output says \"shape mismatch in attention mask\" what does that mean", "label": "specialized"}
+{"text": "sorry for asking so many questions lol", "label": "general"}
+{"text": "why do time zones exist", "label": "general"}
+{"text": "getting 405 Method Not Allowed on POST - what did I do wrong?", "label": "specialized"}
+{"text": "is it ok to eat eggs every day", "label": "general"}
+{"text": "how do i debug N+1 queries in sqlalchemy", "label": "specialized"}
+{"text": "whats the best way to practice speaking if i have no one to talk to", "label": "general"}
+{"text": "How do I get the most useful answers from you?", "label": "general"}
+{"text": "useEffect cleanup function example", "label": "specialized"}
+{"text": "my build says \"failed to solve: process did not complete successfully: exit code: 1\" how do I debug it", "label": "specialized"}
+{"text": "how do I write a good thesis statement", "label": "general"}
+{"text": "whats the best way to study for exams", "label": "general"}
+{"text": "what is photosynthesis", "label": "general"}
+{"text": "whats the point of .dockerignore", "label": "specialized"}
+{"text": "how do i make a custom exception class", "label": "specialized"}
+{"text": "K what exactly is a context window", "label": "specialized"}
+{"text": "\"could of\" or \"could have\"", "label": "general"}
+{"text": "is it ok to ask about salary in the first interview", "label": "general"}
+{"text": "whats wrong with calling setState directly in the render body", "label": "specialized"}
+{"text": "Error: cannot divide by zero, what does this mean", "label": "general"}
+{"text": "how do I cite a website in APA 7?", "label": "general"}
+{"text": "type alias vs interface for function signatures", "label": "specialized"}
+{"text": "crypto wallet says insufficient gas fees error how fix", "label": "general"}
+{"text": "i keep getting RuntimeWarning: coroutine 'main' was never awaited", "label": "specialized"}
+{"text": "My Kotlin app shows \"E/RecyclerView: No adapter attached; skipping layout\"", "label": "general"}
+{"text": "how do i run code only once when component mounts", "label": "specialized"}
+{"text": "Why should keys be unique in a list?", "label": "specialized"}
+{"text": "what does EXPLAIN ANALYZE do", "label": "specialized"}
+{"text": "Task was destroyed but it is pending! how do i fix this", "label": "specialized"}
+{"text": "asyncio.gather return_exceptions=True what does it do", "label": "specialized"}
+{"text": "how do i find the volume of a cylinder", "label": "general"}
+{"text": "what is a dangling modifier", "label": "general"}
+{"text": "how do i create a composite index in postgres", "label": "specialized"}
+{"text": "How do I represent a graph in code, adjacency list or matrix?", "label": "general"}
+{"text": "Can I use POST for partial updates if PATCH isn't supported?", "label": "specialized"}
+{"text": "how do i set httpOnly cookies in express", "label": "specialized"}
+{"text": "why is my state stale inside setInterval", "label": "specialized"}
+{"text": "how do i use environment variables in vite", "label": "specialized"}
+{"text": "How do I convert text into tokens before feeding it to a transformer?", "label": "specialized"}
+{"text": "why does my async function not run when I call it", "label": "specialized"}
+{"text": "difference between 400 and 422?", "label": "specialized"}

@@ -1,0 +1,24 @@
+# Secrets and local config
+.env.local
+.env
+
+# Python
+__pycache__/
+*.pyc
+
+# Local model weights (large, downloaded separately)
+models/
+
+# OS files
+.DS_Store
+
+# Frontend dependencies and build output
+node_modules/
+dist/
+*.tsbuildinfo
+
+# Eval run outputs (datasets and scripts are committed)
+eval_results/
+
+# Knowledge base documents (downloaded by scripts/knowledge/fetch_sources.py; licensed by their owners)
+data/knowledge/

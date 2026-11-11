@@ -1,0 +1,40 @@
+{"text": "How do I make an HTTP request from Python?", "label": "specialized"}
+{"text": "What status code should my API return when a resource is not found?", "label": "specialized"}
+{"text": "Why does my browser block the response from my backend?", "label": "specialized"}
+{"text": "Where should a single page app keep its JWT?", "label": "specialized"}
+{"text": "asyncio vs JavaScript promises, how are they similar", "label": "specialized"}
+{"text": "how to reverse a list in python", "label": "specialized"}
+{"text": "Implement binary search in Python", "label": "specialized"}
+{"text": "useEffect runs twice in development, why?", "label": "specialized"}
+{"text": "Type 'string' is not assignable to type 'number'", "label": "specialized"}
+{"text": "How do embeddings capture meaning?", "label": "specialized"}
+{"text": "What is a reducer in LangGraph?", "label": "specialized"}
+{"text": "How can I reduce hallucinations in a chatbot?", "label": "specialized"}
+{"text": "Vector database or Postgres with pgvector for a small app?", "label": "specialized"}
+{"text": "How big should chunks be for RAG?", "label": "specialized"}
+{"text": "docker compose up fails with port is already allocated", "label": "specialized"}
+{"text": "What is the event loop?", "label": "specialized"}
+{"text": "how does self-attention work", "label": "specialized"}
+{"text": "Can I fine-tune a small model on my own data?", "label": "specialized"}
+{"text": "interface or type alias, which one should I use?", "label": "specialized"}
+{"text": "flexbox vs grid", "label": "specialized"}
+{"text": "How do I make an HTTP request in Go?", "label": "general"}
+{"text": "Implement JWT authentication in Spring Boot", "label": "general"}
+{"text": "Java generics vs C# generics", "label": "general"}
+{"text": "Explain Rust's borrow checker", "label": "general"}
+{"text": "What is the time complexity of quicksort?", "label": "general"}
+{"text": "Explain Dijkstra's algorithm", "label": "general"}
+{"text": "How do I prepare for a backend developer interview?", "label": "general"}
+{"text": "Write a cover letter for a frontend job", "label": "general"}
+{"text": "What's the weather in Seattle today?", "label": "general"}
+{"text": "thanks, that helped!", "label": "general"}
+{"text": "How many tablespoons are in a cup?", "label": "general"}
+{"text": "My laptop won't connect to Wi-Fi", "label": "general"}
+{"text": "Excel VLOOKUP returns #N/A", "label": "general"}
+{"text": "Should I invest in index funds?", "label": "general"}
+{"text": "Translate good morning into Spanish", "label": "general"}
+{"text": "Swift async await vs completion handlers", "label": "general"}
+{"text": "What is a pointer in C?", "label": "general"}
+{"text": "How does a suspend function work in Kotlin?", "label": "general"}
+{"text": "Who invented the internet?", "label": "general"}
+{"text": "how do goroutines differ from threads", "label": "general"}

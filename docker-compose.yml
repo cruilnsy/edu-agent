@@ -1,0 +1,164 @@
+# Starts every service: PostgreSQL, Milvus (with etcd and MinIO), Attu, the backend and the frontend.
+#
+#     docker compose --env-file .env.local up -d --build      # then open http://localhost:8080
+#     docker compose --env-file .env.local up -d postgres milvus attu   # databases only, for local development
+#
+# Needs .env.local (copy .env.example) and the local models in ./models. Host ports avoid the
+# defaults (5433, 19531, 30000, 8080) so they do not clash with local installs or dev servers.
+
+services:
+
+  # ── PostgreSQL: main database, host port 5433 ──
+  postgres:
+    image: postgres:15-alpine
+    container_name: edu_agent_postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${DB_NAME:-eduagent_en}
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      PGTZ: UTC
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      # Creates the schema on the container's first start (empty data volume only)
+      - ./scripts/init_db.sql:/docker-entrypoint-initdb.d/01_init_db.sql:ro
+    ports:
+      - "5433:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER} -d ${DB_NAME:-eduagent_en}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # ── etcd: Milvus metadata, internal only ──
+  etcd:
+    image: quay.io/coreos/etcd:v3.5.14
+    container_name: edu_agent_etcd
+    restart: unless-stopped
+    environment:
+      ETCD_AUTO_COMPACTION_MODE: revision
+      ETCD_AUTO_COMPACTION_RETENTION: "1000"
+      ETCD_QUOTA_BACKEND_BYTES: "4294967296"
+    command: >
+      etcd
+      --advertise-client-urls=http://127.0.0.1:2379
+      --listen-client-urls=http://0.0.0.0:2379
+      --data-dir=/etcd
+    volumes:
+      - etcd_data:/etcd
+
+  # ── MinIO: Milvus file storage, internal only ──
+  minio:
+    # minio/minio is no longer on Docker Hub and the official registries need a login, so this
+    # uses Chainguard's free image
+    image: cgr.dev/chainguard/minio:latest
+    container_name: edu_agent_minio
+    restart: unless-stopped
+    command: server /data
+    environment:
+      MINIO_ROOT_USER: ${MINIO_ACCESS_KEY:?Set MINIO_ACCESS_KEY in .env.local}
+      MINIO_ROOT_PASSWORD: ${MINIO_SECRET_KEY:?Set MINIO_SECRET_KEY in .env.local}
+      # For the mc health check below (the image has no curl)
+      MC_HOST_local: http://${MINIO_ACCESS_KEY:?Set MINIO_ACCESS_KEY in .env.local}:${MINIO_SECRET_KEY:?Set MINIO_SECRET_KEY in .env.local}@localhost:9000
+    volumes:
+      - minio_data:/data
+    healthcheck:
+      test: ["CMD", "mc", "ready", "local"]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+
+  # ── Milvus: vector database, host port 19531 ──
+  milvus:
+    image: milvusdb/milvus:v2.4.0
+    container_name: edu_agent_milvus
+    restart: unless-stopped
+    command: ["milvus", "run", "standalone"]
+    environment:
+      ETCD_ENDPOINTS: etcd:2379
+      MINIO_ADDRESS: minio:9000
+      MINIO_ACCESS_KEY_ID: ${MINIO_ACCESS_KEY:?Set MINIO_ACCESS_KEY in .env.local}
+      MINIO_SECRET_ACCESS_KEY: ${MINIO_SECRET_KEY:?Set MINIO_SECRET_KEY in .env.local}
+    volumes:
+      - milvus_data:/var/lib/milvus
+    ports:
+      - "19531:19530"
+    depends_on:
+      etcd:
+        condition: service_started
+      minio:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9091/healthz"]
+      interval: 15s
+      timeout: 10s
+      retries: 10
+
+  # ── Attu: Milvus admin UI, http://localhost:30000 ──
+  attu:
+    image: zilliz/attu:v2.4.12
+    container_name: edu_agent_attu
+    restart: unless-stopped
+    environment:
+      MILVUS_URL: milvus:19530          # Service name inside the Docker network, not localhost:19531
+      SERVER_PORT: "3000"
+    ports:
+      - "127.0.0.1:30000:3000"
+    depends_on:
+      milvus:
+        condition: service_healthy
+
+  # ── Backend: FastAPI, reached through the frontend's /api; not published on the host ──
+  backend:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    container_name: edu_agent_backend
+    restart: unless-stopped
+    env_file: .env.local
+    environment:                        # Container addresses instead of the host ports in .env.local
+      DB_HOST: postgres
+      DB_PORT: "5432"
+      MILVUS_HOST: milvus
+      MILVUS_PORT: "19530"
+      APP_HOST: 0.0.0.0
+      RERANKER_MODEL_PATH: /models/reranker
+      BGE_M3_MODEL_PATH: /models/embedding
+      CLASSIFIER_MODEL_PATH: /models/classifier-base
+      FINETUNED_CLASSIFIER_PATH: /models/classifier-finetuned
+    volumes:
+      # One mount per model: Docker follows a symlink in the source path, so ./models entries
+      # may link to a shared model folder elsewhere on the host
+      - ./models/reranker/bge-reranker-v2-m3:/models/reranker:ro
+      - ./models/embedding/bge-m3:/models/embedding:ro
+      - ./models/classifier/all-MiniLM-L6-v2:/models/classifier-base:ro
+      - ./models/classifier/finetune-en:/models/classifier-finetuned:ro
+    depends_on:
+      postgres:
+        condition: service_healthy
+      milvus:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8010/health')"]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+      start_period: 120s                # Loading the local models takes a while
+
+  # ── Frontend: built app served by nginx, http://localhost:8080 ──
+  frontend:
+    build: ./frontend
+    container_name: edu_agent_frontend
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:8080:80"
+    depends_on:
+      backend:
+        condition: service_healthy
+
+# ── Named volumes: data survives container restarts and rebuilds ──
+volumes:
+  postgres_data:
+  etcd_data:
+  minio_data:
+  milvus_data:

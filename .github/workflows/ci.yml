@@ -1,0 +1,122 @@
+# Tests and scans on every push and pull request. No secrets and no LLM calls: the tests replace the LLM,
+# and the evaluations (which call it) run locally with scripts/evaluation/run_all.py.
+
+name: CI
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:                                  # A newer push to the same branch cancels the older run
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  backend:
+    name: Backend tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    services:
+      postgres:
+        image: postgres:15-alpine
+        env:                                  # Throwaway database that lives only for this job
+          POSTGRES_DB: eduagent_en
+          POSTGRES_USER: ci
+          POSTGRES_PASSWORD: ci
+        ports:
+          - 5433:5432
+        options: >-
+          --health-cmd "pg_isready -U ci -d eduagent_en"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
+
+    env:
+      DB_HOST: localhost
+      DB_PORT: "5433"
+      DB_NAME: eduagent_en
+      DB_USER: ci
+      DB_PASSWORD: ci
+      DEEPSEEK_API_KEY: not-a-real-key        # Required by the settings; never used by the tests
+      HF_HUB_OFFLINE: "1"
+      PIP_DISABLE_PIP_VERSION_CHECK: "1"
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+          cache-dependency-path: requirements.lock.txt
+
+      - name: Install dependencies
+        run: |
+          # CPU-only torch first: the default wheel on Linux pulls several GB of CUDA libraries
+          pip install torch==2.5.1 --index-url https://download.pytorch.org/whl/cpu
+          pip install -r requirements.lock.txt
+          pip install -e . --no-deps --no-build-isolation
+
+      - name: Generate the signing key and account passwords
+        run: |
+          for name in JWT_SECRET_KEY SEED_ADMIN_PASSWORD SEED_TEACHER_PASSWORD SEED_STUDENT_PASSWORD; do
+            value=$(python -c "import secrets; print(secrets.token_urlsafe(36))")
+            echo "::add-mask::$value"
+            echo "$name=$value" >> "$GITHUB_ENV"
+          done
+
+      - name: Create the schema and seed the accounts
+        env:
+          PGPASSWORD: ci
+        run: |
+          psql -h localhost -p 5433 -U ci -d eduagent_en -v ON_ERROR_STOP=1 -q -f scripts/init_db.sql
+          python scripts/seed_data.py
+
+      - name: Unit and integration tests
+        run: python -m pytest tests/unit tests/integration -q
+
+  frontend:
+    name: Frontend build
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    defaults:
+      run:
+        working-directory: frontend
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+
+      - run: npm ci
+      - name: Type-check and build
+        run: npm run build
+
+  scan:
+    name: Secret and personal-data scan
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0                      # The secret scan reads every commit
+
+      - name: Secrets in any commit (gitleaks, settings in .gitleaks.toml)
+        run: |
+          curl -sSfL https://github.com/gitleaks/gitleaks/releases/download/v8.30.1/gitleaks_8.30.1_linux_x64.tar.gz \
+            | tar -xz gitleaks
+          ./gitleaks git --redact --no-banner -v .
+
+      - name: No local paths, LAN addresses or Chinese text in tracked files
+        run: |
+          if git grep -nIP '/Users/|/home/[a-z]|192\.168\.\d|[\x{4e00}-\x{9fff}]' -- . ':!.github/workflows/ci.yml'; then
+            echo "::error::Remove the lines above: the repository keeps no personal data, and code and comments are in English"
+            exit 1
+          fi

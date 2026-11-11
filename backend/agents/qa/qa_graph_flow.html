@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>QA Agent Graph</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  /* Layout: single reading column — diagram first (scrolls sideways on its own if needed), then the three routers and the node glossary. */
+  :root {
+    --bg: #f6f7f9;
+    --surface: #ffffff;
+    --fg: #1d2330;
+    --muted: #5d6677;
+    --line: #dde1e8;
+    --accent: #2f6fdb;
+    --font-body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #12151b; --surface: #1b1f27; --fg: #e6e9ef; --muted: #9aa3b2; --line: #2c323d; --accent: #7aa7ff;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #12151b; --surface: #1b1f27; --fg: #e6e9ef; --muted: #9aa3b2; --line: #2c323d; --accent: #7aa7ff;
+    color-scheme: dark;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: var(--font-body);
+    font-size: 15px;
+    line-height: 1.65;
+  }
+  .wrap {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding-block: 40px 64px;
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+    display: grid;
+    gap: 36px;
+  }
+  header { display: grid; gap: 8px; }
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+  }
+  h1 { margin: 0; font-size: 28px; line-height: 1.3; text-wrap: balance; }
+  h2 { margin: 0 0 12px; font-size: 18px; text-wrap: balance; }
+  p { margin: 0; max-width: 65ch; }
+  .lede { color: var(--muted); }
+  code, .mono { font-family: var(--font-mono); font-size: 0.9em; }
+
+  .diagram {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 20px;
+    overflow-x: auto;
+  }
+  .diagram pre.mermaid { margin: 0; min-width: 640px; text-align: center; background: transparent; }
+
+  .legend { display: flex; flex-wrap: wrap; gap: 8px 18px; font-size: 13px; color: var(--muted); }
+  .legend span { display: inline-flex; align-items: center; gap: 6px; }
+  .swatch { width: 12px; height: 12px; border-radius: 3px; border: 1px solid rgba(0,0,0,.18); }
+
+  .routers { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; }
+  .router { min-width: 0; }
+  .router h3 { margin: 0 0 4px; font-size: 15px; }
+  .router .fn { color: var(--muted); font-size: 12.5px; margin-bottom: 10px; display: block; }
+  table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+  th, td { text-align: left; padding: 7px 8px; border-top: 1px solid var(--line); vertical-align: top; }
+  th { color: var(--muted); font-weight: 500; font-size: 12px; border-top: none; }
+  td:last-child { font-family: var(--font-mono); font-size: 12.5px; white-space: nowrap; }
+
+  .nodes { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 10px 24px; margin: 0; }
+  .nodes div { min-width: 0; padding-block: 8px; border-top: 1px solid var(--line); }
+  .nodes dt { font-family: var(--font-mono); font-size: 13px; color: var(--accent); }
+  .nodes dd { margin: 2px 0 0; font-size: 13.5px; }
+
+  .note { font-size: 13.5px; color: var(--muted); }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header>
+    <span class="eyebrow">backend/agents/qa/graph.py · build_qa_graph()</span>
+    <h1>QA agent graph</h1>
+    <p class="lede">Ten nodes and three conditional routes. Every question enters at <code>classify_query</code>, is routed by question type and retrieval confidence, and ends at <code>save_memory</code>. The graph is compiled with a MemorySaver, so each <code>thread_id</code> keeps its conversation.</p>
+  </header>
+
+  <section class="diagram" aria-label="QA agent flowchart">
+<pre class="mermaid">
+flowchart TD
+    S(["START"]) --> C["classify_query<br/>question type"]
+
+    C -- "GENERAL" --> GG
+    C -- "GENERAL + web" --> W
+    C -- "PRECISE" --> R
+    C -- "VAGUE" --> H["hyde_generate<br/>hypothetical answer (HyDE)"]
+    C -- "BROAD" --> M["multi_query_rewrite<br/>split into sub-queries"]
+
+    H --> R
+    M --> R
+    R["retrieve<br/>hybrid recall + BGE rerank"]
+
+    R -- "confidence ≥ 0.75" --> RAG["generate_rag<br/>answer from the knowledge base"]
+    R -- "< 0.75, web on" --> W["web_search<br/>web search MCP"]
+    R -- "< 0.75, web off" --> D["generate_direct<br/>LLM answer"]
+
+    W -- "query_type = GENERAL" --> GG["generate_general<br/>general answer"]
+    W -- "from low confidence" --> D
+
+    RAG --> SM
+    GG --> SM
+    D --> E["enqueue_pending<br/>add to the gap queue"]
+    E --> SM["save_memory<br/>save the conversation"]
+    SM --> END(["END"])
+
+    classDef io fill:#d9dee7,stroke:#6b7486,color:#1d2330
+    classDef cls fill:#cfe0ff,stroke:#2f6fdb,color:#13254a
+    classDef prep fill:#e6dcff,stroke:#7a5ad6,color:#2a1a5c
+    classDef ret fill:#ffe3b8,stroke:#c98a1c,color:#4a2f00
+    classDef web fill:#c9f0ef,stroke:#1f9a96,color:#073b39
+    classDef gen fill:#d3f2d6,stroke:#3a9a4a,color:#0f3a17
+    classDef tail fill:#f3dbe3,stroke:#b35277,color:#4a1428
+
+    class S,END io
+    class C cls
+    class H,M prep
+    class R ret
+    class W web
+    class RAG,GG,D gen
+    class E,SM tail
+</pre>
+  </section>
+
+  <div class="legend" aria-label="Colour key">
+    <span><i class="swatch" style="background:#cfe0ff"></i>Classify</span>
+    <span><i class="swatch" style="background:#e6dcff"></i>Before retrieval</span>
+    <span><i class="swatch" style="background:#ffe3b8"></i>Retrieval</span>
+    <span><i class="swatch" style="background:#c9f0ef"></i>Web search (shared by two paths)</span>
+    <span><i class="swatch" style="background:#d3f2d6"></i>Answer</span>
+    <span><i class="swatch" style="background:#f3dbe3"></i>Finish</span>
+  </div>
+
+  <section>
+    <h2>The three routes</h2>
+    <div class="routers">
+      <div class="router">
+        <h3>1. By question type</h3>
+        <span class="fn mono">classify_query → _route_by_query_type</span>
+        <table>
+          <thead><tr><th>Condition</th><th>Goes to</th></tr></thead>
+          <tbody>
+            <tr><td>GENERAL, web off</td><td>generate_general</td></tr>
+            <tr><td>GENERAL, web on</td><td>web_search</td></tr>
+            <tr><td>PRECISE</td><td>retrieve</td></tr>
+            <tr><td>VAGUE</td><td>hyde_generate</td></tr>
+            <tr><td>BROAD</td><td>multi_query_rewrite</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="router">
+        <h3>2. By retrieval confidence</h3>
+        <span class="fn mono">retrieve → _route_by_confidence</span>
+        <table>
+          <thead><tr><th>Condition</th><th>Goes to</th></tr></thead>
+          <tbody>
+            <tr><td>Top rerank score ≥ 0.75</td><td>generate_rag</td></tr>
+            <tr><td>&lt; 0.75, web on</td><td>web_search</td></tr>
+            <tr><td>&lt; 0.75, web off</td><td>generate_direct</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="router">
+        <h3>3. After web search</h3>
+        <span class="fn mono">web_search → _route_after_web_search</span>
+        <table>
+          <thead><tr><th>Condition</th><th>Goes to</th></tr></thead>
+          <tbody>
+            <tr><td>query_type = GENERAL</td><td>generate_general</td></tr>
+            <tr><td>Otherwise (low confidence)</td><td>generate_direct</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Nodes</h2>
+    <dl class="nodes">
+      <div><dt>classify_query</dt><dd>Rules plus the fine-tuned classifier decide GENERAL / PRECISE / VAGUE / BROAD, and detect requests to search the web.</dd></div>
+      <div><dt>hyde_generate</dt><dd>For a vague question, the LLM writes a hypothetical answer, which is used for retrieval instead of the question.</dd></div>
+      <div><dt>multi_query_rewrite</dt><dd>A broad question is split into sub-queries, retrieved in parallel, then merged without duplicates.</dd></div>
+      <div><dt>retrieve</dt><dd>BGE-M3 dense + sparse hybrid recall, then the BGE reranker keeps the top 3. The top score is the confidence.</dd></div>
+      <div><dt>generate_rag</dt><dd>Answers only from the retrieved knowledge base content and lists the sources.</dd></div>
+      <div><dt>web_search</dt><dd>Calls the web search MCP server (Tavily first, DuckDuckGo as fallback). If the service is down it returns nothing and the flow continues.</dd></div>
+      <div><dt>generate_direct</dt><dd>The LLM answers when the knowledge base is not enough, using search results if there are any; otherwise it adds a note.</dd></div>
+      <div><dt>generate_general</dt><dd>Greetings and questions unrelated to the courses; uses search results when the web is on.</dd></div>
+      <div><dt>enqueue_pending</dt><dd>Adds the low-confidence question to <code>knowledge_pending_queue</code> so a teacher can fill the gap; duplicates are ignored.</dd></div>
+      <div><dt>save_memory</dt><dd>Saves this turn. Every path ends here.</dd></div>
+    </dl>
+  </section>
+
+  <p class="note">Only answers from <code>generate_direct</code> go to the gap queue: questions the knowledge base could not answer well are recorded, while GENERAL questions and high-confidence answers are not.</p>
+</div>
+<!-- Renders the diagram with mermaid when the file is opened locally -->
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10.9.1/dist/mermaid.min.js"></script>
+<script>
+  const dark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+  mermaid.initialize({ startOnLoad: true, theme: dark ? "dark" : "default", securityLevel: "strict" });
+</script>
+</body>
+</html>

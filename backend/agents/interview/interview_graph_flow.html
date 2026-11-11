@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Interview Agent Graph</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  /* Layout: single reading column — per-turn graph, stage machine, API lifecycle, then stage table, report weights and node glossary. */
+  :root {
+    --bg: #f6f7f9;
+    --surface: #ffffff;
+    --fg: #1d2330;
+    --muted: #5d6677;
+    --line: #dde1e8;
+    --accent: #2f6fdb;
+    --bar: #e8a33a;
+    --font-body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #12151b; --surface: #1b1f27; --fg: #e6e9ef; --muted: #9aa3b2; --line: #2c323d; --accent: #7aa7ff; --bar: #e0a74e;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #12151b; --surface: #1b1f27; --fg: #e6e9ef; --muted: #9aa3b2; --line: #2c323d; --accent: #7aa7ff; --bar: #e0a74e;
+    color-scheme: dark;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: var(--font-body);
+    font-size: 15px;
+    line-height: 1.65;
+  }
+  .wrap {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding-block: 40px 64px;
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+    display: grid;
+    gap: 36px;
+  }
+  .wrap > * { min-width: 0; }
+  header { display: grid; gap: 8px; }
+  .eyebrow { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.06em; color: var(--muted); }
+  h1 { margin: 0; font-size: 28px; line-height: 1.3; text-wrap: balance; }
+  h2 { margin: 0 0 6px; font-size: 18px; text-wrap: balance; }
+  p { margin: 0; max-width: 65ch; }
+  .lede, .sub { color: var(--muted); }
+  .sub { font-size: 13.5px; margin-bottom: 12px; }
+  code, .mono { font-family: var(--font-mono); font-size: 0.9em; }
+
+  .diagram {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 20px;
+    overflow-x: auto;
+  }
+  .diagram pre.mermaid { margin: 0; min-width: 640px; text-align: center; background: transparent; }
+
+  .legend { display: flex; flex-wrap: wrap; gap: 8px 18px; font-size: 13px; color: var(--muted); }
+  .legend span { display: inline-flex; align-items: center; gap: 6px; }
+  .swatch { width: 12px; height: 12px; border-radius: 3px; border: 1px solid rgba(0,0,0,.18); }
+
+  .scroll { overflow-x: auto; }
+  table { width: 100%; min-width: 680px; border-collapse: collapse; font-size: 13.5px; }
+  th, td { text-align: left; padding: 8px; border-top: 1px solid var(--line); vertical-align: top; }
+  th { color: var(--muted); font-weight: 500; font-size: 12px; border-top: none; }
+  td.num { font-family: var(--font-mono); font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .bar { height: 8px; margin-top: 7px; border-radius: 4px; background: var(--bar); }
+  .bar-cell { width: 30%; min-width: 120px; }
+
+  .nodes { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 10px 24px; margin: 0; }
+  .nodes div { min-width: 0; padding-block: 8px; border-top: 1px solid var(--line); }
+  .nodes dt { font-family: var(--font-mono); font-size: 13px; color: var(--accent); }
+  .nodes dd { margin: 2px 0 0; font-size: 13.5px; }
+
+  .note { font-size: 13.5px; color: var(--muted); }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header>
+    <span class="eyebrow">backend/agents/interview/graph.py · build_interview_graph()</span>
+    <h1>Mock interview agent graph</h1>
+    <p class="lede">The graph has no loop and no <code>interrupt</code>. Each candidate message runs it once from START to END; the interview's progress lives in the state, which the checkpointer keeps per thread between requests. The conversation loop is in the API, and the five interview stages are driven by the <code>current_stage</code> field.</p>
+  </header>
+
+  <section>
+    <h2>One turn</h2>
+    <p class="sub">Seven nodes. Each turn takes one branch; the diamond is the conditional route after check_stage, not a node. The answer is graded before the stage check, so it is graded against the question it answers even when the stage then changes.</p>
+    <div class="diagram" aria-label="Mock interview agent, one turn">
+<pre class="mermaid">
+flowchart TD
+    S(["START"]) --> L["① load_context<br/>first request: resume · DB bank · LLM questions · summary in parallel<br/>later: refresh the summary"]
+    L --> E["② evaluate_answer<br/>count the message<br/>grade technical and project answers"]
+    E --> CK["③ check_stage<br/>rules only, no LLM<br/>next stage, or end the interview"]
+    CK --> R{"current_stage<br/>is finished?"}
+    R -- "no: keep talking" --> G["④ generate_response<br/>plan the reply for the stage<br/>LLM reply, fixed text on failure"]
+    G --> M["⑦ save_memory<br/>every 10 turns: compress history<br/>into the session summary"]
+    R -- "yes: end" --> RP["⑤ generate_report<br/>five-dimension report<br/>overall score computed in code"]
+    RP --> SR["⑥ save_report<br/>only if still in_progress<br/>status = finished"]
+    SR --> M
+    M --> END(["END"])
+
+    classDef io fill:#d9dee7,stroke:#6b7486,color:#1d2330
+    classDef parse fill:#cfe0ff,stroke:#2f6fdb,color:#13254a
+    classDef rule fill:#fff4dc,stroke:#c98a1c,color:#4a2f00
+    classDef talk fill:#ffe3b8,stroke:#c98a1c,color:#4a2f00
+    classDef llm fill:#d3f2d6,stroke:#3a9a4a,color:#0f3a17
+    classDef save fill:#f3dbe3,stroke:#b35277,color:#4a1428
+
+    class S,END io
+    class L parse
+    class CK,R rule
+    class E,G talk
+    class RP llm
+    class SR,M save
+</pre>
+    </div>
+  </section>
+
+  <div class="legend" aria-label="Colour key">
+    <span><i class="swatch" style="background:#cfe0ff"></i>Load context</span>
+    <span><i class="swatch" style="background:#fff4dc"></i>Rules (no LLM)</span>
+    <span><i class="swatch" style="background:#ffe3b8"></i>Grading and conversation</span>
+    <span><i class="swatch" style="background:#d3f2d6"></i>Report</span>
+    <span><i class="swatch" style="background:#f3dbe3"></i>Persistence</span>
+  </div>
+
+  <section>
+    <h2>Stage machine</h2>
+    <p class="sub">How <code>current_stage</code> changes; check_stage decides on every turn. These are not graph edges. When a stage changes, its turn count, follow-up count and current question are reset. Turns count candidate messages.</p>
+    <div class="diagram" aria-label="Conditions for each stage change">
+<pre class="mermaid">
+flowchart LR
+    W["warmup<br/>self-introduction"] -- "after the introduction" --> T["tech_base<br/>questions from the bank"]
+    T -- "6 questions asked, 6+ turns,<br/>no follow-up due · or 10 turns" --> P["project<br/>resume deep dive"]
+    P -- "every project covered, 2+ turns,<br/>no follow-up due · or 8 turns" --> C["closing<br/>candidate's questions"]
+    C -- "2 turns" --> F["finished<br/>report"]
+    W & T & P & C -.-> X{{"end early<br/>candidate asks to stop<br/>or 30 turns"}}
+    X -.-> F
+
+    classDef stage fill:#cfe0ff,stroke:#2f6fdb,color:#13254a
+    classDef force fill:#f7d4d4,stroke:#c0392b,color:#4a1010
+    classDef done fill:#d3f2d6,stroke:#3a9a4a,color:#0f3a17
+    class W,T,P,C stage
+    class X force
+    class F done
+</pre>
+    </div>
+    <p class="sub" style="margin-top:12px;margin-bottom:0">An end request is a whole-message pattern such as "can we end the interview" or "I need to leave", so the word "end" inside an answer does not count. Without resume projects, the project stage asks from what the candidate said and moves on after 2 turns. With an empty question bank, the technical stage is skipped.</p>
+  </section>
+
+  <section>
+    <h2>API lifecycle</h2>
+    <p class="sub">Each request runs the graph once. The stream endpoint pushes the interviewer's reply as SSE tokens, then a done event. From <code>backend/api/v1/interview.py</code>; every query is scoped to the caller's tenant and student.</p>
+    <div class="diagram" aria-label="Interview API flow">
+<pre class="mermaid">
+flowchart LR
+    A["POST /sessions<br/>resume review must be the student's own<br/>INSERT status = in_progress"] --> B["first graph run<br/>201 with the opening"]
+    B --> C["POST /sessions/{id}/chat<br/>or /chat/stream"]
+    C --> D["own session, in_progress<br/>(404 / 409 otherwise)<br/>restore state, run the graph"]
+    D -- "not finished: reply" --> C
+    D -- "finished" --> E["report_summary<br/>score · strengths · improvements"]
+    E --> F["GET /sessions/{id}/report<br/>full five-dimension report"]
+
+    classDef api fill:#cfe0ff,stroke:#2f6fdb,color:#13254a
+    classDef bg fill:#ffe3b8,stroke:#c98a1c,color:#4a2f00
+    classDef good fill:#d3f2d6,stroke:#3a9a4a,color:#0f3a17
+    class A,C,F api
+    class B,D bg
+    class E good
+</pre>
+    </div>
+  </section>
+
+  <section>
+    <h2>The four conversation stages</h2>
+    <p class="sub">② labels each answer excellent, adequate, weak or no_answer. ④ uses the label to choose a follow-up or the next question; at most 2 follow-ups per question or project.</p>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>Stage</th><th>Min turns</th><th>Max turns</th><th>What the interviewer does</th><th>Follow-up when</th><th>History window</th></tr></thead>
+        <tbody>
+          <tr><td>warmup</td><td class="num">1</td><td class="num">1</td><td>Opening and request for a self-introduction; nothing is graded</td><td>Never</td><td class="num">2 turns</td></tr>
+          <tr><td>tech_base</td><td class="num">6</td><td class="num">10</td><td>Comments on the introduction and asks the first question; then feedback on each answer and the next question</td><td>Answer is excellent</td><td class="num">8 turns</td></tr>
+          <tr><td>project</td><td class="num">2</td><td class="num">8</td><td>One resume project at a time; without a resume, asks from what the candidate said</td><td>Answer is excellent or adequate</td><td class="num">10 turns</td></tr>
+          <tr><td>closing</td><td class="num">2</td><td class="num">2</td><td>Invites the candidate's questions and answers them; nothing is graded</td><td>Never</td><td class="num">4 turns</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <h2>The five report dimensions</h2>
+    <p class="sub">At the end, the LLM scores each dimension 0–100 from the summary and the transcript (the most recent 20,000 characters). The overall score is the weighted average, computed in code.</p>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>Dimension</th><th>Weight</th><th class="bar-cell"></th><th>What it covers</th></tr></thead>
+        <tbody>
+          <tr><td>Technical depth</td><td class="num">35%</td><td class="bar-cell"><div class="bar" style="width:100%"></div></td><td>Fundamentals and understanding of how things work</td></tr>
+          <tr><td>Project experience</td><td class="num">25%</td><td class="bar-cell"><div class="bar" style="width:71.4%"></div></td><td>Own contribution, design reasons, how problems were solved</td></tr>
+          <tr><td>Communication</td><td class="num">20%</td><td class="bar-cell"><div class="bar" style="width:57.1%"></div></td><td>Structure and clarity of answers</td></tr>
+          <tr><td>Handling pressure</td><td class="num">10%</td><td class="bar-cell"><div class="bar" style="width:28.6%"></div></td><td>Handling questions they cannot answer, and recovering</td></tr>
+          <tr><td>Overall impression</td><td class="num">10%</td><td class="bar-cell"><div class="bar" style="width:28.6%"></div></td><td>Preparation for the role, attitude to learning</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <h2>Nodes</h2>
+    <dl class="nodes">
+      <div><dt>① load_context</dt><dd>On the first request, initializes the state and loads four things with <code>asyncio.gather</code>. LLM questions come first, then the DB bank for the position's track, with near-duplicates removed. If generation fails, the DB bank alone is used. Later requests only read the summary.</dd></div>
+      <div><dt>② evaluate_answer</dt><dd>Counts the message. Technical and project answers get one structured grade (analysis, then label) against the interviewer's last message. "I don't know" skips the LLM. A failed grade counts as adequate. Answers that address the interviewer are flagged.</dd></div>
+      <div><dt>③ check_stage</dt><dd>Ends the interview on an end request or the turn limit; otherwise moves on when the stage's maximum is reached, or its minimum is reached and its content is covered with no follow-up due.</dd></div>
+      <div><dt>④ generate_response</dt><dd>A planner per stage decides what to say and which state to update; then one LLM call writes the reply. If the call fails, a fixed reply still asks the next question. Candidate text is wrapped in <code>&lt;candidate_answer&gt;</code> tags.</dd></div>
+      <div><dt>⑤ generate_report</dt><dd>Structured five-dimension report, retried once on an empty or invalid reply. The overall score is the weighted average of the dimension scores. If both attempts fail, a report marked <code>fallback</code> with no score.</dd></div>
+      <div><dt>⑥ save_report</dt><dd>Saves the report and score and sets the session to finished, only while it is in_progress, so a report is never overwritten.</dd></div>
+      <div><dt>⑦ save_memory</dt><dd>Where both branches meet. Every 10 turns, merges the old summary with the dialogue and saves it to <code>interview_sessions.summary</code>.</dd></div>
+    </dl>
+  </section>
+
+  <p class="note">Known limit: the interview state lives in process memory. After a backend restart, the next message finds no state and the interview starts again from the warmup. Production should use AsyncPostgresSaver.</p>
+</div>
+<!-- Renders the diagrams with mermaid when the file is opened locally -->
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10.9.1/dist/mermaid.min.js"></script>
+<script>
+  const dark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+  mermaid.initialize({ startOnLoad: true, theme: dark ? "dark" : "default", securityLevel: "strict" });
+</script>
+</body>
+</html>

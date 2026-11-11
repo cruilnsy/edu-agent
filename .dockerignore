@@ -1,0 +1,14 @@
+# Build context for backend/Dockerfile: keep secrets, models and bulky local files out
+.env
+.env.*
+!.env.example
+models/
+data/
+eval_results/
+frontend/
+demo.py
+.git/
+**/__pycache__/
+**/*.pyc
+**/.DS_Store
+tests/

@@ -1,0 +1,80 @@
+{
+  "exam_id": "e0000001-0000-0000-0000-000000000001",
+  "title": "Backend, Frontend and AI Engineering Quiz",
+  "description": "Seven questions covering all five question types; 50 points in total.",
+  "questions": [
+    {
+      "question_no": 1,
+      "question_id": "e0000001-0000-0000-0000-0000000000a1",
+      "question_type": "single_choice",
+      "content": "Which asyncio function runs several awaitables concurrently and returns their results in the order the awaitables were passed?\nA. asyncio.sleep\nB. asyncio.gather\nC. asyncio.wait_for\nD. asyncio.run",
+      "correct_answer": "B",
+      "score": 4,
+      "knowledge_tag": "Python asyncio"
+    },
+    {
+      "question_no": 2,
+      "question_id": "e0000001-0000-0000-0000-0000000000a2",
+      "question_type": "multi_choice",
+      "content": "Which of the following can describe the shape of an object in TypeScript? (Select all that apply)\nA. An interface\nB. A type alias\nC. An enum\nD. An inline object type annotation",
+      "correct_answer": "ABD",
+      "score": 6,
+      "knowledge_tag": "TypeScript types"
+    },
+    {
+      "question_no": 3,
+      "question_id": "e0000001-0000-0000-0000-0000000000a3",
+      "question_type": "judge",
+      "content": "True or false: every component that calls the same custom React Hook shares one copy of that Hook's state.",
+      "correct_answer": "False",
+      "score": 4,
+      "knowledge_tag": "React hooks"
+    },
+    {
+      "question_no": 4,
+      "question_id": "e0000001-0000-0000-0000-0000000000a4",
+      "question_type": "judge",
+      "content": "True or false: for a cross-origin request that is not a simple request, the browser first sends a preflight OPTIONS request.",
+      "correct_answer": "True",
+      "score": 4,
+      "knowledge_tag": "HTTP CORS"
+    },
+    {
+      "question_no": 5,
+      "question_id": "e0000001-0000-0000-0000-0000000000a5",
+      "question_type": "short_answer",
+      "content": "Explain what Retrieval-Augmented Generation (RAG) is and why it helps an LLM answer questions about a company's private documents.",
+      "correct_answer": "",
+      "score": 10,
+      "knowledge_tag": "RAG",
+      "scoring_points": [
+        {"desc": "At question time, relevant documents or chunks are retrieved from an external knowledge source (e.g. a vector database)", "score": 4},
+        {"desc": "The retrieved text is added to the prompt as context, and the LLM generates the answer from it", "score": 3},
+        {"desc": "Benefit: answers are grounded in private or up-to-date data the model was not trained on, without retraining, and hallucination is reduced", "score": 3}
+      ]
+    },
+    {
+      "question_no": 6,
+      "question_id": "e0000001-0000-0000-0000-0000000000a6",
+      "question_type": "short_answer",
+      "content": "Describe how the OAuth2 password flow with JWT tokens works in a FastAPI app: what happens when the user logs in, and what happens on later requests?",
+      "correct_answer": "",
+      "score": 10,
+      "knowledge_tag": "FastAPI security",
+      "scoring_points": [
+        {"desc": "At login the client sends the username and password (as form data) to a token endpoint", "score": 3},
+        {"desc": "The server checks the password against the stored hash and returns a signed JWT access token with an expiry time", "score": 3},
+        {"desc": "Later requests send the token in the Authorization: Bearer header; the server verifies the signature and expiry and gets the current user from it (e.g. in a dependency), rejecting invalid tokens with 401", "score": 4}
+      ]
+    },
+    {
+      "question_no": 7,
+      "question_id": "e0000001-0000-0000-0000-0000000000a7",
+      "question_type": "code",
+      "content": "Write a Python function `async def fetch_all(urls, fetch)` that calls the async function `fetch(url)` for every URL concurrently and returns a list of the results in the same order as `urls`. An empty `urls` must return an empty list.",
+      "correct_answer": "import asyncio\n\n\nasync def fetch_all(urls, fetch):\n    return list(await asyncio.gather(*(fetch(url) for url in urls)))",
+      "score": 12,
+      "knowledge_tag": "Python asyncio"
+    }
+  ]
+}
