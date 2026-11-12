@@ -20,6 +20,10 @@
       </el-header>
       <!-- Progress bar while a lazy route loads, so a click shows feedback at once -->
       <div class="nav-progress-bar" :class="{ active: navigating }" />
+      <el-alert v-if="DEMO" type="info" :closable="false" show-icon class="demo-banner">
+        {{ DEMO_NOTICE }}
+        <a :href="REPO_URL" target="_blank" rel="noopener">Source and setup</a>
+      </el-alert>
       <el-main class="app-main">
         <!-- keep-alive keeps only QAChatView, so its sessions and messages survive switching
              pages. A routerViewKey change (error recovery) drops the cache; acceptable. -->
@@ -39,6 +43,7 @@ import { ArrowDown } from '@element-plus/icons-vue'
 import { useRouter } from 'vue-router'
 import { useAuthStore } from '@/stores/auth'
 import Sidebar from './Sidebar.vue'
+import { DEMO, DEMO_NOTICE, REPO_URL } from '@/demo'
 
 const auth = useAuthStore()
 const router = useRouter()
@@ -72,6 +77,12 @@ function handleCommand(cmd: string) {
 </script>
 
 <style scoped>
+.demo-banner {
+  border-radius: 0;
+}
+.demo-banner a {
+  margin-left: 8px;
+}
 .app-layout {
   height: 100vh;
 }

@@ -125,6 +125,7 @@ import RoutingDecisionCard from '@/components/chat/RoutingDecisionCard.vue'
 import PipelinePlanCard from '@/components/chat/PipelinePlanCard.vue'
 import { useAuthStore } from '@/stores/auth'
 import { API_BASE, errorText } from '@/api/client'
+import { DEMO, DEMO_NOTICE } from '@/demo'
 
 const router = useRouter()
 const auth = useAuthStore()
@@ -222,6 +223,7 @@ function handleKeydown(e: KeyboardEvent) {
 async function sendMessage() {
   const text = inputText.value.trim()
   if (!text || isStreaming.value) return
+  if (DEMO) { ElMessage.info(DEMO_NOTICE); return }      // Answers need the backend
 
   inputText.value = ''
   messages.value.push({ role: 'user', content: text })

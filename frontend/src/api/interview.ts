@@ -1,4 +1,5 @@
 import client, { API_BASE, errorText } from './client'
+import { DEMO, DEMO_NOTICE } from '@/demo'
 
 export interface StartSessionRequest {
   target_position: string
@@ -93,6 +94,10 @@ export const interviewApi = {
    * onToken fires per token; onDone fires at the end with the turn's final state.
    */
   chatStream(sessionId: string, message: string, callbacks: ChatStreamCallbacks): void {
+    if (DEMO) {
+      callbacks.onError(new Error(DEMO_NOTICE))
+      return
+    }
     const token = localStorage.getItem('edu-agent-token') || ''
     // Whether done or error was dispatched, for the check when the stream closes
     let doneCalled = false

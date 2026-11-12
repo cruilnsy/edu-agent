@@ -124,6 +124,16 @@ and confirmed by `teacher01`, and a finished mock interview with its report, all
 fictional candidate. The results were recorded once from the real agents
 (`scripts/demo/generate_demo_data.py`); rerunning `seed_demo` resets `student01` to them.
 
+### Read-only demo (Vercel)
+
+`npm run build:demo` builds the frontend without a backend: the pages show the recorded demo
+results (`frontend/src/demo/fixtures.json`), and anything that would run an agent shows a
+notice instead. No API key or database is involved, so it can be hosted as a static site.
+
+To deploy it, import the repository on [Vercel](https://vercel.com/new) and set the **Root
+Directory** to `frontend`; `frontend/vercel.json` sets the build. After changing the demo
+data, rerun `python -m scripts.demo.export_frontend_fixtures`.
+
 ### Local development
 
 ```bash

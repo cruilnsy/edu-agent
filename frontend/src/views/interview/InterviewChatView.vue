@@ -43,7 +43,7 @@
             <el-tag
               v-for="(t, i) in report.recommended_topics"
               :key="i"
-              style="margin: 4px"
+              class="topic-tag"
             >{{ t }}</el-tag>
           </el-col>
           <el-col :span="12">
@@ -281,6 +281,16 @@ onMounted(async () => {
 </script>
 
 <style scoped>
+/* Topics can be a long sentence: wrap inside the column instead of overflowing it */
+.topic-tag {
+  margin: 4px;
+  height: auto;
+  max-width: 100%;
+  white-space: normal;
+  text-align: left;
+  line-height: 1.4;
+  padding: 4px 8px;
+}
 .interview-chat { max-width: 900px; }
 .chat-card { display: flex; flex-direction: column; }
 .chat-messages {

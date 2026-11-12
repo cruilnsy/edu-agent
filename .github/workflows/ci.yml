@@ -98,6 +98,8 @@ jobs:
       - run: npm ci
       - name: Type-check and build
         run: npm run build
+      - name: Build the read-only demo (deployed on Vercel)
+        run: npm run build:demo
 
   scan:
     name: Secret and personal-data scan

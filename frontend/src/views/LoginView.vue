@@ -6,7 +6,18 @@
         <h2>EduAgent</h2>
         <p>AI teaching assistant</p>
       </div>
+      <div v-if="DEMO" class="demo-entry">
+        <p>
+          A read-only demo with recorded results for a fictional student: a resume review, a graded
+          exam and a mock interview report. The AI agents run only in a
+          <a :href="REPO_URL" target="_blank" rel="noopener">local setup</a>.
+        </p>
+        <el-button type="primary" size="large" style="width: 100%" @click="enterDemo">
+          Explore the demo
+        </el-button>
+      </div>
       <el-form
+        v-else
         ref="formRef"
         :model="form"
         :rules="rules"
@@ -53,6 +64,7 @@ import { ElMessage, type FormInstance, type FormRules } from 'element-plus'
 import { User, Lock } from '@element-plus/icons-vue'
 import { authApi } from '@/api/auth'
 import { useAuthStore } from '@/stores/auth'
+import { DEMO, REPO_URL, demoUser } from '@/demo'
 
 const router = useRouter()
 const auth = useAuthStore()
@@ -64,6 +76,11 @@ const form = reactive({ username: '', password: '' })
 const rules: FormRules = {
   username: [{ required: true, message: 'Enter your username', trigger: 'blur' }],
   password: [{ required: true, message: 'Enter your password', trigger: 'blur' }],
+}
+
+function enterDemo() {
+  auth.login('demo', demoUser())     // No real token: the demo build never calls a backend
+  router.push('/dashboard')
 }
 
 async function handleLogin() {
@@ -90,6 +107,11 @@ async function handleLogin() {
 </script>
 
 <style scoped>
+.demo-entry p {
+  color: #606266;
+  line-height: 1.6;
+  margin: 0 0 16px;
+}
 .login-page {
   min-height: 100vh;
   display: flex;

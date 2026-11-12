@@ -2,6 +2,7 @@ import axios, { type AxiosError, type InternalAxiosRequestConfig } from 'axios'
 import { ElMessage } from 'element-plus'
 import router from '@/router'
 import { useAuthStore } from '@/stores/auth'
+import { DEMO, demoAdapter } from '@/demo'
 
 /** Backend origin. Unset: same origin, through the Vite dev proxy or the Docker nginx.
  *  Local dev sets it in .env.local so streams skip the Vite proxy, which buffers SSE. */
@@ -11,6 +12,7 @@ const client = axios.create({
   baseURL: API_BASE + '/api/v1',
   timeout: 30_000,
 })
+if (DEMO) client.defaults.adapter = demoAdapter      // Static demo: no backend
 
 // Request interceptor: add the JWT
 client.interceptors.request.use((config: InternalAxiosRequestConfig) => {

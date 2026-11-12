@@ -1,0 +1,619 @@
+{
+  "GET /auth/me": {
+    "user_id": "demo-student",
+    "role": "student",
+    "tenant_id": "tenant_default"
+  },
+  "GET /resume/reviews": {
+    "items": [
+      {
+        "review_id": "ddfbc642-eb11-4806-9c9f-fde53eba816a",
+        "status": "done",
+        "created_at": "2026-11-09T00:16:44.026664+00:00",
+        "weighted_score": 78.5
+      }
+    ],
+    "total": 1
+  },
+  "GET /resume/reviews/ddfbc642-eb11-4806-9c9f-fde53eba816a": {
+    "review_id": "ddfbc642-eb11-4806-9c9f-fde53eba816a",
+    "status": "done",
+    "weighted_score": 78.5,
+    "dimension_scores": [
+      {
+        "key": "project_depth",
+        "score": 74,
+        "issues": [
+          "Contoso bullets are strong on metrics but thin on *why*: \"Cut nightly batch runtime from 4 hours to 35 minutes by replacing row-by-row updates with bulk COPY and partitioned tables\" states the technique but not the constraint that drove it (data volume, lock contention, SLA). Same for \"Introduced Redis caching for carrier rate lookups, reducing third-party API costs by 40%\" — no cache invalidation/TTL decision, no hit rate.",
+          "\"Led the migration of 6 services from cron jobs to Celery with retries and dead-letter queues\" is the best ownership bullet, but \"Led\" is unquantified: no team size, no cross-team coordination detail, no rollout strategy (dual-run, cutover).",
+          "Scale is visible for the API (1,200 rps, p95 85 ms) but absent elsewhere: no table sizes, row counts, data volume for the batch job, no number of carriers/orders for the caching work.",
+          "The Rate Limiter Library project is one line with no link: \"Open-source token-bucket rate limiter for asyncio services; supports Redis and in-memory backends; 300+ downloads per month.\" No GitHub URL, no design rationale (why token bucket vs. sliding window, how the Redis backend handles clock skew/atomicity), no personal contribution framing.",
+          "Internship bullet is duty-shaped: \"Wrote a Django REST endpoint for appointment search used by 3 clinics; added tests that raised coverage from 48% to 81%\" — no problem solved, no design choice, and it's the only intern bullet.",
+          "Only 4 bullets total for the current role and 1 for the internship; no bullet shows mentoring, code review, design docs, or architecture ownership, which matters for a senior-leaning read.",
+          "Summary claims \"3 years of experience\" while the roles span Jul 2022–present plus a 2021 internship; the summary undersells the actual tenure and reads as a copy-paste from an earlier version."
+        ],
+        "weight": 0.3,
+        "dimension": "Project depth",
+        "suggestions": [
+          "Add the constraint behind each metric. Example rewrite: \"Cut nightly batch runtime from 4 hours to 35 minutes (12M order rows/night) by replacing row-by-row updates with bulk COPY into partitioned tables — removed lock contention that was blocking the 02:00 reporting SLA.\"",
+          "Make the caching bullet show the decision: \"Designed Redis caching for carrier rate lookups (15-min TTL, keyed by carrier+service+zone); raised hit rate to 92% and cut third-party API spend 40%.\"",
+          "Quantify the Celery migration's ownership: team size, number of engineers coordinated, and how you de-risked cutover (e.g., dual-run for 2 weeks, per-service rollout).",
+          "Expand the Rate Limiter Library into 2–3 bullets with a GitHub link: the problem (throttling shared Redis across asyncio workers), the design choice (token bucket with Lua-scripted atomic refill vs. sliding-window log), and adoption (300+ downloads/month, N GitHub stars, used by X).",
+          "Add one bullet per role on non-code ownership: design reviews, onboarding/mentoring a junior engineer, or owning an on-call rotation — this is what separates mid from senior in a skim.",
+          "Replace the internship bullet with a problem-first version: \"Built appointment-search endpoint for 3 clinics; chose indexed Postgres full-text search over LIKE scans to keep p95 under 200 ms, and raised test coverage 48% → 81%.\"",
+          "Fix the summary line to match the actual tenure shown in Experience so the top of the resume doesn't contradict the body."
+        ]
+      },
+      {
+        "key": "tech_match",
+        "score": 82,
+        "issues": [
+          "Skills list is not grouped by category. It uses proficiency tiers instead: \"Expert: Python, FastAPI, PostgreSQL | Proficient: Redis, Celery, Docker, AWS (ECS, RDS) | Familiar: Kubernetes, Go\". Recruiters and ATS parsers scan for category headers (Languages / Frameworks / Cloud & DevOps / Databases); the tier labels add no information a reader can verify and read as self-rating.",
+          "\"Familiar: Kubernetes, Go\" is unbacked. Neither appears anywhere in Experience or Projects. \"Familiar\" is the weakest possible claim and still unsupported — cut both, or add a concrete line (e.g., a project deployed on EKS) if real.",
+          "\"Docker\" is listed as Proficient but never appears in any bullet. The Contoso work (FastAPI, Celery, Redis, PostgreSQL) almost certainly ran in containers, but the resume doesn't say so. Add it to a bullet: e.g., \"containerized the API with Docker and deployed to ECS.\"",
+          "\"AWS (ECS, RDS)\" is listed but no bullet names AWS, ECS, or RDS. The migration and API bullets are the natural place to attach it.",
+          "Missing keywords that are standard in Python backend job descriptions and that the resume's own content implies: REST/API design (only \"FastAPI\" appears), CI/CD, pytest/testing (the intern bullet mentions tests but never names pytest), SQL, message queues/brokers (Celery implies RabbitMQ or SQS but neither is named), observability/monitoring, Git. ATS keyword matching on these is common.",
+          "The Summary says \"3 years of experience\" while the roles span Jul 2022 - Present plus a 2021 internship; the summary undersells the candidate against the 4.8-year computed total and against senior-level filters.",
+          "No \"Languages:\" line means Go is buried in a \"Familiar\" tier rather than being visible as a secondary language — fine to drop, but if kept, it should be categorized."
+        ],
+        "weight": 0.25,
+        "dimension": "Tech match",
+        "suggestions": [
+          "Regroup Skills into four labeled lines, e.g.: \"Languages: Python, SQL, Go (basic)\" / \"Frameworks: FastAPI, Django, Celery\" / \"Databases & Caching: PostgreSQL, Redis\" / \"Cloud & DevOps: AWS (ECS, RDS, S3), Docker, Kubernetes (basic), CI/CD\". Drop the Expert/Proficient/Familiar tiers entirely.",
+          "Delete Kubernetes and Go unless you can back them with a bullet or project line. Unbacked skills are the first thing a technical interviewer probes and the fastest way to lose credibility.",
+          "Attach Docker and AWS to existing bullets rather than leaving them as list-only claims: \"Built an order-tracking API in FastAPI and PostgreSQL, containerized with Docker and deployed on ECS/RDS, serving 1,200 rps at p95 85 ms.\"",
+          "Add the missing high-frequency keywords where they are true: pytest in the Fabrikam bullet (\"added pytest suite that raised coverage from 48% to 81%\"), REST API design, SQL, and the Celery broker (RabbitMQ or SQS) in the migration bullet.",
+          "Fix the Summary to match the resume's own dates — \"Backend engineer with 4+ years of experience\" — so it doesn't contradict the experience section or trip a recruiter's consistency check.",
+          "Keep the Rate Limiter Library project; it is the only evidence for asyncio and open-source work and it reinforces Python depth. Consider adding a line on how it's tested/packaged (pytest, PyPI) to pick up more keywords."
+        ]
+      },
+      {
+        "key": "expression",
+        "score": 84,
+        "issues": [
+          "Summary states \"3 years of experience\" while the experience section shows Jul 2022 - Present plus a 2021 internship; the number reads as stale/understated next to the dates. (Note: the computed total is 4.8 years, so the summary figure is the weaker of the two.)",
+          "Summary contains a mild buzzword cluster: \"Focused on performance, reliability, and clean service boundaries\" — \"clean service boundaries\" is vague filler that doesn't say anything measurable.",
+          "Project bullet is a sentence fragment with no verb: \"Open-source token-bucket rate limiter for asyncio services; supports Redis and in-memory backends; 300+ downloads per month.\" It breaks the verb-first pattern used everywhere else.",
+          "Tense inconsistency inside the current role: \"Built\", \"Cut\", \"Introduced\", \"Led\" are all past tense for a role listed as \"Jul 2022 - Present\". Past tense is defensible for completed accomplishments, but the resume mixes no present-tense bullets at all for the current job, so the reader can't tell what is ongoing.",
+          "Intern bullet \"Wrote a Django REST endpoint ... ; added tests that raised coverage from 48% to 81%\" — \"added tests\" is a weak, low-signal verb compared with the rest of the resume.",
+          "Location line is just \"Springfield\" with no state, and the header has no LinkedIn/GitHub link — minor, but the header line is the weakest-formatted part of the document."
+        ],
+        "weight": 0.15,
+        "dimension": "Writing",
+        "suggestions": [
+          "Rewrite the project bullet verb-first to match the rest: \"Built an open-source token-bucket rate limiter for asyncio services with Redis and in-memory backends; 300+ downloads per month.\"",
+          "Replace the summary's vague clause with something concrete: \"Backend engineer building Python APIs and data pipelines; cut batch runtime 4h to 35m and third-party API costs 40% at Contoso Logistics.\"",
+          "Make the summary's years figure consistent with the dates shown in Experience (or drop the number and lead with the stack and impact).",
+          "For the current role, keep past tense for completed wins but add one present-tense bullet describing ongoing ownership, e.g. \"Own the order-tracking API serving 1,200 rps at p95 85 ms, including on-call and schema migrations.\"",
+          "Upgrade \"added tests that raised coverage from 48% to 81%\" to \"Raised test coverage from 48% to 81% by adding a pytest suite for the appointment-search endpoint.\"",
+          "Add a GitHub link next to the email — the strongest project on this resume is open source and currently has no link to verify it."
+        ]
+      },
+      {
+        "key": "structure",
+        "score": 78,
+        "issues": [
+          "Header is missing a state for the location: \"Springfield\" alone is ambiguous (Springfield, IL / MA / MO / OR...). Recruiters and ATS location filters expect \"City, ST\".",
+          "No LinkedIn or GitHub link in the header. For a backend engineer with an open-source project (\"Rate Limiter Library ... 300+ downloads per month\"), a GitHub URL is the single highest-value header addition.",
+          "Summary line contradicts the computed experience: \"Backend engineer with 3 years of experience\" vs. 4.8 years of dated roles (Jul 2022 - Present plus the 2021 internship). Understating tenure in the first line of the resume is a self-inflicted wound — say \"4+ years\" or drop the number and lead with the stack.",
+          "Section order puts Projects and Skills above Education, which is fine for an experienced candidate, but the strongest content (the Contoso metrics) is fine — the real issue is that the Summary is generic (\"Focused on performance, reliability, and clean service boundaries\") and occupies prime top-of-page real estate without a single number.",
+          "No work-authorization line. Optional, but a one-line \"Authorized to work in the U.S.; no sponsorship required\" (if applicable) removes a common screening question.",
+          "Education dates \"Sep 2018 - Jun 2022\" plus the internship date make the graduation year visible; that's normal and fine, but the GPA is listed without a degree-honors line — minor, not a defect.",
+          "Skills line uses pipe-separated prose (\"Expert: Python, FastAPI, PostgreSQL | Proficient: ...\"). It parses, but ATS keyword matching is more reliable with a simple comma-separated list or one line per category without the pipe characters."
+        ],
+        "weight": 0.15,
+        "dimension": "Structure",
+        "suggestions": [
+          "Change the header to: \"Jordan Avery | Python Backend Engineer | Springfield, IL | jordan.avery@example.com | (555) 010-1001 | github.com/javery | linkedin.com/in/javery\" — fill in the real state and profile URLs.",
+          "Rewrite the Summary to lead with the stack and a metric, e.g. \"Backend engineer (4+ years) building high-throughput Python APIs with FastAPI, PostgreSQL, and Celery; cut batch runtime 4h to 35min and third-party API costs 40%.\" Keep it to two lines.",
+          "Add a GitHub link next to the Rate Limiter Library project entry as well, so the code is one click away.",
+          "Replace the pipe-delimited Skills line with plain comma-separated categories: \"Languages: Python, Go\" / \"Frameworks: FastAPI, Django\" / \"Data: PostgreSQL, Redis\" / \"Infra: Docker, AWS (ECS, RDS), Kubernetes, Celery\".",
+          "Optionally add one line under the header: \"Authorized to work in the U.S.; no sponsorship required\" (only if true).",
+          "Keep it to one page — it already is, and at this experience level that's correct. Don't add a second page; instead spend the freed Summary space on one more quantified bullet in the Contoso role."
+        ]
+      },
+      {
+        "key": "quantification",
+        "score": 84,
+        "issues": [
+          "Summary says \"3 years of experience\" while the roles span Jul 2022 - Present plus a 2021 internship; the summary number is the weakest, least defensible figure on the page and it's the first one a recruiter reads.",
+          "Contoso bullet 1 (\"serves 1,200 requests per second at a p95 latency of 85 ms\") is a state, not an impact: no baseline (what was it before?), no scope (how many orders/users/regions), and no business consequence. It reads as a spec sheet line.",
+          "Contoso bullet 4 (\"Led the migration of 6 services from cron jobs to Celery\") leads with an output count (6 services) rather than the outcome; the real metric (\"failed shipments dropped from 2.1% to 0.3%\") is buried at the end and has no volume attached — 2.1% of what?",
+          "Contoso bullet 3 (\"reducing third-party API costs by 40%\") has no baseline dollar amount or absolute savings, so the reader can't size it.",
+          "Fabrikam bullet (\"used by 3 clinics\") is a scope number, not impact; \"coverage from 48% to 81%\" is a good before/after but coverage is a process metric, not a business or reliability outcome.",
+          "Rate Limiter Library bullet (\"300+ downloads per month\") is the only number and it's a vanity metric with no adoption or reliability signal (no production users, no latency improvement claimed).",
+          "No bullet quantifies data volume, users served, revenue/conversion, or on-call/incident reduction — the metrics a backend hiring manager scans for are only partially covered."
+        ],
+        "weight": 0.1,
+        "dimension": "Quantification",
+        "suggestions": [
+          "Fix the summary line first: replace \"3 years of experience\" with a claim you can defend from the dates, e.g. \"Backend engineer with 4+ years building Python APIs and data pipelines\" — or drop the number and lead with the strongest quantified result instead.",
+          "Rewrite Contoso bullet 1 in XYZ form with a baseline and scope, e.g. \"Cut p95 latency on the order-tracking API from ~400 ms to 85 ms while scaling to 1,200 req/s, supporting N orders/day across M carriers.\" If you don't have the before-number, add the business scope (orders/day, warehouses, users) so the throughput figure means something.",
+          "Reorder Contoso bullet 4 to lead with the outcome: \"Reduced failed shipments from 2.1% to 0.3% (≈X shipments/month) by migrating 6 services from cron to Celery with retries and dead-letter queues.\"",
+          "Add the absolute figure to the caching bullet: \"...cutting third-party carrier-rate API spend by 40% (~$X/month).\"",
+          "For the Fabrikam bullet, keep \"48% to 81%\" but pair it with a consequence — e.g. \"cut appointment-search defects reported by clinics from N to M\" — and drop \"3 clinics\" unless you can tie it to usage volume.",
+          "For the Rate Limiter Library, replace or supplement \"300+ downloads per month\" with an impact number: production services using it, requests/sec protected, or a measured reduction in 429s/abuse incidents.",
+          "Add at least one metric type currently missing: data volume processed (rows/GB per night), number of users or internal teams served, or incident/on-call reduction. Aim for every bullet to have a number with a baseline or scope, not a bare percentage."
+        ]
+      },
+      {
+        "key": "authenticity",
+        "score": 62,
+        "issues": [
+          "Summary says \"Backend engineer with 3 years of experience\" but the role dates (Jul 2022 - Present) give a total of 4.8 years. This is an understatement, not an overstatement, so it is not a credibility problem in the exaggeration sense — but it is an internal inconsistency a recruiter will notice in 6 seconds, and it undersells the candidate. Fix: state \"4+ years\" or drop the number and describe scope instead.",
+          "Title/depth mismatch in the other direction: the bullets describe work well above a 3-year engineer — \"Led the migration of 6 services from cron jobs to Celery with retries and dead-letter queues\" and \"Built an order-tracking API ... that serves 1,200 requests per second at a p95 latency of 85 ms.\" These are plausible for a mid-level engineer at 4.8 years, but the Summary's \"3 years\" framing makes them read as inflated. Align the Summary with the dates and the claims become credible.",
+          "No title progression shown: a single \"Backend Engineer\" title from Jul 2022 to Present (4+ years) with no promotion. Not a contradiction, but recruiters will ask why there is no level change; if there was one, name it (e.g. \"Backend Engineer II\").",
+          "Precision without context: \"1,200 requests per second at a p95 latency of 85 ms\" and \"reducing third-party API costs by 40%\" are strong numbers but give no baseline or scale (how many orders/day, what the cost was before). Unanchored precision invites skepticism.",
+          "\"Led the migration of 6 services\" — \"Led\" is a strong verb for someone with ~2 years of tenure at that point (migration timing is not stated). Add the date or scope (team size, your specific role) so the claim is checkable.",
+          "Skills list \"Expert: Python, FastAPI, PostgreSQL\" at 4.8 years total (2 years of which was an internship-adjacent start). \"Expert\" is a self-rating recruiters discount; it also conflicts with the modest \"3 years\" Summary. Downgrade to \"Proficient\" or drop the tiers.",
+          "Timeline gap: internship ended Aug 2021, degree ended Jun 2022, full-time role started Jul 2022 — that is fine (senior year). No unexplained gap. But the internship (May-Aug 2021) overlaps the degree period, which is normal and needs no note.",
+          "Project \"Rate Limiter Library | 2023\" with \"300+ downloads per month\" is plausible and appropriately modest — good. No issue."
+        ],
+        "weight": 0.05,
+        "dimension": "Credibility",
+        "suggestions": [
+          "Change the Summary to \"Backend engineer with 4+ years of experience\" (or remove the number) so it matches the Jul 2022 - Present dates. Right now the resume contradicts itself on the single most-scanned line.",
+          "Add a baseline to the performance bullet: e.g. \"serves 1,200 rps at p95 85 ms (up from X rps / Y ms)\" or state the order volume. Numbers with a before/after are far more credible than a lone figure.",
+          "Qualify \"Led the migration of 6 services\": add the date and your role (\"led a 3-engineer effort in 2024\") or soften to \"Drove\" if you were the primary implementer rather than the owner.",
+          "If you were promoted or your scope changed, split the Contoso entry into two titles with dates (e.g. Backend Engineer → Backend Engineer II). This resolves the flat-title question and justifies the senior-sounding bullets.",
+          "Replace the \"Expert / Proficient / Familiar\" tiers with a flat, honest list ordered by strength; self-assigned \"Expert\" labels are discounted by recruiters and clash with the rest of the resume's tone.",
+          "Optional: if applicable, add a one-line work-authorization statement near the contact header."
+        ]
+      }
+    ],
+    "issues": [
+      {
+        "location": "Summary - line 1",
+        "priority": "high",
+        "dimension": "Structure / Summary",
+        "suggestion": "Replace with a number-backed line, e.g. \"Backend engineer with 4+ years building high-throughput Python APIs and data pipelines (FastAPI, PostgreSQL, Celery, AWS); cut nightly batch runtime 4h -> 35m and third-party API costs 40%.\" Drop \"clean service boundaries.\"",
+        "description": "The Summary's \"3 years of experience\" contradicts the dated roles (Jul 2022 - Present plus a 2021 internship) and undersells the candidate in the first line a recruiter reads."
+      },
+      {
+        "location": "Skills - entire section",
+        "priority": "high",
+        "dimension": "Tech match / Skills",
+        "suggestion": "Regroup by category with comma-separated lists: \"Languages: Python, SQL, Go (basic) | Frameworks: FastAPI, Django REST | Data & Messaging: PostgreSQL, Redis, Celery | Cloud & DevOps: AWS (ECS, RDS), Docker, CI/CD\". Cut Kubernetes and Go unless you add a bullet that shows them.",
+        "description": "Skills are listed as self-rated tiers (\"Expert: ... | Proficient: ... | Familiar: Kubernetes, Go\") instead of categories, and \"Kubernetes\" and \"Go\" appear nowhere in Experience or Projects."
+      },
+      {
+        "location": "Skills - Proficient tier; Experience - Contoso Logistics - bullets 1-4",
+        "priority": "high",
+        "dimension": "Tech match / Evidence",
+        "suggestion": "Attach them to existing bullets, e.g. bullet 1: \"Built an order-tracking API in FastAPI and PostgreSQL, containerized with Docker and deployed on ECS/RDS, serving 1,200 rps at p95 85 ms.\"",
+        "description": "\"Docker\" and \"AWS (ECS, RDS)\" are claimed in Skills but no bullet names Docker, AWS, ECS, or RDS, so the claims are unbacked and ATS keyword matches are weak."
+      },
+      {
+        "location": "Skills - entire section; Experience - Contoso Logistics - bullets 1-4",
+        "priority": "high",
+        "dimension": "Tech match / Keywords",
+        "suggestion": "Add a \"Testing & Tooling\" line (pytest, CI/CD, Git) and name the broker in the Celery bullet (\"Celery on RabbitMQ\" or \"SQS\"), plus \"REST API design\" in the summary or skills.",
+        "description": "Standard Python-backend keywords implied by the work are missing: REST/API design, pytest/testing, SQL, CI/CD, message broker (RabbitMQ/SQS), observability/monitoring, Git."
+      },
+      {
+        "location": "Experience - Contoso Logistics - bullet 1",
+        "priority": "high",
+        "dimension": "Quantification",
+        "suggestion": "Add before/after and scope, e.g. \"Built an order-tracking REST API in FastAPI/PostgreSQL serving 1,200 rps at p95 85 ms (down from 400 ms on the legacy service) for ~50k orders/day across 3 regions.\"",
+        "description": "Contoso bullet 1 is a spec sheet, not an impact: \"serves 1,200 requests per second at a p95 latency of 85 ms\" has no baseline, no scope (orders/day, regions), and no business consequence."
+      },
+      {
+        "location": "Experience - Contoso Logistics - bullet 4",
+        "priority": "medium",
+        "dimension": "Quantification",
+        "suggestion": "Lead with the outcome and add volume, e.g. \"Cut failed shipments from 2.1% to 0.3% (~1,800 fewer/month) by migrating 6 services from cron to Celery with retries and dead-letter queues.\"",
+        "description": "The strongest outcome in the migration bullet (\"failed shipments dropped from 2.1% to 0.3%\") is buried at the end and has no volume attached; \"6 services\" leads instead."
+      },
+      {
+        "location": "Experience - Contoso Logistics - bullet 4",
+        "priority": "medium",
+        "dimension": "Project depth / Ownership",
+        "suggestion": "Add scope and method, e.g. \"Led a 3-engineer migration of 6 services from cron to Celery (dual-run for 2 weeks, then cutover), cutting failed shipments from 2.1% to 0.3%.\"",
+        "description": "\"Led the migration of 6 services\" is unquantified ownership: no team size, no rollout strategy (dual-run, cutover), no dates."
+      },
+      {
+        "location": "Experience - Contoso Logistics - bullet 3",
+        "priority": "medium",
+        "dimension": "Quantification",
+        "suggestion": "Add absolute savings and the design choice, e.g. \"Introduced Redis caching for carrier rate lookups (5-min TTL, 92% hit rate), cutting third-party API spend from $8k to $4.8k/month.\"",
+        "description": "\"reducing third-party API costs by 40%\" has no baseline dollar amount, and the caching bullet gives no hit rate or TTL/invalidation decision."
+      },
+      {
+        "location": "Experience - Contoso Logistics - bullet 2",
+        "priority": "medium",
+        "dimension": "Project depth",
+        "suggestion": "Add the driver and scale, e.g. \"Cut nightly batch runtime from 4 hours to 35 minutes (12M rows/night, 2-hour SLA) by replacing row-by-row updates with bulk COPY and partitioned tables.\"",
+        "description": "The batch bullet states the technique but not the constraint that drove it (data volume, lock contention, SLA)."
+      },
+      {
+        "location": "Projects - Rate Limiter Library - bullet 1",
+        "priority": "medium",
+        "dimension": "Project depth / Structure",
+        "suggestion": "Rewrite verb-first with a link and a design decision, e.g. \"Built and open-sourced a token-bucket rate limiter for asyncio services (github.com/...), with Redis and in-memory backends; used atomic Lua scripts to avoid clock-skew races; 300+ downloads/month.\"",
+        "description": "The Rate Limiter Library is a single verbless fragment with no link, no design rationale, and no personal-contribution framing."
+      },
+      {
+        "location": "Experience - Fabrikam Health - bullet 1",
+        "priority": "medium",
+        "dimension": "Project depth",
+        "suggestion": "Add a second bullet and strengthen the verb, e.g. \"Built a Django REST appointment-search endpoint used by 3 clinics, cutting search time from 4 s to 300 ms; raised test coverage from 48% to 81% with pytest.\"",
+        "description": "The internship has one duty-shaped bullet with no problem solved or design choice, and \"added tests\" is a weak verb."
+      },
+      {
+        "location": "Experience - Contoso Logistics - bullets 1-4",
+        "priority": "medium",
+        "dimension": "Writing / Tense",
+        "suggestion": "Use present tense for ongoing systems (\"Build\", \"Own\", \"Operate\") and past tense only for completed projects like the migration.",
+        "description": "Every bullet in the current role is past tense (\"Built\", \"Cut\", \"Introduced\", \"Led\") with no present-tense bullet, so the reader can't tell what is ongoing."
+      },
+      {
+        "location": "Experience - Contoso Logistics - title line",
+        "priority": "medium",
+        "dimension": "Credibility / Progression",
+        "suggestion": "If there was a promotion, show it (e.g. \"Backend Engineer II (promoted from Backend Engineer, Mar 2024)\"); if not, add a bullet on mentoring, code review, or design-doc ownership to signal seniority.",
+        "description": "A single \"Backend Engineer\" title from Jul 2022 to Present shows no level change over 4+ years, which recruiters will question."
+      },
+      {
+        "location": "Header - line 2",
+        "priority": "low",
+        "dimension": "Structure / Header",
+        "suggestion": "Use \"Springfield, IL | jordan.avery@example.com | (555) 010-1001 | github.com/jordanavery | linkedin.com/in/jordanavery\". Optionally add \"Authorized to work in the U.S.\" if applicable.",
+        "description": "The header has no state (\"Springfield\" alone is ambiguous) and no GitHub or LinkedIn link, so the open-source project is unreachable."
+      },
+      {
+        "location": "Skills - entire section",
+        "priority": "low",
+        "dimension": "Structure / ATS",
+        "suggestion": "Use one line per category with plain commas and no pipe characters, e.g. \"Cloud & DevOps: AWS (ECS, RDS), Docker, CI/CD\".",
+        "description": "Skills use pipe-separated prose with tier labels, which parses less reliably than plain comma-separated category lines."
+      }
+    ],
+    "summary": {
+      "highlights": [
+        "Tech match is the strongest dimension (82): the stack a Python backend role screens for is present and current - Python, FastAPI, PostgreSQL, Redis, Celery, Docker, AWS (ECS, RDS) - and the 4.8 years across 2 roles clears most mid-level bars.",
+        "Quantification is solid (84): bullets carry concrete figures such as \"serves 1,200 requests per second at a p95 latency of 85 ms\", which is more than most resumes at this level offer.",
+        "Structure and writing are clean (78/84): roles are in correct reverse-chronological order, dates are explicit, and the Rate Limiter Library project gives a concrete, discussable artifact for a backend interview."
+      ],
+      "fit_assessment": "Good fit for a Python Backend Engineer role on stack and years, with the caveat that the unbacked Docker/AWS/Kubernetes/Go claims and missing testing/CI/CD keywords will cost ATS matches and recruiter confidence until they are either evidenced in bullets or removed.",
+      "overall_comment": "A credible mid-level Python backend resume with real numbers and the right stack, held back by a Summary that undersells the candidate and a Skills section that claims tools the experience never demonstrates. Fix those two things and it moves from a maybe-phone-screen to a likely one.",
+      "core_improvements": [
+        "Fix the Summary line first: \"3 years of experience\" contradicts the dated roles (Jul 2022 - Present plus a 2021 internship) and undersells the candidate in the first line a recruiter reads. Replace it with a claim the dates support.",
+        "Back the Skills claims in Experience: \"Docker\" and \"AWS (ECS, RDS)\" are listed but no bullet names Docker, AWS, ECS, or RDS, and \"Kubernetes\" and \"Go\" appear nowhere in Experience or Projects. Either add a bullet that shows each one in use or cut it - unbacked keywords cost credibility (62, the lowest score) and invite interview questions the resume can't support.",
+        "Convert the Skills section from self-rated tiers (\"Expert: ... | Proficient: ... | Familiar: Kubernetes, Go\") to plain categories, and add the standard Python-backend keywords the work already implies but never states: REST/API design, pytest/testing, SQL, CI/CD, message broker (RabbitMQ/SQS), observability/monitoring, Git. Also rewrite Contoso bullet 1 from a spec sheet into an impact statement - \"serves 1,200 requests per second at a p95 latency of 85 ms\" needs a baseline, scope (orders/day, regions) and a business consequence."
+      ]
+    }
+  },
+  "GET /exam/exams": {
+    "items": [
+      {
+        "exam_id": "e0000001-0000-0000-0000-000000000001",
+        "title": "Backend, Frontend and AI Engineering Quiz",
+        "description": "Seven questions covering all five question types; 50 points in total.",
+        "question_count": 7,
+        "full_score": 50
+      }
+    ]
+  },
+  "GET /exam/my-submissions": {
+    "items": [
+      {
+        "submission_id": "8a81bbe1-0273-4996-b87d-ac2db27e3193",
+        "exam_id": "e0000001-0000-0000-0000-000000000001",
+        "exam_title": "Backend, Frontend and AI Engineering Quiz",
+        "status": "published",
+        "submitted_at": "2026-11-10T00:16:44.029355+00:00"
+      }
+    ]
+  },
+  "GET /exam/my-submissions/8a81bbe1-0273-4996-b87d-ac2db27e3193": {
+    "submission_id": "8a81bbe1-0273-4996-b87d-ac2db27e3193",
+    "status": "published",
+    "pre_review_summary": {
+      "total_score": 36,
+      "full_score": 50,
+      "score_rate": 0.72,
+      "by_question": [
+        {
+          "question_id": "e0000001-0000-0000-0000-0000000000a1",
+          "question_no": 1,
+          "question_type": "single_choice",
+          "full_score": 4,
+          "score": 4,
+          "final_score": 4,
+          "student_answer": "b",
+          "correct_answer": "B",
+          "ai_feedback": "Correct",
+          "teacher_comment": "",
+          "needs_review": false,
+          "point_results": [],
+          "quality_feedback": []
+        },
+        {
+          "question_id": "e0000001-0000-0000-0000-0000000000a2",
+          "question_no": 2,
+          "question_type": "multi_choice",
+          "full_score": 6,
+          "score": 6,
+          "final_score": 6,
+          "student_answer": "D B A",
+          "correct_answer": "ABD",
+          "ai_feedback": "Correct",
+          "teacher_comment": "",
+          "needs_review": false,
+          "point_results": [],
+          "quality_feedback": []
+        },
+        {
+          "question_id": "e0000001-0000-0000-0000-0000000000a3",
+          "question_no": 3,
+          "question_type": "judge",
+          "full_score": 4,
+          "score": 4,
+          "final_score": 4,
+          "student_answer": "F",
+          "correct_answer": "False",
+          "ai_feedback": "Correct",
+          "teacher_comment": "",
+          "needs_review": false,
+          "point_results": [],
+          "quality_feedback": []
+        },
+        {
+          "question_id": "e0000001-0000-0000-0000-0000000000a4",
+          "question_no": 4,
+          "question_type": "judge",
+          "full_score": 4,
+          "score": 4,
+          "final_score": 4,
+          "student_answer": "Yes",
+          "correct_answer": "True",
+          "ai_feedback": "Correct",
+          "teacher_comment": "",
+          "needs_review": false,
+          "point_results": [],
+          "quality_feedback": []
+        },
+        {
+          "question_id": "e0000001-0000-0000-0000-0000000000a5",
+          "question_no": 5,
+          "question_type": "short_answer",
+          "full_score": 10,
+          "score": 9,
+          "final_score": 8,
+          "student_answer": "Instead of relying only on what the model memorised, you first look up the passages from your own docs that match the question (semantic search over embeddings) and paste them into the prompt. The model then answers using those passages. That way it knows things about internal docs it never saw in training, and you don't have to fine-tune it every time a document changes.",
+          "correct_answer": "",
+          "ai_feedback": "Accurate, concrete description of retrieval and prompt-context generation; the benefit point is only partly covered because hallucination reduction is not mentioned.",
+          "teacher_comment": "Adjusted after checking the scoring points.",
+          "needs_review": false,
+          "point_results": [
+            {
+              "earned": true,
+              "missing": "",
+              "evidence": "you first look up the passages from your own docs that match the question (semantic search over embeddings)",
+              "point_id": "2327e2e1-db6e-4c9f-a6e3-a151bc7e386d",
+              "point_desc": "At question time, relevant documents or chunks are retrieved from an external knowledge source (e.g. a vector database)",
+              "point_score": 4,
+              "earned_score": 4
+            },
+            {
+              "earned": true,
+              "missing": "",
+              "evidence": "paste them into the prompt. The model then answers using those passages.",
+              "point_id": "39d7a717-eceb-446f-9ec9-318e7163fc74",
+              "point_desc": "The retrieved text is added to the prompt as context, and the LLM generates the answer from it",
+              "point_score": 3,
+              "earned_score": 3
+            },
+            {
+              "earned": false,
+              "missing": "No mention of reduced hallucination (and only implicit coverage of up-to-date data).",
+              "evidence": "it knows things about internal docs it never saw in training, and you don't have to fine-tune it every time a document changes",
+              "point_id": "45b90231-8f4d-43d5-af4e-a58451ac4c29",
+              "point_desc": "Benefit: answers are grounded in private or up-to-date data the model was not trained on, without retraining, and hallucination is reduced",
+              "point_score": 3,
+              "earned_score": 2
+            }
+          ],
+          "quality_feedback": []
+        },
+        {
+          "question_id": "e0000001-0000-0000-0000-0000000000a6",
+          "question_no": 6,
+          "question_type": "short_answer",
+          "full_score": 10,
+          "score": 10,
+          "final_score": 10,
+          "student_answer": "The login form posts username + password to /token. The backend hashes nothing new, it just compares the password with the stored bcrypt hash, and if they match it builds a JWT signed with the server secret that contains the username and an exp claim, then returns it as access_token. The frontend keeps it and puts 'Authorization: Bearer <token>' on every call. A dependency like get_current_user decodes the token, checks the signature and the expiry and loads the user; if anything fails it raises a 401.",
+          "correct_answer": "",
+          "ai_feedback": "Complete and accurate description of the full login-to-token-to-protected-request cycle; all rubric points are covered.",
+          "teacher_comment": "",
+          "needs_review": false,
+          "point_results": [
+            {
+              "earned": true,
+              "missing": "",
+              "evidence": "The login form posts username + password to /token.",
+              "point_id": "f485ec6c-bfe4-4855-9539-05c559bf6655",
+              "point_desc": "At login the client sends the username and password (as form data) to a token endpoint",
+              "point_score": 3,
+              "earned_score": 3
+            },
+            {
+              "earned": true,
+              "missing": "",
+              "evidence": "compares the password with the stored bcrypt hash, and if they match it builds a JWT signed with the server secret that contains the username and an exp claim, then returns it as access_token",
+              "point_id": "1de65069-01d4-4313-b907-b280619dca33",
+              "point_desc": "The server checks the password against the stored hash and returns a signed JWT access token with an expiry time",
+              "point_score": 3,
+              "earned_score": 3
+            },
+            {
+              "earned": true,
+              "missing": "",
+              "evidence": "puts 'Authorization: Bearer <token>' on every call. A dependency like get_current_user decodes the token, checks the signature and the expiry and loads the user; if anything fails it raises a 401.",
+              "point_id": "d4ea7359-235d-42d4-a940-a362692f5961",
+              "point_desc": "Later requests send the token in the Authorization: Bearer header; the server verifies the signature and expiry and gets the current user from it (e.g. in a dependency), rejecting invalid tokens with 401",
+              "point_score": 4,
+              "earned_score": 4
+            }
+          ],
+          "quality_feedback": []
+        },
+        {
+          "question_id": "e0000001-0000-0000-0000-0000000000a7",
+          "question_no": 7,
+          "question_type": "code",
+          "full_score": 12,
+          "score": 7,
+          "final_score": 0,
+          "student_answer": "async def fetch_all(urls, fetch):\n    results = []\n    for url in urls:\n        results.append(await fetch(url))\n    return results",
+          "correct_answer": "import asyncio\n\n\nasync def fetch_all(urls, fetch):\n    return list(await asyncio.gather(*(fetch(url) for url in urls)))",
+          "ai_feedback": "",
+          "teacher_comment": "Adjusted after checking the scoring points.",
+          "needs_review": false,
+          "point_results": [],
+          "quality_feedback": []
+        }
+      ]
+    },
+    "weak_points": [
+      {
+        "tag": "RAG",
+        "suggestion": "Review the benefits of RAG beyond retrieval mechanics, especially grounding answers in retrieved context to reduce hallucination and keep responses current.",
+        "total_count": 1,
+        "wrong_count": 1,
+        "question_nos": [
+          5
+        ]
+      },
+      {
+        "tag": "Python asyncio",
+        "suggestion": "Review concurrent execution with asyncio.gather: how to build the coroutine list from urls, preserve result order, and handle the empty-input case returning [].",
+        "total_count": 2,
+        "wrong_count": 1,
+        "question_nos": [
+          7
+        ]
+      }
+    ],
+    "weak_points_summary": "Weakest area is Python asyncio concurrency (asyncio.gather, ordering, empty input); RAG benefits are only partly solid."
+  },
+  "GET /interview/sessions": {
+    "items": [
+      {
+        "session_id": "9c698027-80ac-4e3c-9170-aaca1a0e7075",
+        "target_position": "Backend Engineer",
+        "overall_score": 81,
+        "status": "finished",
+        "finished_at": "2026-11-11T00:16:44.033483+00:00",
+        "created_at": "2026-11-10T23:51:44.033483+00:00"
+      }
+    ],
+    "total": 1
+  },
+  "GET /interview/sessions/9c698027-80ac-4e3c-9170-aaca1a0e7075/report": {
+    "session_id": "9c698027-80ac-4e3c-9170-aaca1a0e7075",
+    "target_position": "Backend Engineer",
+    "overall_score": 81,
+    "dimensions": [
+      {
+        "score": 78,
+        "comment": "Strong grasp of request lifecycle, transactions, row locking, indexing costs and JWT verification, with only a few internals gaps (Pydantic v2 core, DROP INDEX CONCURRENTLY mechanics). The DROP INDEX CONCURRENTLY answer was factually wrong on the core mechanism, which is the main technical miss.",
+        "dimension": "Technical depth",
+        "highlights": [
+          "Explained SELECT FOR UPDATE blocking and contention trade-offs accurately",
+          "Correctly described B-tree write amplification and pg_stat_user_indexes usage",
+          "Solid JWT verification: RS256 via JWKS, exp/nbf/iss/aud checks, server-side role lookup"
+        ],
+        "weaknesses": [
+          "Misdescribed DROP INDEX CONCURRENTLY as building and swapping a new index state",
+          "Self-identified uncertainty about Pydantic v2's Rust core internals",
+          "No production NoSQL experience to draw on"
+        ]
+      },
+      {
+        "score": 82,
+        "comment": "Clear ownership across the order-tracking API, Celery migration and the open-source rate limiter, with concrete numbers and design reasons. The rate limiter story was especially good: a real race found by a concurrency test and a deliberate fail-closed default.",
+        "dimension": "Project experience",
+        "highlights": [
+          "End-to-end ownership of the rate limiter, including Lua-based atomic Redis backend and tests",
+          "Concrete performance figures (1,200 req/s, p95 85 ms, lookup from tens of ms to ~1 ms)",
+          "Honest about the untuned 50 ms timeout and the slow-Redis edge case"
+        ],
+        "weaknesses": [
+          "Did not mention scale (traffic volume, team size) in the self-introduction until prompted",
+          "Limited depth on the Celery migration — no failure modes or design trade-offs discussed"
+        ]
+      },
+      {
+        "score": 85,
+        "comment": "Answers were well-structured, concise and grounded in concrete examples, with trade-offs stated explicitly. The closing question about on-call and ownership showed good engagement with the role.",
+        "dimension": "Communication",
+        "highlights": [
+          "Consistently framed answers as problem, approach, trade-off",
+          "Used specific numbers and examples rather than generic statements",
+          "Asked a relevant, thoughtful question about team ownership and on-call"
+        ],
+        "weaknesses": [
+          "Occasionally omitted context (scale) unless prompted",
+          "Some answers stopped at the main path without volunteering deeper detail"
+        ]
+      },
+      {
+        "score": 84,
+        "comment": "Handled gaps gracefully — flagged uncertainty about Pydantic v2 internals and the untuned timeout honestly rather than bluffing. Accepted the DROP INDEX CONCURRENTLY correction without derailing and continued strongly.",
+        "dimension": "Handling pressure",
+        "highlights": [
+          "Openly acknowledged knowledge limits instead of guessing",
+          "Recovered quickly after being corrected and stayed engaged",
+          "Admitted the slow-Redis case needs more data rather than inventing an answer"
+        ],
+        "weaknesses": [
+          "The DROP INDEX CONCURRENTLY answer was delivered with confidence despite being wrong",
+          "Could have asked a clarifying question when unsure rather than committing to a mechanism"
+        ]
+      },
+      {
+        "score": 80,
+        "comment": "A well-prepared junior-to-mid candidate with real production experience and a learning-oriented attitude; meets the bar for a junior backend role with a few internals gaps to close. The open-source project and honest self-assessment are strong signals.",
+        "dimension": "Overall impression",
+        "highlights": [
+          "Production experience with measurable impact and clear ownership",
+          "Maintains an open-source library with tests and docs",
+          "Reflective and honest about weaknesses"
+        ],
+        "weaknesses": [
+          "A few PostgreSQL internals are shaky",
+          "No exposure to NoSQL in production"
+        ]
+      }
+    ],
+    "strengths": [
+      "Explains database concurrency and indexing with accurate mechanics and real trade-offs (SELECT FOR UPDATE, write amplification, index usage stats)",
+      "Demonstrates genuine end-to-end ownership on the rate limiter, including finding a race with a concurrency test and choosing a fail-closed default",
+      "Communicates clearly with concrete numbers and is honest about the limits of their knowledge"
+    ],
+    "improvements": [
+      "Study PostgreSQL DDL internals, especially DROP INDEX CONCURRENTLY and CREATE INDEX CONCURRENTLY lock behavior and failure states",
+      "Learn the internals of Pydantic v2's core (validation/serialization pipeline) to back up the practical knowledge",
+      "Practice framing project stories with scale and failure modes up front, including the Celery migration"
+    ],
+    "overall_comment": "This was a strong junior-level interview: the candidate showed solid fundamentals in transactions, locking, indexing and auth, plus real ownership on projects. The main technical correction was the DROP INDEX CONCURRENTLY mechanism, and a few internals (Pydantic v2 core, NoSQL) remain gaps. Overall they meet the bar for a junior backend role with clear, targeted areas to deepen.",
+    "recommended_topics": [
+      "PostgreSQL concurrent DDL: DROP/CREATE INDEX CONCURRENTLY lock levels and INVALID states",
+      "Pydantic v2 internals and validation/serialization pipeline",
+      "NoSQL data modeling and when it beats relational (e.g. event logs, wide-column stores)",
+      "Celery task design: retries, idempotency, failure handling",
+      "Distributed rate limiting under partial failure and latency"
+    ],
+    "next_step_advice": "Read the PostgreSQL docs on concurrent index operations and write a short note comparing DROP INDEX CONCURRENTLY with CREATE INDEX CONCURRENTLY, including lock levels and failure states.",
+    "fallback": false,
+    "stages_reached": [
+      "warmup",
+      "tech_base",
+      "project",
+      "closing",
+      "finished"
+    ]
+  }
+}

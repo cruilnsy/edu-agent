@@ -109,6 +109,7 @@ import ChatBubble from '@/components/chat/ChatBubble.vue'
 import MarkdownRenderer from '@/components/chat/MarkdownRenderer.vue'
 import { useAuthStore } from '@/stores/auth'
 import { API_BASE, errorText } from '@/api/client'
+import { DEMO, DEMO_NOTICE } from '@/demo'
 
 interface Message {
   role: 'user' | 'assistant'
@@ -204,6 +205,7 @@ function handleKeydown(e: KeyboardEvent) {
 async function sendMessage() {
   const text = inputText.value.trim()
   if (!text || isStreaming.value) return
+  if (DEMO) { ElMessage.info(DEMO_NOTICE); return }      // Answers need the backend
 
   if (!currentSessionId.value) newSession()
 
