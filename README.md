@@ -9,6 +9,11 @@ The goal of the project is to show how to build agents that can be measured: eve
 a labeled dataset and target metrics, and one command reruns them all and reports quality,
 latency and cost.
 
+**Live demo: https://edu-agent-chi.vercel.app** (click "Explore the demo", no account needed).
+It is read-only: it shows recorded results for a fictional candidate (a resume review, an
+exam graded by the AI and confirmed by a teacher, and a mock interview report). To run the
+agents yourself, follow the [quick start](#quick-start).
+
 ## What it does
 
 | Agent | What it does | How |
@@ -128,7 +133,8 @@ fictional candidate. The results were recorded once from the real agents
 
 `npm run build:demo` builds the frontend without a backend: the pages show the recorded demo
 results (`frontend/src/demo/fixtures.json`), and anything that would run an agent shows a
-notice instead. No API key or database is involved, so it can be hosted as a static site.
+notice instead. No API key or database is involved, so it can be hosted as a static site;
+the [live demo](https://edu-agent-chi.vercel.app) is this build.
 
 To deploy it, import the repository on [Vercel](https://vercel.com/new) and set the **Root
 Directory** to `frontend`; `frontend/vercel.json` sets the build. After changing the demo
