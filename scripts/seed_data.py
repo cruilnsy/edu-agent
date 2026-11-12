@@ -48,6 +48,8 @@ def load_passwords() -> dict[str, str]:
         value = require_env(env_name)
         if len(value) < MIN_PASSWORD_LENGTH:
             sys.exit(f"{env_name} must be at least {MIN_PASSWORD_LENGTH} characters.")
+        if value.lower().startswith("change-me"):      # An unedited placeholder is a known password
+            sys.exit(f"{env_name} is still a placeholder; choose a real password.")
         passwords[env_name] = value
     return passwords
 

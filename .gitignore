@@ -9,8 +9,10 @@ __pycache__/
 # Local model weights (large, downloaded separately)
 models/
 
-# OS files
+# OS and editor files (editor settings hold local paths)
 .DS_Store
+.vscode/
+.idea/
 
 # Frontend dependencies and build output
 node_modules/

@@ -116,7 +116,7 @@ jobs:
 
       - name: No local paths, LAN addresses or Chinese text in tracked files
         run: |
-          if git grep -nIP '/Users/|/home/[a-z]|192\.168\.\d|[\x{4e00}-\x{9fff}]' -- . ':!.github/workflows/ci.yml'; then
+          if git grep -nIP '/Users/|/home/[a-z]|/opt/(homebrew|miniconda|anaconda)|conda/envs/|[A-Z]:\\Users|192\.168\.\d|[\x{4e00}-\x{9fff}]' -- . ':!.github/workflows/ci.yml'; then
             echo "::error::Remove the lines above: the repository keeps no personal data, and code and comments are in English"
             exit 1
           fi
