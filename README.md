@@ -23,6 +23,26 @@ Stack: FastAPI, LangGraph, PostgreSQL, Milvus, Vue 3 + Element Plus, DeepSeek
 (OpenAI-compatible API), local Hugging Face models for embeddings, reranking and
 classification. Everything runs with Docker Compose.
 
+```mermaid
+flowchart LR
+    browser["Browser<br/>Vue 3 app"] --> nginx["nginx"] --> api["FastAPI"]
+
+    api -->|"unified chat"| router{"Router<br/>rules, then LLM"}
+    router -->|"question"| qa["Q&A agent"]
+    api -->|"exam page: answer sheet"| exam["Exam grading agent"]
+    api -->|"resume page: PDF"| resume["Resume review agent"]
+    api -->|"interview page: chat"| interview["Mock interview agent"]
+    exam -->|"pauses for review"| teacher(["Teacher confirms the marks"])
+
+    qa --> milvus[("Milvus<br/>knowledge base")]
+    qa --> models["Local models<br/>classifier, BGE-M3, reranker"]
+    exam & resume & interview --> pg[("PostgreSQL<br/>results and interview state")]
+    qa & exam & resume & interview --> llm["DeepSeek API"]
+```
+
+The unified chat answers questions itself and replies to exam, resume and interview requests
+with a link to the right page, where the file upload or the interview happens.
+
 ## Results
 
 Latest evaluation runs (DeepSeek `deepseek-v4-flash`, thinking disabled). Datasets are small
